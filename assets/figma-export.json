@@ -1,0 +1,267 @@
+{
+  "styles": {
+    "colors": [
+      {
+        "name": "bege",
+        "token": "bege",
+        "type": "solid"
+      },
+      {
+        "name": "rosa",
+        "token": "rosa",
+        "type": "solid"
+      },
+      {
+        "name": "laranja",
+        "token": "laranja",
+        "type": "solid"
+      },
+      {
+        "name": "roxo claro",
+        "token": "roxo-claro",
+        "type": "solid"
+      },
+      {
+        "name": "roxo escuro",
+        "token": "roxo-escuro",
+        "type": "solid"
+      },
+      {
+        "name": "marrom",
+        "token": "marrom",
+        "type": "solid"
+      },
+      {
+        "name": "verde claro",
+        "token": "verde-claro",
+        "type": "solid"
+      },
+      {
+        "name": "verde escuro",
+        "token": "verde-escuro",
+        "type": "solid"
+      },
+      {
+        "name": "laranja",
+        "token": "laranja",
+        "type": "solid"
+      },
+      {
+        "name": "cinza",
+        "token": "cinza",
+        "type": "solid"
+      },
+      {
+        "name": "branco",
+        "token": "branco",
+        "type": "solid"
+      },
+      {
+        "name": "bege-light",
+        "token": "bege-light",
+        "type": "solid"
+      },
+      {
+        "name": "bege-hero",
+        "token": "bege-hero",
+        "type": "solid"
+      }
+    ],
+    "textStyles": [
+      {
+        "name": "text-rodape",
+        "token": "text-rodape",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "400",
+        "fontSize": "16px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "invest-text",
+        "token": "invest-text",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "400",
+        "fontSize": "20px",
+        "lineHeight": "22px",
+        "letterSpacing": "0%",
+        "textDecoration": "strikethrough"
+      },
+      {
+        "name": "bold-itensEbook",
+        "token": "bold-itensebook",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "700",
+        "fontSize": "18px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "rodape-buttons",
+        "token": "rodape-buttons",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "400",
+        "fontSize": "16px",
+        "lineHeight": "22px",
+        "letterSpacing": "0%",
+        "textDecoration": "underline"
+      },
+      {
+        "name": "rodape-tituloss",
+        "token": "rodape-tituloss",
+        "type": "text",
+        "fontFamily": "Berliana Lovely",
+        "fontWeight": "400",
+        "fontSize": "24px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "text-descricao",
+        "token": "text-descricao",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "400",
+        "fontSize": "20px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "titulos",
+        "token": "titulos",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "700",
+        "fontSize": "48px",
+        "lineHeight": "48px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "sessions-titulos",
+        "token": "sessions-titulos",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "700",
+        "fontSize": "32px",
+        "lineHeight": "48px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "isa pupo-rodape",
+        "token": "isa-pupo-rodape",
+        "type": "text",
+        "fontFamily": "Berliana Lovely",
+        "fontWeight": "400",
+        "fontSize": "32px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "preco-investimento",
+        "token": "preco-investimento",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "700",
+        "fontSize": "64px",
+        "lineHeight": "22px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "investimento-titulo",
+        "token": "investimento-titulo",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "700",
+        "fontSize": "32px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "date",
+        "token": "date",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "400",
+        "fontSize": "14px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "card-title",
+        "token": "card-title",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "700",
+        "fontSize": "24px",
+        "lineHeight": "24px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "card-title-atendimentos",
+        "token": "card-title-atendimentos",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "700",
+        "fontSize": "24px",
+        "lineHeight": "48px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "title-atendimentos",
+        "token": "title-atendimentos",
+        "type": "text",
+        "fontFamily": "Berliana Lovely",
+        "fontWeight": "400",
+        "fontSize": "40px",
+        "lineHeight": "48px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "title-hero",
+        "token": "title-hero",
+        "type": "text",
+        "fontFamily": "Berliana Lovely",
+        "fontWeight": "400",
+        "fontSize": "64px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "mini-title-eboo",
+        "token": "mini-title-eboo",
+        "type": "text",
+        "fontFamily": "Amaranth",
+        "fontWeight": "700",
+        "fontSize": "20px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "title-blogpage",
+        "token": "title-blogpage",
+        "type": "text",
+        "fontFamily": "Berliana Lovely",
+        "fontWeight": "400",
+        "fontSize": "36px",
+        "lineHeight": "40px",
+        "letterSpacing": "0%"
+      },
+      {
+        "name": "autor-blog",
+        "token": "autor-blog",
+        "type": "text",
+        "fontFamily": "Berliana Lovely",
+        "fontWeight": "400",
+        "fontSize": "20px",
+        "lineHeight": "40px",
+        "letterSpacing": "0%"
+      }
+    ],
+    "effectStyles": [],
+    "gridStyles": []
+  },
+  "collections": {},
+  "metadata": {
+    "exportDate": "2026-04-24T19:35:44.429Z",
+    "figmaFileKey": "unknown",
+    "fileName": "Site Isa Pupo",
+    "pluginVersion": "1.0.0",
+    "collectionsFound": 0,
+    "collectionsExported": 0
+  }
+}
