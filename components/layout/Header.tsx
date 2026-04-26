@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 
@@ -17,12 +16,11 @@ export default function Header() {
       <div className="max-w-site mx-auto h-full px-[200px] flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="shrink-0">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo/logo-herizontal-terapeuta.svg"
             alt="Isa Pupo Terapeuta"
-            width={130}
-            height={30}
-            priority
+            style={{ height: "35px", width: "auto" }}
           />
         </Link>
 
