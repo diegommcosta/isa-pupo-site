@@ -34,16 +34,16 @@ export default function SobreMim({ bio, photo }: Props) {
           <Image
             src="/imgs/sobre-mim/star 1.png"
             alt=""
-            width={40}
-            height={40}
-            className="absolute -top-4 -right-4 pointer-events-none"
+            width={55}
+            height={55}
+            className="absolute -bottom-6 -left-6 pointer-events-none"
           />
           <Image
             src="/imgs/sobre-mim/paper 1.png"
             alt=""
-            width={60}
-            height={60}
-            className="absolute -bottom-4 -left-4 pointer-events-none"
+            width={80}
+            height={65}
+            className="absolute -top-4 -right-6 pointer-events-none"
           />
         </div>
 
