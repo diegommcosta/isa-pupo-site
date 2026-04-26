@@ -9,7 +9,7 @@ export default function EbookTeaser({
   teaser = "Um guia completo para sua jornada de autoconhecimento",
 }: Props) {
   return (
-    <section className="w-full bg-roxo-escuro py-20">
+    <section id="ebook" className="w-full bg-roxo-escuro py-20">
       <div className="max-w-site mx-auto px-[200px] flex items-center gap-16">
         {/* Book cover */}
         <div className="relative shrink-0 w-[240px] h-[320px]">

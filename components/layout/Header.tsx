@@ -5,8 +5,8 @@ import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 const navLinks = [
   { label: "Sobre", href: "/#sobre" },
   { label: "Atendimentos", href: "/#atendimentos" },
-  { label: "Ebook", href: "/ebook" },
-  { label: "Blog", href: "/blog" },
+  { label: "Ebook", href: "/#ebook" },
+  { label: "Blog", href: "/#blog" },
 ];
 
 export default function Header() {
@@ -20,8 +20,8 @@ export default function Header() {
           <Image
             src="/logo/logo-herizontal-terapeuta.svg"
             alt="Isa Pupo Terapeuta"
-            width={170}
-            height={40}
+            width={130}
+            height={30}
             priority
           />
         </Link>
@@ -48,7 +48,7 @@ export default function Header() {
           </a>
 
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/isapupopsicoterapia/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"

@@ -8,7 +8,7 @@ interface Props {
 
 export default function BlogTeaser({ posts }: Props) {
   return (
-    <section className="w-full bg-bege-light py-20">
+    <section id="blog" className="w-full bg-bege-light py-20">
       <div className="max-w-site mx-auto px-[200px]">
         <div className="flex items-end justify-between mb-12">
           <h2 className="font-display text-title-atendimentos text-verde-escuro">
