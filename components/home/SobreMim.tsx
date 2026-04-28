@@ -22,44 +22,21 @@ export default function SobreMim({ bio, photo }: Props) {
             Sobre mim
           </h2>
 
-          {/* 2. Photo with decoratives */}
-          <div className="relative w-full max-w-[360px] mx-auto lg:max-w-none lg:mx-0 lg:col-start-1 lg:row-start-1 lg:row-span-2">
-            <div className="relative h-[380px] sm:h-[440px] overflow-hidden">
-              <Image
-                src="/imgs/sobre-mim/moldura 1.png"
-                alt=""
-                fill
-                className="object-contain pointer-events-none"
-              />
-              <div className="absolute inset-6 overflow-hidden rounded-lg">
-                {photo?.url ? (
-                  <Image src={photo.url} alt="Isabella Pupo" fill className="object-cover" />
-                ) : (
-                  <Image
-                    src="/imgs/sobre-mim/sobre mim.png"
-                    alt="Isabella Pupo"
-                    fill
-                    className="object-cover"
-                  />
-                )}
+          {/* 2. sobre mim.png — já inclui moldura dourada, foto e decorativos */}
+          <div className="w-full max-w-[360px] mx-auto lg:max-w-none lg:mx-0 lg:col-start-1 lg:row-start-1 lg:row-span-2">
+            {photo?.url ? (
+              <div className="relative h-[380px] sm:h-[440px] rounded-lg overflow-hidden">
+                <Image src={photo.url} alt="Isabella Pupo" fill className="object-cover" />
               </div>
-            </div>
-
-            {/* Decorativos */}
-            <Image
-              src="/imgs/sobre-mim/star 1.png"
-              alt=""
-              width={55}
-              height={55}
-              className="absolute -bottom-6 -left-6 pointer-events-none select-none hidden sm:block"
-            />
-            <Image
-              src="/imgs/sobre-mim/paper 1.png"
-              alt=""
-              width={80}
-              height={65}
-              className="absolute -top-4 -right-6 pointer-events-none select-none hidden sm:block"
-            />
+            ) : (
+              <Image
+                src="/imgs/sobre-mim/sobre mim.png"
+                alt="Isabella Pupo"
+                width={360}
+                height={440}
+                className="w-full h-auto object-contain"
+              />
+            )}
           </div>
 
           {/* 3. Text block */}

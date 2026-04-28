@@ -58,85 +58,15 @@ export default function Hero({
             </div>
           </div>
 
-          {/* Photo composition */}
-          <div className="relative w-full h-[300px] sm:h-[420px] lg:w-[480px] lg:h-[580px] shrink-0 order-2">
-
-            {/* Céu (fundo) */}
+          {/* hero.png — composição completa já com todos os elementos visuais */}
+          <div className="relative w-full max-w-[480px] mx-auto lg:mx-0 lg:w-[480px] lg:h-[520px] shrink-0 order-2">
             <Image
-              src="/imgs/hero/ceu_hero 1.png"
-              alt=""
+              src="/imgs/hero/hero.png"
+              alt="Isabella Pupo"
               width={480}
-              height={280}
-              className="absolute top-0 left-0 w-full pointer-events-none select-none"
-            />
-
-            {/* Foto da Isa */}
-            <div className="absolute inset-0 z-10">
-              <Image
-                src="/imgs/hero/isa_hero 1.png"
-                alt="Isabella Pupo"
-                fill
-                className="object-contain object-bottom"
-                priority
-              />
-            </div>
-
-            {/* Decorativos — visíveis apenas em telas maiores */}
-            <Image
-              src="/imgs/hero/cristal_rosa_hero 1.png"
-              alt=""
-              width={85}
-              height={130}
-              className="absolute top-14 left-4 z-20 pointer-events-none select-none hidden sm:block"
-            />
-            <Image
-              src="/imgs/hero/cristal_roxo_hero 1.png"
-              alt=""
-              width={100}
-              height={82}
-              className="absolute top-8 right-6 z-20 pointer-events-none select-none hidden sm:block"
-            />
-            <Image
-              src="/imgs/hero/vinho_hero 1.png"
-              alt=""
-              width={72}
-              height={108}
-              className="absolute top-[200px] -right-2 z-20 pointer-events-none select-none hidden sm:block"
-            />
-            <Image
-              src="/imgs/hero/arruda 2.png"
-              alt=""
-              width={80}
-              height={140}
-              className="absolute bottom-[150px] left-2 z-20 pointer-events-none select-none hidden sm:block"
-            />
-            <Image
-              src="/imgs/hero/borboleta_hero 1.png"
-              alt=""
-              width={48}
-              height={48}
-              className="absolute top-[95px] right-[110px] z-20 pointer-events-none select-none hidden sm:block"
-            />
-            <Image
-              src="/imgs/hero/star_hero 1.png"
-              alt=""
-              width={28}
-              height={28}
-              className="absolute top-[185px] left-[105px] z-20 pointer-events-none select-none hidden sm:block"
-            />
-            <Image
-              src="/imgs/hero/paper_hero 1.png"
-              alt=""
-              width={200}
-              height={55}
-              className="absolute bottom-[85px] left-2 z-20 pointer-events-none select-none hidden sm:block"
-            />
-            <Image
-              src="/imgs/hero/manjericao 1.png"
-              alt=""
-              width={165}
-              height={185}
-              className="absolute -bottom-4 left-[38%] -translate-x-1/2 z-30 pointer-events-none select-none hidden sm:block"
+              height={520}
+              className="w-full h-auto object-contain"
+              priority
             />
           </div>
 

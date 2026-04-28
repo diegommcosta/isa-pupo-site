@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MoonStar, Stars } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { buildWhatsappLink } from "@/lib/whatsapp";
@@ -53,7 +54,15 @@ export default function Atendimentos({ cards = defaultCards }: Props) {
 
         <div data-animate-stagger className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {cards.map((card) => (
-            <div key={card.title} className="card-40 flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-300">
+            <div key={card.title} className="card-40 flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+              {/* cerebro_coracao 1.png como fundo decorativo do card */}
+              <Image
+                src="/imgs/cerebro_coracao 1.png"
+                alt=""
+                width={180}
+                height={180}
+                className="absolute bottom-0 right-0 opacity-10 pointer-events-none select-none"
+              />
               <CardIcon type={card.icon} />
 
               <h3 className="font-sans font-bold text-[2rem] text-marrom leading-tight">
