@@ -13,3 +13,26 @@
     color: #2D1605;
   }
 }
+
+@layer components {
+  .btn-filled {
+    @apply inline-flex items-center gap-2 bg-laranja text-bege font-sans text-base font-normal px-6 py-3 rounded-[5px] hover:bg-laranja/90 transition-colors whitespace-nowrap;
+  }
+
+  .btn-outlined {
+    @apply inline-flex items-center gap-2 border border-laranja text-laranja bg-transparent font-sans text-base font-normal px-6 py-3 rounded-[5px] hover:bg-laranja hover:text-bege transition-colors whitespace-nowrap;
+  }
+
+  .tag {
+    @apply inline-block text-marrom text-sm font-sans px-[6px] py-[8px] rounded-[3px];
+    background-color: rgba(207, 106, 97, 0.15);
+  }
+
+  .card-30 {
+    @apply bg-bege-light rounded-[30px] p-[30px];
+  }
+
+  .card-40 {
+    @apply bg-bege-light rounded-[30px] p-[40px];
+  }
+}

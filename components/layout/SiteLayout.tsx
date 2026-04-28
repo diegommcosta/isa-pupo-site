@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
+import AnimationsProvider from "@/components/ui/AnimationsProvider";
 
 export default function SiteLayout({
   children,
@@ -8,6 +9,7 @@ export default function SiteLayout({
 }) {
   return (
     <>
+      <AnimationsProvider />
       <Header />
       <main className="min-h-screen">{children}</main>
       <Footer />

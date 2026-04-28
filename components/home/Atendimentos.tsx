@@ -1,11 +1,13 @@
-import Link from "next/link";
-import Image from "next/image";
+import { MoonStar, Stars } from "lucide-react";
+import Button from "@/components/ui/Button";
+import { buildWhatsappLink } from "@/lib/whatsapp";
 
 interface ServiceCard {
-  icon?: string;
   title: string;
   description: string;
   href?: string;
+  whatsappMessage?: string;
+  icon: "jungiana" | "integrativa";
 }
 
 interface Props {
@@ -18,58 +20,68 @@ const defaultCards: ServiceCard[] = [
     description:
       "Abordagem profunda baseada na Psicologia Analítica de Carl Gustav Jung, explorando o inconsciente, sonhos e a jornada de individuação.",
     href: "/terapia/jungiana",
+    whatsappMessage: "Olá Isa! Gostaria de agendar uma consulta de Terapia Jungiana.",
+    icon: "jungiana",
   },
   {
     title: "Terapia Integrativa",
     description:
       "Integração de diferentes abordagens psicoterapêuticas para um cuidado personalizado e holístico, respeitando a singularidade de cada pessoa.",
     href: "/terapia/integrativa",
-  },
-  {
-    title: "Psicoterapia Online",
-    description:
-      "Atendimento remoto com a mesma qualidade e presença do presencial, para que você possa cuidar de sua saúde mental de onde estiver.",
-    href: "/#atendimentos",
+    whatsappMessage: "Olá Isa! Gostaria de agendar uma consulta de Terapia Integrativa.",
+    icon: "integrativa",
   },
 ];
 
+function CardIcon({ type }: { type: ServiceCard["icon"] }) {
+  const Icon = type === "jungiana" ? MoonStar : Stars;
+  return (
+    <div className="w-11 h-11 bg-bege rounded-full flex items-center justify-center shrink-0">
+      <Icon size={24} className="text-marrom" />
+    </div>
+  );
+}
+
 export default function Atendimentos({ cards = defaultCards }: Props) {
   return (
-    <section id="atendimentos" className="w-full bg-bege py-20">
-      <div className="max-w-site mx-auto px-[200px]">
-        <h2 className="font-display text-title-atendimentos text-verde-escuro text-center mb-12">
+    <section id="atendimentos" data-animate className="w-full bg-verde-escuro py-20">
+      <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <h2 className="font-sans font-bold text-sessions text-bege text-center mb-2">
           Atendimentos
         </h2>
+        <div className="w-16 h-1 bg-laranja mx-auto mb-12 rounded-full" />
 
-        <div className="grid grid-cols-3 gap-8">
+        <div data-animate-stagger className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {cards.map((card) => (
-            <div
-              key={card.title}
-              className="bg-bege-light rounded-lg p-8 flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="w-12 h-12 bg-verde-escuro rounded-full flex items-center justify-center shrink-0">
-                <Image
-                  src="/imgs/cerebro_coracao 1.png"
-                  alt=""
-                  width={28}
-                  height={28}
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="font-sans font-bold text-card-title text-verde-escuro">
+            <div key={card.title} className="card-40 flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-300">
+              <CardIcon type={card.icon} />
+
+              <h3 className="font-sans font-bold text-[2rem] text-marrom leading-tight">
                 {card.title}
               </h3>
-              <p className="font-sans text-base text-marrom leading-relaxed flex-1">
+
+              <p className="font-sans text-descricao text-marrom leading-relaxed flex-1">
                 {card.description}
               </p>
-              {card.href && (
-                <Link
-                  href={card.href}
-                  className="font-sans text-base text-laranja underline hover:text-laranja/80 transition-colors self-start"
-                >
-                  Saiba mais →
-                </Link>
-              )}
+
+              <div className="flex flex-wrap gap-3 mt-auto">
+                {card.whatsappMessage && (
+                  <Button
+                    variant="filled"
+                    size="sm"
+                    href={buildWhatsappLink(card.whatsappMessage)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Agendar
+                  </Button>
+                )}
+                {card.href && (
+                  <Button variant="outlined" size="sm" href={card.href}>
+                    Saiba mais
+                  </Button>
+                )}
+              </div>
             </div>
           ))}
         </div>
