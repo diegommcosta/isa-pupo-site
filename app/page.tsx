@@ -1,5 +1,5 @@
 import { client } from "@/lib/sanity/client";
-import { homePageQuery } from "@/lib/sanity/queries";
+import { groq } from "next-sanity";
 import SiteLayout from "@/components/layout/SiteLayout";
 import Hero from "@/components/home/Hero";
 import CarlJungQuote from "@/components/home/CarlJungQuote";
@@ -11,20 +11,22 @@ import CtaBand from "@/components/layout/CtaBand";
 
 export const revalidate = 3600;
 
-export default async function HomePage() {
-  const data = await client.fetch(homePageQuery).catch(() => null);
+const latestPostsQuery = groq`*[_type == "post"] | order(publishedAt desc)[0..2] {
+  _id, title, slug, excerpt, cover, publishedAt,
+  "category": category->{ title, slug }
+}`;
 
-  const page = data?.page ?? {};
-  const posts = data?.latestPosts ?? [];
+export default async function HomePage() {
+  const posts = await client.fetch(latestPostsQuery).catch(() => []);
 
   return (
     <SiteLayout>
-      <Hero title={page.heroTitle} subtitle={page.heroSubtitle} />
-      <CarlJungQuote quote={page.carlJungQuote} />
-      <SobreMim bio={page.sobreMimBio} photo={page.sobreMimPhoto} />
-      <Atendimentos cards={page.atendimentos} />
-      <EbookTeaser teaser={page.ebookTeaser} />
-      <BlogTeaser posts={posts} />
+      <Hero />
+      <CarlJungQuote />
+      <SobreMim />
+      <Atendimentos />
+      <EbookTeaser />
+      <BlogTeaser posts={posts ?? []} />
       <CtaBand />
     </SiteLayout>
   );

@@ -1,95 +1,111 @@
-import Image from "next/image";
-import { MoonStar, Stars } from "lucide-react";
+import { SectionTitle } from "@/components/ui/SectionTitle";
+import { IconDisc } from "@/components/ui/IconDisc";
+import { BulletRow } from "@/components/ui/BulletRow";
 import Button from "@/components/ui/Button";
 import { buildWhatsappLink } from "@/lib/whatsapp";
+import type { IconName } from "@/components/ui/Icon";
 
-interface ServiceCard {
+interface CardData {
+  icon: IconName;
   title: string;
-  description: string;
-  href?: string;
-  whatsappMessage?: string;
-  icon: "jungiana" | "integrativa";
+  body: string;
+  bullets: string[];
+  whatsappMsg: string;
+  href: string;
 }
 
-interface Props {
-  cards?: ServiceCard[];
-}
-
-const defaultCards: ServiceCard[] = [
+const cards: CardData[] = [
   {
-    title: "Terapia Jungiana",
-    description:
-      "Abordagem profunda baseada na Psicologia Analítica de Carl Gustav Jung, explorando o inconsciente, sonhos e a jornada de individuação.",
+    icon: "moon-stars-fill",
+    title: "Terapia Junguiana",
+    body: "Um mergulho profundo no autoconhecimento para integrar o que foi vivido e sustentar uma relação mais consciente com a vida.",
+    bullets: [
+      "Análise de sonhos e símbolos",
+      "Integração de corpo, mente e alma",
+      "Processo de individuação",
+    ],
+    whatsappMsg: "Olá Isa! Gostaria de saber mais sobre Terapia Junguiana.",
     href: "/terapia/jungiana",
-    whatsappMessage: "Olá Isa! Gostaria de agendar uma consulta de Terapia Jungiana.",
-    icon: "jungiana",
   },
   {
+    icon: "stars",
     title: "Terapia Integrativa",
-    description:
-      "Integração de diferentes abordagens psicoterapêuticas para um cuidado personalizado e holístico, respeitando a singularidade de cada pessoa.",
+    body: "Uma abordagem que unifica corpo, mente e espiritualidade, trazendo presença e sensibilidade para auxiliar no seu processo de cura.",
+    bullets: [
+      "Foco no equilíbrio energético",
+      "Harmonização corpo e mente",
+      "Atendimento personalizado",
+    ],
+    whatsappMsg: "Olá Isa! Gostaria de saber mais sobre Terapia Integrativa.",
     href: "/terapia/integrativa",
-    whatsappMessage: "Olá Isa! Gostaria de agendar uma consulta de Terapia Integrativa.",
-    icon: "integrativa",
   },
 ];
 
-function CardIcon({ type }: { type: ServiceCard["icon"] }) {
-  const Icon = type === "jungiana" ? MoonStar : Stars;
+export default function Atendimentos() {
   return (
-    <div className="w-11 h-11 bg-bege rounded-full flex items-center justify-center shrink-0">
-      <Icon size={24} className="text-marrom" />
-    </div>
-  );
-}
-
-export default function Atendimentos({ cards = defaultCards }: Props) {
-  return (
-    <section id="atendimentos" data-animate className="w-full bg-verde-escuro py-20">
+    <section id="atendimentos" data-animate className="bg-verde-escuro py-16 md:py-20">
       <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
-        <h2 className="font-sans font-bold text-sessions text-bege text-center mb-2">
-          Atendimentos
-        </h2>
-        <div className="w-16 h-1 bg-laranja mx-auto mb-12 rounded-full" />
+        <SectionTitle eyebrow="Atendimentos" color="var(--bege)" />
 
-        <div data-animate-stagger className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          data-animate-stagger
+          className="max-w-content mx-auto mt-[50px] flex justify-center gap-8 flex-wrap"
+        >
           {cards.map((card) => (
-            <div key={card.title} className="card-40 flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
-              {/* cerebro_coracao 1.png como fundo decorativo do card */}
-              <Image
-                src="/imgs/cerebro_coracao 1.png"
-                alt=""
-                width={180}
-                height={180}
-                className="absolute bottom-0 right-0 opacity-10 pointer-events-none select-none"
+            <div
+              key={card.title}
+              className="relative w-full max-w-[412px] bg-bege-light rounded-[30px] overflow-hidden flex flex-col"
+              style={{ minHeight: 480, padding: 45 }}
+            >
+              {/* Watermark decorativa cerebro-coracao */}
+              <div
+                aria-hidden
+                className="absolute pointer-events-none opacity-55"
+                style={{
+                  left: 63,
+                  top: 15,
+                  width: 286,
+                  height: 450,
+                  background: "url(/imgs/cerebro-coracao.png) center/contain no-repeat",
+                }}
               />
-              <CardIcon type={card.icon} />
 
-              <h3 className="font-sans font-bold text-[2rem] text-marrom leading-tight">
-                {card.title}
-              </h3>
+              <div className="relative flex-1">
+                <IconDisc icon={card.icon} />
+                <h3 className="mt-4 mb-[10px] font-sans font-bold text-[32px] leading-snug text-marrom">
+                  {card.title}
+                </h3>
+                <p className="text-[17px] leading-[1.45] text-marrom max-w-[320px]">
+                  {card.body}
+                </p>
+                <div className="mt-[18px] flex flex-col gap-2">
+                  {card.bullets.map((b) => (
+                    <BulletRow key={b} icon="logo-bullet" iconColor="var(--laranja)" textColor="var(--marrom)">
+                      {b}
+                    </BulletRow>
+                  ))}
+                </div>
+              </div>
 
-              <p className="font-sans text-descricao text-marrom leading-relaxed flex-1">
-                {card.description}
-              </p>
-
-              <div className="flex flex-wrap gap-3 mt-auto">
-                {card.whatsappMessage && (
-                  <Button
-                    variant="filled"
-                    size="sm"
-                    href={buildWhatsappLink(card.whatsappMessage)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Agendar
-                  </Button>
-                )}
-                {card.href && (
-                  <Button variant="outlined" size="sm" href={card.href}>
-                    Saiba mais
-                  </Button>
-                )}
+              <div className="relative mt-5 flex gap-2.5 flex-wrap">
+                <Button
+                  variant="primary"
+                  size="sm"
+                  href={buildWhatsappLink(card.whatsappMsg)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  leftIcon="chat"
+                >
+                  Agendar Consulta
+                </Button>
+                <Button
+                  variant="outline-orange"
+                  size="sm"
+                  href={card.href}
+                  rightIcon="arrow-right"
+                >
+                  Saiba mais
+                </Button>
               </div>
             </div>
           ))}

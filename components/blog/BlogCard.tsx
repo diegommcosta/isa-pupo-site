@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Calendar, ArrowRight } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import Button from "@/components/ui/Button";
 import type { Post } from "@/lib/sanity/types";
 import { urlFor } from "@/lib/sanity/client";
@@ -7,6 +7,7 @@ import { urlFor } from "@/lib/sanity/client";
 interface Props {
   post: Post;
   variant?: "home" | "index";
+  imageHeight?: number;
 }
 
 function formatDate(dateStr?: string) {
@@ -18,18 +19,21 @@ function formatDate(dateStr?: string) {
   });
 }
 
-export default function BlogCard({ post, variant = "home" }: Props) {
+export default function BlogCard({ post, variant = "home", imageHeight }: Props) {
   const coverUrl = post.cover
     ? urlFor(post.cover).width(600).height(400).url()
     : null;
 
-  const imageHeight = variant === "index" ? "h-[220px]" : "h-[190px]";
+  const imgH = imageHeight ?? (variant === "index" ? 220 : 190);
   const postHref = post.slug?.current ? `/blog/${post.slug.current}` : "#";
 
   return (
-    <article className="bg-bege-light rounded-[30px] overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-      {/* Cover image */}
-      <div className={`relative ${imageHeight} w-full overflow-hidden bg-verde-claro/20 rounded-t-[30px]`}>
+    <article
+      className="blog-card bg-bege-light rounded-[30px] overflow-hidden flex flex-col w-full"
+      style={{ transition: "transform .25s ease, box-shadow .25s ease" }}
+    >
+      {/* Imagem de capa */}
+      <div className={`relative overflow-hidden`} style={{ height: imgH, flexShrink: 0 }}>
         {coverUrl ? (
           <Image
             src={coverUrl}
@@ -38,8 +42,8 @@ export default function BlogCard({ post, variant = "home" }: Props) {
             className="object-cover"
           />
         ) : (
-          <div className="w-full h-full bg-verde-escuro/10 flex items-center justify-center">
-            <span className="font-display text-verde-escuro/30 text-xl">Isa Pupo</span>
+          <div className="w-full h-full bg-bege flex items-center justify-center">
+            <span className="font-display text-marrom/30 text-xl">Isa Pupo</span>
           </div>
         )}
         {post.category && (
@@ -47,36 +51,65 @@ export default function BlogCard({ post, variant = "home" }: Props) {
         )}
       </div>
 
-      {/* Content */}
-      <div className="flex flex-col gap-3 p-[30px] flex-1">
-        {post.publishedAt && (
-          <div className="flex items-center gap-1.5 text-verde-claro font-sans text-date">
-            <Calendar size={16} />
-            <span>{formatDate(post.publishedAt)}</span>
+      {/* Conteúdo */}
+      <div className="p-[22px] flex flex-col flex-1 relative overflow-hidden">
+        {/* Watermark cerebro-coracao */}
+        <div
+          aria-hidden
+          className="absolute pointer-events-none"
+          style={{
+            right: -30,
+            bottom: -20,
+            width: 220,
+            height: 220,
+            background: "url(/imgs/cerebro-coracao.png) center/contain no-repeat",
+            opacity: 0.14,
+          }}
+        />
+
+        <div className="relative flex flex-col flex-1">
+          {/* Data */}
+          {post.publishedAt && (
+            <div className="flex items-center gap-1.5 text-[14px] text-verde-claro mb-[10px]">
+              <Icon name="calendar" size={14} color="var(--verde-claro)" />
+              <time>{formatDate(post.publishedAt)}</time>
+            </div>
+          )}
+
+          {/* Título */}
+          <h3 className="font-sans font-bold text-[22px] leading-[1.2] text-verde-escuro">
+            <a href={postHref} className="hover:text-laranja transition-colors">
+              {post.title}
+            </a>
+          </h3>
+
+          {/* Resumo */}
+          {post.excerpt && (
+            <p
+              className="mt-[10px] text-[15px] leading-[1.45] text-marrom flex-1"
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: 4,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }}
+            >
+              {post.excerpt}
+            </p>
+          )}
+
+          {/* Botão */}
+          <div className="mt-4">
+            <Button
+              variant="outline-orange"
+              size="sm"
+              href={postHref}
+              rightIcon="arrow-right"
+            >
+              Ler mais
+            </Button>
           </div>
-        )}
-
-        <h3 className="font-sans font-bold text-card-title text-verde-escuro leading-snug">
-          <a href={postHref} className="hover:text-laranja transition-colors">
-            {post.title}
-          </a>
-        </h3>
-
-        {post.excerpt && (
-          <p className="font-sans text-base text-marrom leading-relaxed line-clamp-3 flex-1">
-            {post.excerpt}
-          </p>
-        )}
-
-        <Button
-          variant="outlined"
-          size="sm"
-          href={postHref}
-          rightIcon={<ArrowRight size={16} />}
-          className="self-start mt-auto"
-        >
-          Ler mais
-        </Button>
+        </div>
       </div>
     </article>
   );

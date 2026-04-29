@@ -1,61 +1,57 @@
 import Image from "next/image";
-import type { PortableTextBlock } from "@portabletext/types";
-import { PortableText } from "@portabletext/react";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 
-interface Props {
-  bio?: PortableTextBlock[] | null;
-  photo?: { url?: string } | null;
-}
-
-export default function SobreMim({ bio, photo }: Props) {
+export default function SobreMim() {
   return (
-    <section id="sobre" data-animate className="w-full bg-white py-16 lg:py-20">
+    <section id="sobre" data-animate className="bg-white py-16 md:py-20">
       <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
-        {/*
-          Grid mobile (1 col):  h2 → photo → text-block
-          Grid desktop (2 col): photo (col1, rows 1-2) | h2 (col2, row1) + text-block (col2, row2)
-        */}
-        <div className="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-6 lg:gap-x-16 lg:gap-y-6 lg:items-start">
+        <SectionTitle eyebrow="Sobre Mim" />
 
-          {/* 1. Section title */}
-          <h2 className="font-sans text-sessions font-bold text-verde-escuro lg:col-start-2 lg:row-start-1">
-            Sobre mim
-          </h2>
-
-          {/* 2. sobre mim.png — já inclui moldura dourada, foto e decorativos */}
-          <div className="w-full max-w-[360px] mx-auto lg:max-w-none lg:mx-0 lg:col-start-1 lg:row-start-1 lg:row-span-2">
-            {photo?.url ? (
-              <div className="relative h-[380px] sm:h-[440px] rounded-lg overflow-hidden">
-                <Image src={photo.url} alt="Isabella Pupo" fill className="object-cover" />
-              </div>
-            ) : (
-              <Image
-                src="/imgs/sobre-mim/sobre mim.png"
-                alt="Isabella Pupo"
-                width={360}
-                height={440}
-                className="w-full h-auto object-contain"
-              />
-            )}
+        <div className="max-w-content mx-auto mt-[50px] grid grid-cols-1 md:grid-cols-[422px_1fr] gap-14 items-start">
+          {/* Foto */}
+          <div
+            className="rounded-xl overflow-hidden mx-auto md:mx-0 w-full max-w-[422px]"
+            style={{ aspectRatio: "422/561" }}
+          >
+            <Image
+              src="/imgs/sobre-mim.png"
+              alt="Isa Pupo"
+              width={422}
+              height={561}
+              className="w-full h-full object-cover"
+            />
           </div>
 
-          {/* 3. Text block */}
-          <div className="lg:col-start-2 lg:row-start-2">
-            <h3 className="font-sans text-titulos font-bold text-verde-escuro mb-4">
+          {/* Texto */}
+          <div>
+            <h2 className="font-sans font-bold text-[48px] leading-none text-verde-escuro">
               Isa Pupo
-            </h3>
-            {bio ? (
-              <div className="font-sans text-descricao text-marrom space-y-4 leading-relaxed">
-                <PortableText value={bio} />
-              </div>
-            ) : (
-              <p className="font-sans text-descricao text-marrom leading-relaxed">
-                Psicóloga com formação em Psicologia Analítica Jungiana e Terapia
-                Integrativa. Acredito que cada pessoa carrega dentro de si os
-                recursos necessários para sua transformação. Meu papel é acompanhar
-                esse processo com escuta atenta, presença e cuidado.
+            </h2>
+            <div className="mt-6 text-[18px] leading-[1.55] text-marrom space-y-[14px]">
+              <p>
+                Uma mulher de alma curiosa, passos corajosos e em constante
+                movimento. Minha trajetória é feita de escolhas e reencontros.
               </p>
-            )}
+              <p>
+                Sou graduada em Ciências Contábeis e, entre razonetes e planilhas
+                nos dez anos que passei no mundo corporativo, percebi que aquele
+                espaço não me pertencia mais. Recalculei minhas rotas e,
+                atualmente, mergulho na clínica através da minha especialização em{" "}
+                <strong>Psicologia Analítica (Jung)</strong> e sigo no processo de
+                graduação em Psicologia (2026).
+              </p>
+              <p>
+                Minha prática une o comprometimento do estudo acadêmico à sabedoria
+                que vem da terra. Amo a natureza, sou apaixonada por ervas, cristais
+                e pelo cheiro de incensos. Divido a vida com o <em>Mike</em>, meu
+                companheiro de quatro patas — meu mestre mais lindo em afeto.
+              </p>
+              <p>
+                Acredito que o autoconhecimento só ganha vida quando paramos de
+                fugir de quem somos. Meu trabalho é caminhar ao seu lado,
+                respeitando o seu tempo e ajudando você a ouvir a si mesmo.
+              </p>
+            </div>
           </div>
         </div>
       </div>

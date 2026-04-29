@@ -1,30 +1,29 @@
 import Image from "next/image";
 
-interface Props {
-  quote?: string;
-}
-
-export default function CarlJungQuote({
-  quote = "Quem olha para fora, sonha; quem olha para dentro, desperta.",
-}: Props) {
+export default function CarlJungQuote() {
   return (
-    <section data-animate className="w-full bg-roxo-escuro py-16 md:py-24">
-      <div className="max-w-content mx-auto px-4 md:px-8 text-center flex flex-col items-center gap-8">
-        <blockquote>
-          <p className="font-sans text-2xl md:text-3xl lg:text-[2rem] text-bege leading-snug italic">
-            &ldquo;{quote}&rdquo;
-          </p>
-          <footer className="font-sans text-base text-bege/70 mt-4">— Carl Jung</footer>
-        </blockquote>
+    <section
+      data-animate
+      className="relative overflow-hidden bg-roxo-escuro py-12 md:py-16 px-6 flex items-center justify-center"
+      style={{ minHeight: 350 }}
+    >
+      {/* Ilustração decorativa centralizada no topo */}
+      <Image
+        src="/imgs/cerebro-coracao-flores.png"
+        alt=""
+        aria-hidden
+        width={240}
+        height={308}
+        className="absolute left-1/2 top-[21px] -translate-x-1/2 opacity-35 pointer-events-none select-none"
+      />
 
-        <Image
-          src="/imgs/cerebro_coracao_flores 1.png"
-          alt=""
-          width={310}
-          height={220}
-          className="pointer-events-none select-none w-full max-w-[310px] h-auto"
-        />
-      </div>
+      {/* Citação */}
+      <blockquote className="relative z-10 text-center text-bege max-w-[880px] mx-auto">
+        <p className="font-sans font-normal italic text-[18px] md:text-[22px] leading-[1.4]">
+          &ldquo;Quem olha para fora, sonha; quem olha para dentro, desperta.&rdquo;
+        </p>
+        <footer className="mt-[14px] not-italic text-[16px] opacity-85">— Carl Jung</footer>
+      </blockquote>
     </section>
   );
 }

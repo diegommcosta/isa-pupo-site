@@ -1,71 +1,71 @@
 import Image from "next/image";
-import { MessageCircle, ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Tag from "@/components/ui/Tag";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 
-interface Props {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-}
-
-export default function Hero({
-  title = "Isa Pupo",
-  subtitle = "Psicoterapia Jungiana & Integrativa",
-  description = "Um espaço de acolhimento e profundidade para cuidar da sua jornada interior.",
-}: Props) {
+export default function Hero() {
   const whatsapp = buildWhatsappLink(defaultMessage);
 
   return (
     <section
       id="hero"
       data-animate
-      className="relative w-full overflow-hidden"
-      style={{ backgroundColor: "rgba(237, 191, 159, 0.6)" }}
+      className="relative w-full overflow-hidden py-16 md:py-20"
+      style={{ background: "rgba(237, 191, 159, 0.6)" }}
     >
-      <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px] py-12 lg:py-16">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
+      <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center min-h-[480px]">
 
-          {/* Text block */}
-          <div className="flex-1 z-10 flex flex-col gap-4 order-1">
-            <Tag>{subtitle}</Tag>
-            <h1 className="font-display text-title-hero text-verde-escuro leading-tight">
-              {title}
+          {/* Texto */}
+          <div className="flex flex-col gap-0">
+            <Tag>Terapeuta Junguiana e Integrativa</Tag>
+            <h1
+              className="font-display font-normal leading-none text-marrom mt-5"
+              style={{ fontSize: "clamp(44px, 6vw, 96px)" }}
+            >
+              Isa Pupo
             </h1>
-            <p className="font-sans text-descricao text-marrom max-w-md">
-              {description}
-            </p>
-            <div className="flex flex-wrap gap-3 mt-2">
+            <div
+              className="mt-6 leading-[1.45] text-marrom space-y-[10px]"
+              style={{ fontSize: "clamp(16px, 1.5vw, 20px)", maxWidth: 440 }}
+            >
+              <p>Olá, é um prazer ter você aqui!</p>
+              <p>
+                Me chamo Isabella, mas você pode me chamar de Isa{" "}
+                <span style={{ whiteSpace: "nowrap" }}>:)</span> Sou Terapeuta
+                especialista na abordagem Junguiana além de Terapeuta Integrativa.
+              </p>
+              <p>Atualmente em processo de formação em psicologia.</p>
+            </div>
+            <div className="mt-8 flex gap-2.5 flex-wrap">
               <Button
-                variant="filled"
-                size="md"
+                variant="dark"
+                size="sm"
                 href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                leftIcon={<MessageCircle size={18} />}
+                leftIcon="chat"
               >
-                Agendar consulta
+                Agendar Consulta
               </Button>
               <Button
-                variant="outlined"
-                size="md"
+                variant="outline-dark"
+                size="sm"
                 href="/#sobre"
-                rightIcon={<ArrowRight size={18} />}
+                rightIcon="arrow-right"
               >
                 Saiba mais
               </Button>
             </div>
           </div>
 
-          {/* hero.png — composição completa já com todos os elementos visuais */}
-          <div className="relative w-full max-w-[480px] mx-auto lg:mx-0 lg:w-[480px] lg:h-[520px] shrink-0 order-2">
+          {/* Imagem */}
+          <div className="relative h-[320px] md:h-[480px] w-full justify-self-end max-w-[545px]">
             <Image
-              src="/imgs/hero/hero.png"
+              src="/imgs/hero.png"
               alt="Isabella Pupo"
-              width={480}
-              height={520}
-              className="w-full h-auto object-contain"
+              fill
+              style={{ objectFit: "contain", objectPosition: "right center" }}
               priority
             />
           </div>
