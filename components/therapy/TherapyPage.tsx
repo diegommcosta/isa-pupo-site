@@ -1,110 +1,92 @@
 import Image from "next/image";
-import { PortableText } from "@portabletext/react";
+import Tag from "@/components/ui/Tag";
+import { SectionTitle } from "@/components/ui/SectionTitle";
+import { BulletRow } from "@/components/ui/BulletRow";
 import CtaBand from "@/components/layout/CtaBand";
-import type { TherapyPage as TherapyPageType } from "@/lib/sanity/types";
-import { urlFor } from "@/lib/sanity/client";
+import type { TherapyData } from "@/lib/content/therapy";
+import type { IconName } from "@/components/ui/Icon";
 
-const defaultFeatures = [
-  {
-    title: "Autoconhecimento",
-    body: "Processo de exploração do inconsciente e suas manifestações na vida cotidiana.",
-  },
-  {
-    title: "Integração",
-    body: "Integração das partes da psique para uma vida mais plena e autêntica.",
-  },
-  {
-    title: "Transformação",
-    body: "Acompanhamento cuidadoso nos momentos de crise e transição.",
-  },
-];
-
-interface Props {
-  therapy: TherapyPageType | null;
-  slug: string;
+function bulletIcon(sectionTitle: string): IconName {
+  if (sectionTitle === "Benefícios") return "check2";
+  if (sectionTitle === "Para quem é indicado") return "people";
+  return "logo-bullet";
 }
 
-export default function TherapyPage({ therapy, slug }: Props) {
-  const heroUrl = therapy?.heroImage
-    ? urlFor(therapy.heroImage).width(1440).height(500).url()
-    : `/imgs/pag_terapia_${slug === "jungiana" ? "jungiana" : "integrativa"}.png`;
+interface Props {
+  data: TherapyData;
+}
 
-  const features = therapy?.features ?? defaultFeatures;
-
+export default function TherapyPage({ data }: Props) {
   return (
     <>
-      {/* Hero */}
-      <section className="relative w-full h-[360px] bg-verde-escuro overflow-hidden">
-        <Image src={heroUrl} alt={therapy?.title ?? "Terapia"} fill className="object-cover opacity-60" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
-          {therapy?.tag && (
-            <span className="font-sans text-bege text-base bg-laranja px-3 py-1 rounded mb-4">
-              {therapy.tag}
-            </span>
-          )}
-          <h1 className="font-display text-title-hero text-bege">
-            {therapy?.title ?? (slug === "jungiana" ? "Terapia Jungiana" : "Terapia Integrativa")}
-          </h1>
-        </div>
-      </section>
-
-      {/* Intro */}
-      <section className="w-full bg-bege-light py-16">
-        <div className="max-w-content mx-auto px-8">
-          {therapy?.intro ? (
-            <div className="font-sans text-descricao text-marrom leading-relaxed prose max-w-none">
-              <PortableText value={therapy.intro} />
+      {/* Hero branco */}
+      <section data-animate className="bg-white py-16 md:py-20">
+        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+          <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-[1fr_422px] gap-14 items-start">
+            <div>
+              <Tag icon={data.tagIcon} iconColor="var(--verde-claro)">
+                {data.tagText}
+              </Tag>
+              <h1 className="mt-5 font-sans font-bold text-[48px] leading-[1.05] text-verde-escuro">
+                {data.title}
+              </h1>
+              <span className="block w-[73px] h-[3px] bg-laranja mt-[18px] mb-[26px]" />
+              <h2 className="font-sans font-bold text-[24px] leading-[1.1] text-marrom mb-4">
+                Como funciona
+              </h2>
+              <div className="text-[18px] leading-[1.55] text-marrom max-w-[560px] space-y-[14px]">
+                {data.intro.split("\n").map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
             </div>
-          ) : (
-            <p className="font-sans text-descricao text-marrom leading-relaxed text-center max-w-2xl mx-auto">
-              {slug === "jungiana"
-                ? "A Psicologia Analítica, desenvolvida por Carl Gustav Jung, explora as profundezas do inconsciente para promover autoconhecimento e transformação."
-                : "A Terapia Integrativa combina diferentes abordagens psicoterapêuticas para oferecer um cuidado completo e personalizado."}
-            </p>
-          )}
+            <div
+              className="w-full rounded-[16px] overflow-hidden"
+              style={{
+                height: 560,
+                background: `url(${data.image}) center/${data.imageFit ?? "cover"} no-repeat`,
+              }}
+            />
+          </div>
         </div>
       </section>
 
-      {/* Como funciona */}
-      <section className="w-full bg-bege py-16">
-        <div className="max-w-content mx-auto px-8">
-          <h2 className="font-sans font-bold text-sessions text-verde-escuro mb-8">
-            Como funciona
-          </h2>
-          {therapy?.comoFunciona ? (
-            <div className="font-sans text-descricao text-marrom leading-relaxed prose max-w-none">
-              <PortableText value={therapy.comoFunciona} />
-            </div>
-          ) : (
-            <p className="font-sans text-descricao text-marrom leading-relaxed">
-              As sessões são individuais, com frequência semanal ou quinzenal, e
-              duram aproximadamente 50 minutos. O processo terapêutico é
-              construído de forma colaborativa, respeitando o ritmo e as
-              necessidades de cada pessoa.
-            </p>
-          )}
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="w-full bg-bege-light py-16">
-        <div className="max-w-site mx-auto px-[200px]">
-          <div className="grid grid-cols-3 gap-8">
-            {features.map((f, i) => (
-              <div key={i} className="bg-bege rounded-lg p-8 flex flex-col gap-3">
-                <h3 className="font-sans font-bold text-card-title text-verde-escuro">
-                  {f.title}
+      {/* O que esperar das sessões */}
+      <section data-animate className="py-16 md:py-20" style={{ background: "rgba(237,191,159,0.6)" }}>
+        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+          <SectionTitle eyebrow="O que esperar das sessões" />
+          <div
+            data-animate-stagger
+            className="max-w-content mx-auto mt-[50px] grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            {data.sections.map((sec) => (
+              <div
+                key={sec.title}
+                className="bg-bege-light rounded-[20px] p-6 flex flex-col gap-3.5"
+              >
+                <h3 className="font-sans font-bold text-[22px] leading-[1.15] text-verde-escuro">
+                  {sec.title}
                 </h3>
-                <p className="font-sans text-base text-marrom leading-relaxed">
-                  {f.body}
-                </p>
+                <div className="flex flex-col gap-3">
+                  {sec.items.map((item, j) => (
+                    <BulletRow
+                      key={j}
+                      icon={bulletIcon(sec.title)}
+                      iconColor="var(--laranja)"
+                      textColor="var(--marrom)"
+                      size={15}
+                    >
+                      {item}
+                    </BulletRow>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <CtaBand message={`Olá Isa! Gostaria de saber mais sobre ${therapy?.title ?? "terapia"}.`} />
+      <CtaBand message={data.whatsappMessage} />
     </>
   );
 }

@@ -1,21 +1,12 @@
 import type { Metadata } from "next";
-import { client } from "@/lib/sanity/client";
-import { therapyPageQuery } from "@/lib/sanity/queries";
 import TherapyPage from "@/components/therapy/TherapyPage";
-import type { TherapyPage as TherapyPageType } from "@/lib/sanity/types";
-
-export const revalidate = 3600;
+import { TERAPIA_JUNGIANA } from "@/lib/content/therapy";
 
 export const metadata: Metadata = {
-  title: "Terapia Jungiana",
-  description:
-    "Conheça a Psicologia Analítica Jungiana e como ela pode te ajudar na jornada de autoconhecimento.",
+  title: "Terapia Junguiana — Isa Pupo",
+  description: TERAPIA_JUNGIANA.metaDescription,
 };
 
-export default async function TerapiaJungiana() {
-  const therapy: TherapyPageType | null = await client
-    .fetch(therapyPageQuery, { slug: "jungiana" })
-    .catch(() => null);
-
-  return <TherapyPage therapy={therapy} slug="jungiana" />;
+export default function TerapiaJungiana() {
+  return <TherapyPage data={TERAPIA_JUNGIANA} />;
 }

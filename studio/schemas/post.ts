@@ -64,6 +64,8 @@ export default defineType({
       name: "publishedAt",
       title: "Publicado em",
       type: "datetime",
+      readOnly: true,
+      initialValue: () => new Date().toISOString(),
     }),
   ],
   preview: {

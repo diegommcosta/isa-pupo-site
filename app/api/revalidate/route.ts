@@ -16,16 +16,8 @@ export async function POST(req: NextRequest) {
     if (type === "post") {
       revalidatePath("/blog");
       if (slug) revalidatePath(`/blog/${slug}`);
-    } else if (type === "therapy") {
-      if (slug) revalidatePath(`/terapia/${slug}`);
-    } else if (type === "ebook") {
-      revalidatePath("/ebook");
-    } else if (type === "homePage") {
-      revalidatePath("/");
-    } else if (type === "siteSettings") {
-      revalidatePath("/", "layout");
     } else {
-      revalidatePath("/");
+      revalidatePath("/blog");
     }
 
     return NextResponse.json({ revalidated: true, type, slug });
