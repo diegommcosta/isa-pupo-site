@@ -13,6 +13,9 @@ export default function AnimationsProvider() {
 
       gsap.registerPlugin(ScrollTrigger);
 
+      const isMobile = window.innerWidth < 768;
+      const triggerStart = isMobile ? "top 95%" : "top 85%";
+
       // Fade-in + slide-up for each section marked with data-animate
       document.querySelectorAll<HTMLElement>("[data-animate]").forEach((el) => {
         gsap.fromTo(
@@ -25,7 +28,7 @@ export default function AnimationsProvider() {
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 85%",
+              start: triggerStart,
               once: true,
             },
           }
@@ -47,7 +50,7 @@ export default function AnimationsProvider() {
             ease: "power2.out",
             scrollTrigger: {
               trigger: grid,
-              start: "top 85%",
+              start: triggerStart,
               once: true,
             },
           }
