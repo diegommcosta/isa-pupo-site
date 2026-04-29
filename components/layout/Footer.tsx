@@ -1,34 +1,37 @@
 import Link from "next/link";
+import { Icon } from "@/components/ui/Icon";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 import { navLinks } from "@/lib/nav";
 
-const footerLinks = [{ label: "Home", href: "/" }, ...navLinks];
+const INSTAGRAM_URL = "https://www.instagram.com/isapupopsicoterapia/";
+
+const footerLinks = [{ label: "Home", href: "/" }, ...navLinks.map((l) => ({ ...l }))];
 
 export default function Footer() {
   const whatsapp = buildWhatsappLink(defaultMessage);
 
   return (
     <footer className="w-full bg-verde-escuro text-bege">
-      <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px] pt-[42px] pb-[29px]">
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 lg:gap-[160px]">
+      <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px] pt-[60px] pb-[32px]">
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-10 pb-8 border-b-[3px] border-verde-claro">
           {/* Brand */}
-          <div className="flex-1">
-            <p className="font-display text-[32px] leading-tight mb-3">Isa Pupo</p>
-            <p className="font-sans text-base leading-snug max-w-[391px]">
-              Terapia Integrativa &amp; Jungiana, cuidando da sua jornada
+          <div>
+            <p className="font-display text-[36px] leading-none mb-[14px]">Isa Pupo</p>
+            <p className="font-sans text-[16px] leading-[1.5] opacity-90 max-w-[380px]">
+              Terapia Integrativa &amp; Junguiana, cuidando da sua jornada
               interior com acolhimento e profundidade.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <p className="font-display text-2xl mb-3">Navegação</p>
+            <p className="font-sans font-bold text-[16px] text-bege mb-[10px]">Navegação</p>
             <ul className="space-y-1">
               {footerLinks.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="font-sans text-base leading-[22px] underline hover:text-bege/80 transition-colors"
+                    className="font-sans text-[16px] text-bege/90 underline underline-offset-[3px] hover:text-bege transition-colors block py-1"
                   >
                     {l.label}
                   </Link>
@@ -39,25 +42,27 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="font-display text-2xl mb-3">Contato</p>
-            <ul className="space-y-1">
+            <p className="font-sans font-bold text-[16px] text-bege mb-[10px]">Contato</p>
+            <ul className="space-y-2">
               <li>
                 <a
                   href={whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-base leading-[22px] underline hover:text-bege/80 transition-colors"
+                  className="flex items-center gap-2 font-sans text-[16px] text-bege/90 underline underline-offset-[3px] hover:text-bege transition-colors py-1"
                 >
+                  <Icon name="whatsapp" size={16} color="var(--bege)" />
                   WhatsApp
                 </a>
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/isapupopsicoterapia/"
+                  href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-base leading-[22px] underline hover:text-bege/80 transition-colors"
+                  className="flex items-center gap-2 font-sans text-[16px] text-bege/90 underline underline-offset-[3px] hover:text-bege transition-colors py-1"
                 >
+                  <Icon name="instagram" size={16} color="var(--bege)" />
                   Instagram
                 </a>
               </li>
@@ -65,9 +70,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-[29px] h-[3px] bg-verde-claro rounded-full" />
-
-        <p className="mt-[21px] text-center font-sans text-base">
+        <p className="pt-5 text-center font-sans text-[14px] text-bege/80">
           © {new Date().getFullYear()} Isa Pupo. Feito com ♥ por Diego Manoel
         </p>
       </div>
