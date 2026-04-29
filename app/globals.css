@@ -12,6 +12,15 @@
     background-color: #EFDDD1;
     color: #2D1605;
   }
+
+  :root {
+    --rosa-15: rgba(207, 106, 97, 0.15);
+    --bege-60: rgba(237, 191, 159, 0.6);
+    --shadow-card: 0 2px 8px rgba(45, 22, 5, 0.06);
+    --transition-base: 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    --stroke-1: 1px;
+    --stroke-3: 3px;
+  }
 }
 
 @layer components {
@@ -34,5 +43,13 @@
 
   .card-40 {
     @apply bg-bege-light rounded-[30px] p-[40px];
+  }
+
+  .eyebrow-rule {
+    width: 73px;
+    height: 3px;
+    background: theme('colors.laranja');
+    margin-top: 14px;
+    margin-bottom: 14px;
   }
 }

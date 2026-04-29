@@ -27,6 +27,7 @@ const config: Config = {
         display: ["var(--font-berliana)", "cursive"],
       },
       fontSize: {
+        // Legacy (manter compatibilidade)
         "title-hero": ["4rem", { lineHeight: "1.1" }],
         titulos: ["3rem", { lineHeight: "1", fontWeight: "700" }],
         sessions: ["2rem", { lineHeight: "3rem", fontWeight: "700" }],
@@ -38,6 +39,16 @@ const config: Config = {
         "invest-titulo": ["2rem", { fontWeight: "700" }],
         rodape: ["1rem", { lineHeight: "1.375rem" }],
         date: ["0.875rem", { lineHeight: "1" }],
+        // Design tokens do redesign
+        display: ["64px", { lineHeight: "1", fontWeight: "400" }],
+        "h1-section": ["48px", { lineHeight: "1.05", fontWeight: "700" }],
+        "h2-card": ["36px", { lineHeight: "1.1", fontWeight: "700" }],
+        eyebrow: ["32px", { lineHeight: "1", fontWeight: "700" }],
+        "h4-card": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
+        "body-lg": ["20px", { lineHeight: "1.45" }],
+        "body-md": ["16px", { lineHeight: "1" }],
+        "body-sm": ["14px", { lineHeight: "1" }],
+        "price-lg": ["56px", { lineHeight: "1", fontWeight: "700" }],
       },
       maxWidth: {
         site: "1440px",

@@ -24,7 +24,7 @@ export default function BlogCard({ post, variant = "home" }: Props) {
     : null;
 
   const imageHeight = variant === "index" ? "h-[220px]" : "h-[190px]";
-  const postHref = `/blog/${post.slug.current}`;
+  const postHref = post.slug?.current ? `/blog/${post.slug.current}` : "#";
 
   return (
     <article className="bg-bege-light rounded-[30px] overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300">
