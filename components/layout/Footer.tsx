@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-verde-escuro text-bege">
-      <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px] pt-[60px] pb-[32px]">
+      <div className="max-w-site mx-auto px-8 lg:px-[200px] pt-[60px] pb-[32px]">
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-10 pb-8 border-b-[3px] border-verde-claro">
           {/* Brand */}
           <div>
@@ -25,8 +25,8 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="font-sans font-bold text-[16px] text-bege mb-[10px]">Navegação</p>
-            <ul className="space-y-1">
+            <p className="font-sans font-bold text-[22px] text-bege mb-[10px]">Navegação</p>
+            <ul>
               {footerLinks.map((l) => (
                 <li key={l.href}>
                   <Link
@@ -42,8 +42,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="font-sans font-bold text-[16px] text-bege mb-[10px]">Contato</p>
-            <ul className="space-y-2">
+            <p className="font-sans font-bold text-[22px] text-bege mb-[10px]">Contato</p>
+            <ul>
               <li>
                 <a
                   href={whatsapp}

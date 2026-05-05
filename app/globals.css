@@ -33,7 +33,7 @@
   }
 
   .tag {
-    @apply inline-block text-marrom text-sm font-sans px-[6px] py-[8px] rounded-[3px];
+    @apply inline-block text-marrom text-sm font-sans px-[9px] py-[8px] rounded-[3px];
     background-color: rgba(207, 106, 97, 0.15);
   }
 

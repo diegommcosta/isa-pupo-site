@@ -37,7 +37,7 @@ export default async function BlogIndex({
     <>
       {/* Hero branco minimalista */}
       <section data-animate className="bg-white pt-[80px] pb-[30px]">
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle
             eyebrow="Blog"
             subtitle="Reflexões, artigos e conteúdos sobre psicologia integrativa e jungiana."
@@ -47,7 +47,7 @@ export default async function BlogIndex({
 
       {/* Grid de posts */}
       <section data-animate className="bg-white pb-[80px] pt-[30px]">
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           {posts.length === 0 ? (
             <p className="text-center text-verde-claro py-12 font-sans text-base">
               Em breve, artigos sobre psicologia e autoconhecimento.

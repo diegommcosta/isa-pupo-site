@@ -66,7 +66,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     <>
       {/* Seção 1 — meta + título */}
       <section data-animate className="bg-white pt-[80px] pb-[30px]">
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto">
             {/* Back link */}
             <Link
@@ -111,7 +111,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       {/* Seção 2 — capa */}
       {coverUrl && (
         <section data-animate className="bg-white py-[30px]">
-          <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+          <div className="max-w-site mx-auto px-8 lg:px-[200px]">
             <div className="max-w-content mx-auto">
               <div className="w-full h-[360px] rounded-[20px] overflow-hidden relative">
                 <Image
@@ -128,7 +128,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
       {/* Seção 3 — corpo (single column) */}
       <section data-animate className="bg-white pb-[70px]">
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto">
             {/* Artigo */}
             <article className="text-[18px] leading-[1.7] text-marrom font-sans prose prose-lg max-w-none">
@@ -176,7 +176,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           className="py-[70px]"
           style={{ background: "rgba(237,191,159,0.6)" }}
         >
-          <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+          <div className="max-w-site mx-auto px-8 lg:px-[200px]">
             <SectionTitle eyebrow="Posts recentes" />
             <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-[22px] max-w-content mx-auto">
               {post.related.map((p) => (

@@ -7,7 +7,7 @@ export default function CarlJungQuote() {
       className="relative overflow-hidden bg-roxo-escuro py-12 md:py-16 px-6 flex items-center justify-center"
       style={{ minHeight: 350 }}
     >
-      {/* Ilustração decorativa centralizada no topo */}
+      {/* Ilustração decorativa centralizada atras do texto */}
       <Image
         src="/imgs/cerebro-coracao-flores.png"
         alt=""
@@ -19,10 +19,10 @@ export default function CarlJungQuote() {
 
       {/* Citação */}
       <blockquote className="relative z-10 text-center text-bege max-w-[880px] mx-auto">
-        <p className="font-sans font-normal italic text-[18px] md:text-[22px] leading-[1.4]">
-          &ldquo;Quem olha para fora, sonha; quem olha para dentro, desperta.&rdquo;
+        <p className="font-sans font-bold text-[22px] md:text-[30px] leading-[1.4]">
+          &ldquo;Quem olha para fora sonha, quem olha para dentro, desperta.&rdquo;
         </p>
-        <footer className="mt-[14px] not-italic text-[16px] opacity-85">— Carl Jung</footer>
+        <footer className="mt-[8px] not-italic text-[16px] opacity-85">- Carl Jung</footer>
       </blockquote>
     </section>
   );

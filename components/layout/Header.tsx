@@ -41,7 +41,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-verde-escuro sticky top-0 z-50">
-      <div className="max-w-site mx-auto h-[60px] px-4 md:px-8 lg:px-[200px] flex items-center justify-between">
+      <div className="max-w-site mx-auto h-[60px] px-8 lg:px-[200px] flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
@@ -118,7 +118,7 @@ export default function Header() {
       {/* Mobile drawer */}
       {mobileOpen && (
         <nav
-          className="lg:hidden bg-verde-escuro border-t border-bege/15 px-4 py-5 pb-7 flex flex-col gap-[18px] absolute left-0 right-0 z-40"
+          className="lg:hidden bg-verde-escuro border-t border-bege/15 px-8 py-5 pb-7 flex flex-col gap-[18px] absolute left-0 right-0 z-40"
           aria-label="Menu mobile"
         >
           {items.map((link) => {

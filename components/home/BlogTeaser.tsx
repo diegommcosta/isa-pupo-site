@@ -10,7 +10,7 @@ interface Props {
 export default function BlogTeaser({ posts }: Props) {
   return (
     <section id="blog" data-animate className="bg-white py-16 md:py-20">
-      <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+      <div className="max-w-site mx-auto px-8 lg:px-[200px]">
         <SectionTitle
           eyebrow="Blog"
           subtitle="Reflexões, artigos e conteúdos sobre psicologia integrativa e jungiana."

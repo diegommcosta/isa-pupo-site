@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Tag from "@/components/ui/Tag";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { BulletRow } from "@/components/ui/BulletRow";
@@ -21,7 +20,7 @@ export default function TherapyPage({ data }: Props) {
     <>
       {/* Hero branco */}
       <section data-animate className="bg-white py-16 md:py-20">
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-[1fr_422px] gap-14 items-start">
             <div>
               <Tag icon={data.tagIcon} iconColor="var(--verde-claro)">
@@ -53,7 +52,7 @@ export default function TherapyPage({ data }: Props) {
 
       {/* O que esperar das sessões */}
       <section data-animate className="py-16 md:py-20" style={{ background: "rgba(237,191,159,0.6)" }}>
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle eyebrow="O que esperar das sessões" />
           <div
             data-animate-stagger

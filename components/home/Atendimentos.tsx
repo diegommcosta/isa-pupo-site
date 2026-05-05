@@ -18,25 +18,25 @@ const cards: CardData[] = [
   {
     icon: "moon-stars-fill",
     title: "Terapia Junguiana",
-    body: "Um mergulho profundo no autoconhecimento para integrar o que foi vivido e sustentar uma relação mais consciente com a vida.",
+    body: "Um mergulho profundo no autoconhecimento para integrar o que foi vivido e sustentar uma relação mais consciente a vida.",
     bullets: [
       "Análise de sonhos e símbolos",
       "Integração de corpo, mente e alma",
       "Processo de individuação",
     ],
-    whatsappMsg: "Olá Isa! Gostaria de saber mais sobre Terapia Junguiana.",
+    whatsappMsg: "Olá Isa! Gostaria de saber mais sobre a Terapia Junguiana.",
     href: "/terapia/jungiana",
   },
   {
     icon: "stars",
     title: "Terapia Integrativa",
-    body: "Uma abordagem que unifica corpo, mente e espiritualidade, trazendo presença e sensibilidade para auxiliar no seu processo de cura.",
+    body: "Uma abordagem que unifica corpo, mente e espiritualidade com muita responsabilidade, trazendo presença e sensibilidade para auxiliar no seu processo de cura.",
     bullets: [
-      "Foco no equilíbrio energético",
+      "Foco no bem estar e conexão",
       "Harmonização corpo e mente",
       "Atendimento personalizado",
     ],
-    whatsappMsg: "Olá Isa! Gostaria de saber mais sobre Terapia Integrativa.",
+    whatsappMsg: "Olá Isa! Gostaria de saber mais sobre a Terapia Integrativa.",
     href: "/terapia/integrativa",
   },
 ];
@@ -44,7 +44,7 @@ const cards: CardData[] = [
 export default function Atendimentos() {
   return (
     <section id="atendimentos" data-animate className="bg-verde-escuro py-16 md:py-20">
-      <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+      <div className="max-w-site mx-auto px-8 lg:px-[200px]">
         <SectionTitle eyebrow="Atendimentos" color="var(--bege)" />
 
         <div

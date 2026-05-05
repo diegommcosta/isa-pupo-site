@@ -26,13 +26,13 @@ export default function CtaBand({
         className="absolute top-0 left-1/2 -translate-x-1/2 opacity-90 pointer-events-none select-none"
       />
 
-      <div className="relative max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+      <div className="relative max-w-site mx-auto px-8 lg:px-[200px]">
         <h2 className="font-sans font-bold text-[32px] leading-none text-bege">
           Pronta para começar?
         </h2>
         <p
           className="mt-[14px] text-[20px] leading-[1.35] text-bege mx-auto"
-          style={{ opacity: 0.95, maxWidth: 520 }}
+          style={{ opacity: 0.95, maxWidth: 440 }}
         >
           Agende sua sessão e dê o primeiro passo na sua jornada de autoconhecimento.
         </p>

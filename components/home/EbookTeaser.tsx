@@ -12,7 +12,7 @@ const bullets = [
 export default function EbookTeaser() {
   return (
     <section id="ebook" data-animate className="bg-bege py-16 md:py-20">
-      <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+      <div className="max-w-site mx-auto px-8 lg:px-[200px]">
         <SectionTitle eyebrow="Ebook" />
 
         <div className="max-w-content mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center">
@@ -31,13 +31,13 @@ export default function EbookTeaser() {
           <div>
             <h2
               className="font-sans font-bold text-[48px] leading-[1.05] text-roxo-escuro"
-              style={{ maxWidth: 460 }}
+              style={{ maxWidth: 420 }}
             >
               O Cultivo da Verdade Interna
             </h2>
             <p
               className="mt-[18px] text-[18px] leading-[1.45] text-verde-escuro"
-              style={{ maxWidth: 460 }}
+              style={{ maxWidth: 420 }}
             >
               Um guia para quem busca iniciar ou aprofundar sua jornada de
               autoconhecimento através da perspectiva da psicologia analítica e das
@@ -53,7 +53,7 @@ export default function EbookTeaser() {
                   key={b}
                   className="flex items-center gap-2.5 text-[18px] text-verde-escuro py-1.5"
                 >
-                  <Icon name="book-half" size={16} color="var(--roxo-claro)" />
+                  <Icon name="star-fill" size={16} color="var(--roxo-claro)" />
                   <span>{b}</span>
                 </div>
               ))}

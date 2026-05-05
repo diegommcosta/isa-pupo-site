@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Icon } from "@/components/ui/Icon";
-import { BulletRow } from "@/components/ui/BulletRow";
 import Tag from "@/components/ui/Tag";
 import Button from "@/components/ui/Button";
 
@@ -24,6 +23,10 @@ const forWhom = [
     desc: "Para quem não se contenta com respostas superficiais e deseja explorar as camadas do inconsciente através da lente da Psicologia Analítica (Junguiana).",
   },
   {
+    title: "Deseja Equilíbrio Integral",
+    desc: "Se você acredita que a saúde não é apenas física, mas um equilíbrio bio-psico-espiritual que precisa ser cultivado diariamente.",
+  },
+  {
     title: "Está em Processo de Individuação",
     desc: "Para quem sente que se tornar quem verdadeiramente é exige trabalho interior e uma escuta mais atenta à própria psique.",
   },
@@ -40,7 +43,7 @@ export default function EbookPage() {
     <>
       {/* Hero */}
       <section data-animate className="bg-bege py-[80px]">
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center">
             <div>
               <Image
@@ -82,7 +85,7 @@ export default function EbookPage() {
 
       {/* Banda roxo-claro */}
       <section data-animate className="bg-roxo-claro py-[26px]">
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto flex flex-wrap justify-center gap-9 items-center">
             {highlights.map((h) => (
               <div key={h} className="flex items-center gap-2.5">
@@ -96,14 +99,13 @@ export default function EbookPage() {
 
       {/* Para quem é este ebook? */}
       <section data-animate className="bg-white py-[70px]">
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle eyebrow="Para quem é este ebook?" />
-          <div className="mt-[30px] max-w-[760px] mx-auto text-center text-[19px] leading-[1.5] text-marrom space-y-[10px]">
+          <div className="mt-[30px] max-w-[600px] mx-auto text-center text-[19px] leading-[1.5] text-marrom space-y-[10px]">
             <p>
               Este guia foi cuidadosamente desenvolvido para pessoas que sentem que é
               hora de olhar para dentro com mais profundidade e autonomia.
-            </p>
-            <p>
+              <br></br>
               Se você busca ferramentas reais para navegar em sua própria psique, este
               livro é para você.
             </p>
@@ -148,7 +150,7 @@ export default function EbookPage() {
 
       {/* Sobre a Autora */}
       <section data-animate className="bg-bege-light py-[80px]">
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle eyebrow="Sobre a Autora" />
           <div className="max-w-content mx-auto mt-[50px] grid grid-cols-1 md:grid-cols-[422px_1fr] gap-14 items-start">
             <div
@@ -197,7 +199,7 @@ export default function EbookPage() {
 
       {/* Investimento */}
       <section data-animate className="bg-marrom py-[70px] pb-[90px] text-bege">
-        <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle eyebrow="Investimento" color="var(--bege)" />
           <div className="mt-10 flex justify-center">
             <div

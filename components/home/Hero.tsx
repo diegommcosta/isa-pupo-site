@@ -10,34 +10,34 @@ export default function Hero() {
     <section
       id="hero"
       data-animate
-      className="relative w-full overflow-hidden py-16 md:py-20"
+      className="relative w-full overflow-hidden pt-8 pb-11 md:py-20"
       style={{ background: "rgba(237, 191, 159, 0.6)" }}
     >
-      <div className="max-w-site mx-auto px-4 md:px-8 lg:px-[200px]">
+      <div className="max-w-site mx-auto px-8 lg:px-[200px]">
         <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center min-h-[480px]">
 
           {/* Texto */}
           <div className="flex flex-col gap-0">
-            <Tag>Terapeuta Junguiana e Integrativa</Tag>
+            <Tag className="self-start">Terapeuta Junguiana e Integrativa</Tag>
             <h1
-              className="font-display font-normal leading-none text-marrom mt-5"
-              style={{ fontSize: "clamp(44px, 6vw, 96px)" }}
+              className="font-display font-normal leading-none text-verde-escuro mt-3"
+              style={{ fontSize: "clamp(56px, 6vw, 80px)" }}
             >
               Isa Pupo
             </h1>
             <div
-              className="mt-6 leading-[1.45] text-marrom space-y-[10px]"
-              style={{ fontSize: "clamp(16px, 1.5vw, 20px)", maxWidth: 440 }}
+              className="mt-4 leading-[1.45] text-marrom space-y-[10px]"
+              style={{ fontSize: "clamp(16px, 1.5vw, 20px)", maxWidth: 380 }}
             >
-              <p>Olá, é um prazer ter você aqui!</p>
-              <p>
-                Me chamo Isabella, mas você pode me chamar de Isa{" "}
-                <span style={{ whiteSpace: "nowrap" }}>:)</span> Sou Terapeuta
-                especialista na abordagem Junguiana além de Terapeuta Integrativa.
-              </p>
-              <p>Atualmente em processo de formação em psicologia.</p>
+              <p>Olá, é um prazer ter você aqui!
+                <br></br>
+                Me chamo Isabella Pupo, mas você pode me chamar de Isa{" "}
+                <span style={{ whiteSpace: "nowrap" }}>:)</span>
+                <br></br>
+                Sou Terapeuta especialista na abordagem Junguiana além de Terapeuta Integrativa.
+                Atualmente em processo de formação em psicologia.</p>
             </div>
-            <div className="mt-8 flex gap-2.5 flex-wrap">
+            <div className="mt-6 flex gap-2.5 flex-wrap">
               <Button
                 variant="dark"
                 size="sm"
@@ -60,12 +60,12 @@ export default function Hero() {
           </div>
 
           {/* Imagem */}
-          <div className="relative h-[320px] md:h-[480px] w-full justify-self-end max-w-[545px]">
+          <div className="relative h-[320px] md:h-[480px] w-full order-first md:order-none justify-self-center md:justify-self-end max-w-[545px]">
             <Image
               src="/imgs/hero.png"
-              alt="Isabella Pupo"
+              alt="Isabella Pupo com seu companheiro de quatro patas Mike e seus hobbies."
               fill
-              style={{ objectFit: "contain", objectPosition: "right center" }}
+              className="object-contain object-center md:object-right"
               priority
             />
           </div>
