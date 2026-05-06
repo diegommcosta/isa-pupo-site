@@ -8,6 +8,7 @@ export interface TherapyData {
   tagText: string;
   tagIcon: "moon-stars-fill" | "stars";
   title: string;
+  lead: string;
   intro: string;
   image: string;
   imageAlt: string;
@@ -22,11 +23,12 @@ export const TERAPIA_JUNGIANA: TherapyData = {
   tagText: "Psicologia analítica de Carl Jung",
   tagIcon: "moon-stars-fill",
   title: "Terapia Junguiana",
+  lead: "A análise junguiana é uma abordagem terapêutica baseada na psicologia de Carl Gustav Jung. Através do equilíbrio entre os diferentes aspectos da personalidade, trabalhamos para desenvolver uma identidade mais autêntica e equilibrada, compreendendo os significados profundos por trás de suas vivências e emoções.",
   image: "/imgs/pag-terapia-jungiana.webp",
   imageAlt: "Isa Pupo em blusa vermelha com fundo com elementos naturais, concentrada anotando em um caderno.",
   intro: [
-    "A análise junguiana é uma abordagem terapêutica baseada na psicologia de Carl Gustav Jung. Através do equilíbrio entre os diferentes aspectos da personalidade, trabalhamos para desenvolver uma identidade mais autêntica e equilibrada, compreendendo os significados profundos por trás de suas vivências e emoções.",
     "As sessões ocorrem de forma online, uma vez por semana, com duração de 50 minutos a 1 hora. Neste espaço seguro, você é convidado a falar livremente sobre o cotidiano, memórias, sonhos, dores e o que você não conseguiria dizer para mais ninguém.",
+    "Atuamos através de técnicas projetivas ao invés de imaginação ativa. O objetivo é acessar o inconsciente, transformando sintomas em consciência e promovendo o fortalecimento da sua autonomia.",
     "O foco não é apenas aliviar o sintoma, mas despertar o potencial de individuação e uma relação mais íntegra com a sua própria história.",
   ].join("\n"),
   sections: [
@@ -71,13 +73,13 @@ export const TERAPIA_INTEGRATIVA: TherapyData = {
   tagText: "Saúde Holística e Bem-estar",
   tagIcon: "stars",
   title: "Terapia Integrativa",
+  lead: "O atendimento integrativo é um espaço de acolhimento e respeito à individualidade. Sem fórmulas fixas ou roteiros, cada processo é guiado pela escuta sutil da intuição e pela confiança no que o momento pede. Aqui, a espiritualidade é parte viva, criando um ambiente seguro e amoroso para a sua jornada.",
   image: "/imgs/pag-terapia-integrativa.webp",
   imageAlt: "Polaroids da Isa Pupo organizando e efetuando a terapia integrativa, com esteira de ervas e muito cuidado e carinho.",
   imageFit: "contain",
   intro: [
-    "O atendimento integrativo é um espaço de acolhimento e respeito à individualidade. São fórmulas únicas e relações únicas, cada processo é guiado pela escuta sutil da intuição e pela confiança no que o momento pede. Aqui, a espiritualidade é parte viva, conduzindo um ambiente seguro e amoroso para o que florescer.",
     "Cada sessão é conduzida com presença absoluta. O trabalho é um somar de saberes que une sensibilidade e entrega, sempre guiado pelo coração e pelo que se revela no aqui e agora.",
-    "As práticas se entrelaçam com o uso do Reiki, como ferramenta de canalização de energia vital para restabelecer o fluxo do corpo, e com a sabedoria ancestral. Utilizamos o poder das plantas e dos elementos da natureza através de esteiras de ervas e benzimentos.",
+    "As práticas se entrelaçam com o uso do Reiki, como ferramenta de canalização de energia vital para restabelecer o fluxo do corpo, e com a sabedoria ancestral. Utilizamos o poder das plantas e dos elementos da natureza através de esteiras de ervas e benzimentos, honrando as tradições para realizar uma limpeza e harmonização profunda.",
     "O objetivo é promover um relaxamento restaurador, aliviando tensões e respeitando a energia singular de cada ser.",
   ].join("\n"),
   sections: [
