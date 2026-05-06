@@ -159,7 +159,7 @@ export default function EbookPage() {
             >
               <Image
                 src="/imgs/sobre-mim.webp"
-                alt="Isa Pupo"
+                alt="Quadro com elementos de colagem em volta, com a foto da Isa Pupo feliz em blusa vermelha e calça branca, num fundo marrom com elementos naturais."
                 width={422}
                 height={561}
                 className="w-full h-full object-cover"

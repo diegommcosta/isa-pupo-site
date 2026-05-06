@@ -10,8 +10,7 @@ export default function CarlJungQuote() {
       {/* Ilustração decorativa centralizada atras do texto */}
       <Image
         src="/imgs/cerebro-coracao-flores.webp"
-        alt=""
-        aria-hidden
+        alt="Metade esquerda cerébro, metade direita coração, ambos envoltos de flores."
         width={240}
         height={308}
         className="absolute left-1/2 top-[21px] -translate-x-1/2 opacity-35 pointer-events-none select-none"

@@ -19,8 +19,7 @@ export default function CtaBand({
       {/* Ilustração cerebro-lampada centralizada no topo */}
       <Image
         src="/imgs/cerebro-lampada.webp"
-        alt=""
-        aria-hidden
+        alt="Uma lampada com um cerebro dentro, uma mente capaz de iluminar."
         width={162}
         height={267}
         className="absolute top-0 left-1/2 -translate-x-1/2 opacity-90 pointer-events-none select-none"

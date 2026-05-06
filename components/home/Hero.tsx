@@ -63,7 +63,7 @@ export default function Hero() {
           <div className="relative h-[320px] md:h-[480px] w-full order-first md:order-none justify-self-center md:justify-self-end max-w-[545px]">
             <Image
               src="/imgs/hero.webp"
-              alt="Isabella Pupo com seu companheiro de quatro patas Mike e seus hobbies."
+              alt="Isa Pupo em blusa vermelha e calça branca com seu companheiro de quatro patas, Mike, rodeados por elementos de seu hobbie, como cristais, ervas, vinho, natureza."
               fill
               className="object-contain object-center md:object-right"
               priority

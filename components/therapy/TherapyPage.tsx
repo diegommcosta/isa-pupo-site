@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Tag from "@/components/ui/Tag";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { BulletRow } from "@/components/ui/BulletRow";
@@ -19,7 +20,7 @@ export default function TherapyPage({ data }: Props) {
   return (
     <>
       {/* Hero branco */}
-      <section data-animate className="bg-white py-16 md:py-20">
+      <section data-animate className="bg-white pt-11 pb-16 md:py-20">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-[1fr_422px] gap-14 items-start">
             <div>
@@ -39,19 +40,20 @@ export default function TherapyPage({ data }: Props) {
                 ))}
               </div>
             </div>
-            <div
-              className="w-full rounded-[16px] overflow-hidden"
-              style={{
-                height: 560,
-                background: `url(${data.image}) center/${data.imageFit ?? "cover"} no-repeat`,
-              }}
-            />
+            <div className="relative w-full rounded-[16px] overflow-hidden" style={{ height: 560 }}>
+              <Image
+                src={data.image}
+                alt={data.imageAlt}
+                fill
+                className={`object-${data.imageFit ?? "cover"} object-center`}
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* O que esperar das sessões */}
-      <section data-animate className="py-16 md:py-20" style={{ background: "rgba(237,191,159,0.6)" }}>
+      <section data-animate className="pt-11 pb-16 md:py-20" style={{ background: "rgba(237,191,159,0.6)" }}>
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle eyebrow="O que esperar das sessões" />
           <div

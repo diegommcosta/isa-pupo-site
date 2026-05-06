@@ -10,6 +10,7 @@ export interface TherapyData {
   title: string;
   intro: string;
   image: string;
+  imageAlt: string;
   imageFit?: "cover" | "contain";
   sections: TherapySection[];
   whatsappMessage: string;
@@ -22,6 +23,7 @@ export const TERAPIA_JUNGIANA: TherapyData = {
   tagIcon: "moon-stars-fill",
   title: "Terapia Junguiana",
   image: "/imgs/pag-terapia-jungiana.webp",
+  imageAlt: "Isa Pupo em blusa vermelha com fundo com elementos naturais, concentrada anotando em um caderno.",
   intro: [
     "A análise junguiana é uma abordagem terapêutica baseada na psicologia de Carl Gustav Jung. Através do equilíbrio entre os diferentes aspectos da personalidade, trabalhamos para desenvolver uma identidade mais autêntica e equilibrada, compreendendo os significados profundos por trás de suas vivências e emoções.",
     "As sessões ocorrem de forma online, uma vez por semana, com duração de 50 minutos a 1 hora. Neste espaço seguro, você é convidado a falar livremente sobre o cotidiano, memórias, sonhos, dores e o que você não conseguiria dizer para mais ninguém.",
@@ -70,6 +72,7 @@ export const TERAPIA_INTEGRATIVA: TherapyData = {
   tagIcon: "stars",
   title: "Terapia Integrativa",
   image: "/imgs/pag-terapia-integrativa.webp",
+  imageAlt: "Polaroids da Isa Pupo organizando e efetuando a terapia integrativa, com esteira de ervas e muito cuidado e carinho.",
   imageFit: "contain",
   intro: [
     "O atendimento integrativo é um espaço de acolhimento e respeito à individualidade. São fórmulas únicas e relações únicas, cada processo é guiado pela escuta sutil da intuição e pela confiança no que o momento pede. Aqui, a espiritualidade é parte viva, conduzindo um ambiente seguro e amoroso para o que florescer.",
