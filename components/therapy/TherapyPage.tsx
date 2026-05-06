@@ -23,7 +23,7 @@ export default function TherapyPage({ data }: Props) {
       {/* Hero branco */}
       <section data-animate className="bg-white pt-11 pb-16 md:py-20">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
-          <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-[1fr_422px] gap-x-14 gap-y-5 md:gap-y-0 items-start">
+          <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-[1fr_422px] gap-x-14 gap-y-[30px] md:gap-y-0 items-start">
             <div>
               <Tag icon={data.tagIcon} iconColor="var(--verde-claro)">
                 {data.tagText}
