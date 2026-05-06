@@ -23,7 +23,7 @@ export default function TherapyPage({ data }: Props) {
       {/* Hero branco */}
       <section data-animate className="bg-white pt-11 pb-16 md:py-20">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
-          <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-[1fr_422px] gap-14 items-start">
+          <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-[1fr_422px] gap-x-14 gap-y-8 md:gap-y-0 items-start">
             <div>
               <Tag icon={data.tagIcon} iconColor="var(--verde-claro)">
                 {data.tagText}
@@ -32,6 +32,16 @@ export default function TherapyPage({ data }: Props) {
                 {data.title}
               </h1>
               <span className="block w-[73px] h-[3px] bg-laranja mt-[18px] mb-[26px]" />
+            </div>
+            <div className={cn("relative w-full rounded-[16px] overflow-hidden h-[560px] md:row-span-2", data.imageWrapperClassName)}>
+              <Image
+                src={data.image}
+                alt={data.imageAlt}
+                fill
+                className={`object-${data.imageFit ?? "cover"} object-center`}
+              />
+            </div>
+            <div>
               <p className="text-[18px] leading-[1.55] md:leading-[1.4] text-marrom max-w-[560px] mb-[26px]">
                 {data.lead}
               </p>
@@ -43,14 +53,6 @@ export default function TherapyPage({ data }: Props) {
                   <p key={i}>{p}</p>
                 ))}
               </div>
-            </div>
-            <div className={cn("relative w-full rounded-[16px] overflow-hidden h-[560px] order-first md:order-last", data.imageWrapperClassName)}>
-              <Image
-                src={data.image}
-                alt={data.imageAlt}
-                fill
-                className={`object-${data.imageFit ?? "cover"} object-center`}
-              />
             </div>
           </div>
         </div>
