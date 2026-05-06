@@ -149,7 +149,7 @@ export default function EbookPage() {
       </section>
 
       {/* Sobre a Autora */}
-      <section data-animate className="bg-white pt-11 pb-16 md:py-20">
+      <section data-animate className="bg-bege-light pt-11 pb-16 md:py-20">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle eyebrow="Sobre a Autora" />
           <div className="max-w-content mx-auto mt-[25px] md:mt-[50px] grid grid-cols-1 md:grid-cols-[422px_1fr] gap-7 md:gap-14 items-start">
