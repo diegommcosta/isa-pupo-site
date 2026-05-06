@@ -54,7 +54,7 @@ export default function Atendimentos() {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="relative w-full max-w-[412px] bg-bege-light rounded-[30px] overflow-hidden flex flex-col p-[35px] md:p-[45px]"
+              className="card-hover relative w-full max-w-[412px] bg-bege-light rounded-[30px] overflow-hidden flex flex-col p-[35px] md:p-[45px]"
               style={{ minHeight: 480 }}
             >
               {/* Watermark decorativa cerebro-coracao */}

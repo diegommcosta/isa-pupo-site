@@ -18,7 +18,7 @@ export default function Hero() {
 
           {/* Texto */}
           <div className="flex flex-col gap-0">
-            <Tag className="self-start">Terapeuta Junguiana e Integrativa</Tag>
+            <Tag className="self-start" data-animate-tag>Terapeuta Junguiana e Integrativa</Tag>
             <h1
               className="font-display font-normal leading-none text-verde-escuro mt-3"
               style={{ fontSize: "clamp(56px, 6vw, 80px)" }}
@@ -60,7 +60,7 @@ export default function Hero() {
           </div>
 
           {/* Imagem */}
-          <div className="relative h-[320px] md:h-[480px] w-full order-first md:order-none justify-self-center md:justify-self-end max-w-[545px]">
+          <div data-animate-image="right" className="relative h-[320px] md:h-[480px] w-full order-first md:order-none justify-self-center md:justify-self-end max-w-[545px]">
             <Image
               src="/imgs/hero.webp"
               alt="Isa Pupo em blusa vermelha e calça branca com seu companheiro de quatro patas, Mike, rodeados por elementos de seu hobbie, como cristais, ervas, vinho, natureza."

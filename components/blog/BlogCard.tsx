@@ -29,8 +29,7 @@ export default function BlogCard({ post, variant = "home", imageHeight }: Props)
 
   return (
     <article
-      className="blog-card bg-bege-light rounded-[30px] overflow-hidden flex flex-col w-full"
-      style={{ transition: "transform .25s ease, box-shadow .25s ease" }}
+      className="blog-card card-hover bg-bege-light rounded-[30px] overflow-hidden flex flex-col w-full"
     >
       {/* Imagem de capa */}
       <div className={`relative overflow-hidden`} style={{ height: imgH, flexShrink: 0 }}>
@@ -47,7 +46,7 @@ export default function BlogCard({ post, variant = "home", imageHeight }: Props)
           </div>
         )}
         {post.category && (
-          <span className="tag absolute top-3 left-3">{post.category.title}</span>
+          <span className="tag absolute top-3 left-3" data-animate-tag>{post.category.title}</span>
         )}
       </div>
 

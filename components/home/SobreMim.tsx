@@ -10,6 +10,7 @@ export default function SobreMim() {
         <div className="max-w-content mx-auto mt-[25px] md:mt-[50px] grid grid-cols-1 md:grid-cols-[422px_1fr] gap-7 md:gap-14 items-start">
           {/* Foto */}
           <div
+            data-animate-image="left"
             className="rounded-xl overflow-hidden mx-auto md:mx-0 w-full max-w-[422px]"
             style={{ aspectRatio: "422/561" }}
           >

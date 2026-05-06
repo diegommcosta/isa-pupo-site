@@ -1,19 +1,17 @@
 import { cn } from "@/lib/utils";
 import { Icon, type IconName } from "@/components/ui/Icon";
-import type { ReactNode } from "react";
+import type { ReactNode, HTMLAttributes } from "react";
 
-type Props = {
+type Props = HTMLAttributes<HTMLSpanElement> & {
   children: ReactNode;
   icon?: IconName;
   iconColor?: string;
-  className?: string;
-  style?: React.CSSProperties;
 };
 
-export default function Tag({ children, icon, iconColor = "var(--verde-claro)", className, style }: Props) {
+export default function Tag({ children, icon, iconColor = "var(--verde-claro)", className, ...rest }: Props) {
   return (
-    <span className={cn("tag", className)} style={style}>
-      {icon && <Icon name={icon} size={16} color={iconColor} />}
+    <span className={cn("tag", className)} {...rest}>
+      {icon && <Icon name={icon} size={19} color={iconColor} />}
       {children}
     </span>
   );

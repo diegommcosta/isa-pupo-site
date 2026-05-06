@@ -25,7 +25,7 @@ export default function TherapyPage({ data }: Props) {
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-[1fr_422px] gap-x-14 gap-y-[30px] md:gap-y-0 items-start">
             <div>
-              <Tag icon={data.tagIcon} iconColor="var(--verde-claro)">
+              <Tag icon={data.tagIcon} iconColor="var(--verde-claro)" data-animate-tag>
                 {data.tagText}
               </Tag>
               <h1 className="mt-5 font-sans font-bold text-[48px] leading-[1.05] text-verde-escuro">
@@ -33,7 +33,7 @@ export default function TherapyPage({ data }: Props) {
               </h1>
               <span className="block w-[73px] h-[3px] bg-laranja mt-[18px] mb-0 md:mb-[26px]" />
             </div>
-            <div className={cn("relative w-full rounded-[16px] overflow-hidden h-[560px] md:row-span-2", data.imageWrapperClassName)}>
+            <div data-animate-image="right" className={cn("relative w-full rounded-[16px] overflow-hidden h-[560px] md:row-span-2", data.imageWrapperClassName)}>
               <Image
                 src={data.image}
                 alt={data.imageAlt}
@@ -69,7 +69,7 @@ export default function TherapyPage({ data }: Props) {
             {data.sections.map((sec) => (
               <div
                 key={sec.title}
-                className="bg-bege-light rounded-[20px] p-6 flex flex-col gap-3.5"
+                className="card-hover bg-bege-light rounded-[20px] p-6 flex flex-col gap-3.5"
               >
                 <h3 className="font-sans font-bold text-[22px] leading-[1.15] text-verde-escuro">
                   {sec.title}

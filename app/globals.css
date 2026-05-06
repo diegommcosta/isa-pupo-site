@@ -14,6 +14,16 @@
   }
 
   :root {
+    --bege: #EDBF9F;
+    --bege-light: #EFDDD1;
+    --rosa: #CF6A61;
+    --laranja: #BC2F0A;
+    --roxo-claro: #725093;
+    --roxo-escuro: #53346B;
+    --marrom: #2D1605;
+    --verde-claro: #6E7C59;
+    --verde-escuro: #2D3322;
+    --cinza: #9E9E9E;
     --rosa-15: rgba(207, 106, 97, 0.15);
     --bege-60: rgba(237, 191, 159, 0.6);
     --shadow-card: 0 2px 8px rgba(45, 22, 5, 0.06);
@@ -33,7 +43,7 @@
   }
 
   .tag {
-    @apply inline-block text-marrom text-sm font-sans px-[9px] py-[8px] rounded-[3px];
+    @apply inline-flex items-center gap-[6px] text-marrom text-sm font-sans px-[9px] py-[8px] rounded-[3px];
     background-color: rgba(207, 106, 97, 0.15);
   }
 
@@ -51,5 +61,23 @@
     background: theme('colors.laranja');
     margin-top: 14px;
     margin-bottom: 14px;
+  }
+
+  .card-hover {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    will-change: transform;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(45, 22, 5, 0.12);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card-hover {
+      transition: none;
+    }
+    .card-hover:hover {
+      transform: none;
+      box-shadow: var(--shadow-card);
+    }
   }
 }

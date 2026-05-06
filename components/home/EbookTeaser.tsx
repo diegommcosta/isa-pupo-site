@@ -17,7 +17,7 @@ export default function EbookTeaser() {
 
         <div className="max-w-content mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center">
           {/* Livro */}
-          <div>
+          <div data-animate-image="left">
             <Image
               src="/imgs/livro.webp"
               alt="Capa do ebook O Cultivo da Verdade Interna"

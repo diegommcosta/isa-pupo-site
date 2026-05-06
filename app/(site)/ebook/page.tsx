@@ -45,7 +45,7 @@ export default function EbookPage() {
       <section data-animate className="bg-bege py-[80px]">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center">
-            <div>
+            <div data-animate-image="left">
               <Image
                 src="/imgs/livro.webp"
                 alt="O Cultivo da Verdade Interna"
@@ -55,7 +55,7 @@ export default function EbookPage() {
               />
             </div>
             <div>
-              <Tag icon="book-half" iconColor="var(--roxo-escuro)" style={{ color: "var(--roxo-escuro)" }}>
+              <Tag icon="book-half" iconColor="var(--roxo-escuro)" style={{ color: "var(--roxo-escuro)" }} data-animate-tag>
                 Ebook
               </Tag>
               <h1 className="mt-5 font-sans font-bold text-[48px] leading-[1.1] text-roxo-escuro">
@@ -133,6 +133,7 @@ export default function EbookPage() {
               ))}
             </div>
             <div
+              data-animate-image="right"
               className="rounded-[16px] overflow-hidden mx-auto md:mx-0 w-full max-w-[392px]"
               style={{ aspectRatio: "392/379" }}
             >
@@ -154,6 +155,7 @@ export default function EbookPage() {
           <SectionTitle eyebrow="Sobre a Autora" />
           <div className="max-w-content mx-auto mt-[25px] md:mt-[50px] grid grid-cols-1 md:grid-cols-[422px_1fr] gap-7 md:gap-14 items-start">
             <div
+              data-animate-image="left"
               className="rounded-xl overflow-hidden mx-auto md:mx-0 w-full max-w-[422px]"
               style={{ aspectRatio: "422/561" }}
             >
@@ -203,7 +205,7 @@ export default function EbookPage() {
           <SectionTitle eyebrow="Investimento" color="var(--bege)" />
           <div className="mt-10 flex justify-center">
             <div
-              className="bg-bege rounded-[20px] text-center text-marrom w-full max-w-[384px]"
+              className="card-hover bg-bege rounded-[20px] text-center text-marrom w-full max-w-[384px]"
               style={{ padding: "30px 24px 28px", boxShadow: "0 8px 24px rgba(0,0,0,.15)" }}
             >
               <p className="font-sans text-[18px]" style={{ textDecoration: "line-through", opacity: 0.7 }}>

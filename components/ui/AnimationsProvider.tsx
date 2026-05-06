@@ -7,6 +7,9 @@ export default function AnimationsProvider() {
     let killed = false;
 
     (async () => {
+      // Respect user's motion preference — skip all GSAP if reduced-motion is set
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       if (killed) return;
@@ -50,6 +53,45 @@ export default function AnimationsProvider() {
             ease: "power2.out",
             scrollTrigger: {
               trigger: grid,
+              start: triggerStart,
+              once: true,
+            },
+          }
+        );
+      });
+
+      // Images slide in from their visual side — never animate background colors
+      document.querySelectorAll<HTMLElement>("[data-animate-image]").forEach((el) => {
+        const fromX = el.dataset.animateImage === "left" ? -60 : 60;
+        gsap.fromTo(
+          el,
+          { opacity: 0, x: fromX },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: triggerStart,
+              once: true,
+            },
+          }
+        );
+      });
+
+      // Tags slide in from left
+      document.querySelectorAll<HTMLElement>("[data-animate-tag]").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, x: -40 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
               start: triggerStart,
               once: true,
             },
