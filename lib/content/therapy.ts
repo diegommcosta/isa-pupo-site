@@ -78,7 +78,7 @@ export const TERAPIA_INTEGRATIVA: TherapyData = {
   image: "/imgs/pag-terapia-integrativa.webp",
   imageAlt: "Polaroids da Isa Pupo organizando e efetuando a terapia integrativa, com esteira de ervas e muito cuidado e carinho.",
   imageFit: "contain",
-  imageWrapperClassName: "md:h-[644px]",
+  imageWrapperClassName: "h-[480px] md:h-[644px]",
   intro: [
     "Cada sessão é conduzida com presença absoluta. O trabalho é um somar de saberes que une sensibilidade e entrega, sempre guiado pelo coração e pelo que se revela no aqui e agora.",
     "As práticas se entrelaçam com o uso do Reiki, como ferramenta de canalização de energia vital para restabelecer o fluxo do corpo, e com a sabedoria ancestral. Utilizamos o poder das plantas e dos elementos da natureza através de esteiras de ervas e benzimentos, honrando as tradições para realizar uma limpeza e harmonização profunda.",

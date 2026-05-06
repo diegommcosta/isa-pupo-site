@@ -3,6 +3,7 @@ import Tag from "@/components/ui/Tag";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { BulletRow } from "@/components/ui/BulletRow";
 import CtaBand from "@/components/layout/CtaBand";
+import { cn } from "@/lib/utils";
 import type { TherapyData } from "@/lib/content/therapy";
 import type { IconName } from "@/components/ui/Icon";
 
@@ -43,7 +44,7 @@ export default function TherapyPage({ data }: Props) {
                 ))}
               </div>
             </div>
-            <div className={`relative w-full rounded-[16px] overflow-hidden h-[560px] ${data.imageWrapperClassName ?? ""}`}>
+            <div className={cn("relative w-full rounded-[16px] overflow-hidden h-[560px]", data.imageWrapperClassName)}>
               <Image
                 src={data.image}
                 alt={data.imageAlt}
