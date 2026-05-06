@@ -16,7 +16,7 @@ export default function CarlJungQuote() {
       />
 
       {/* Citação */}
-      <blockquote className="relative z-10 text-center text-bege max-w-[880px] mx-auto">
+      <blockquote data-animate-up className="relative z-10 text-center text-bege max-w-[880px] mx-auto">
         <p className="font-sans font-bold text-[22px] md:text-[30px] leading-[1.4]">
           &ldquo;Quem olha para fora sonha, quem olha para dentro, desperta.&rdquo;
         </p>

@@ -16,8 +16,8 @@ export default function Hero() {
         <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center min-h-[480px]">
 
           {/* Texto */}
-          <div className="flex flex-col gap-0">
-            <Tag className="self-start" data-animate-tag>Terapeuta Junguiana e Integrativa</Tag>
+          <div data-animate-stagger="left" className="flex flex-col gap-0">
+            <Tag className="self-start">Terapeuta Junguiana e Integrativa</Tag>
             <h1
               className="font-display font-normal leading-none text-verde-escuro mt-3"
               style={{ fontSize: "clamp(56px, 6vw, 80px)" }}

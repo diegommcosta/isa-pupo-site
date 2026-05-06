@@ -20,23 +20,45 @@ export default function AnimationsProvider() {
       const triggerStart = isMobile ? "top 95%" : "top 85%";
 
       // Staggered fade-in for grid children marked with data-animate-stagger.
+      // Default direction is up (y:30); pass data-animate-stagger="left" to slide
+      // children from the left instead — used for hero text/CTA chains.
       // clearProps releases the inline transform after the entrance ends so the
       // CSS :hover translate (.card-hover) is not overridden by gsap's matrix.
       document.querySelectorAll<HTMLElement>("[data-animate-stagger]").forEach((grid) => {
         const children = Array.from(grid.children) as HTMLElement[];
         if (!children.length) return;
+        const fromLeft = grid.dataset.animateStagger === "left";
         gsap.fromTo(
           children,
-          { opacity: 0, y: 30 },
+          fromLeft ? { opacity: 0, x: -40 } : { opacity: 0, y: 30 },
           {
             opacity: 1,
-            y: 0,
+            ...(fromLeft ? { x: 0 } : { y: 0 }),
             duration: 0.72,
             stagger: 0.15,
             ease: "power2.out",
             clearProps: "transform",
             scrollTrigger: {
               trigger: grid,
+              start: triggerStart,
+              once: true,
+            },
+          }
+        );
+      });
+
+      // Single elements that should fade-up on reveal (no background involved)
+      document.querySelectorAll<HTMLElement>("[data-animate-up]").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.84,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
               start: triggerStart,
               once: true,
             },
