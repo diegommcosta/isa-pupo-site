@@ -31,13 +31,13 @@ export default function TherapyPage({ data }: Props) {
                 {data.title}
               </h1>
               <span className="block w-[73px] h-[3px] bg-laranja mt-[18px] mb-[26px]" />
-              <p className="text-[18px] leading-[1.55] text-marrom max-w-[560px] mb-[26px]">
+              <p className="text-[18px] leading-[1.55] md:leading-[1.4] text-marrom max-w-[560px] mb-[26px]">
                 {data.lead}
               </p>
               <h2 className="font-sans font-bold text-[24px] leading-[1.1] text-marrom mb-4">
                 Como funciona
               </h2>
-              <div className="text-[18px] leading-[1.55] text-marrom max-w-[560px] space-y-[14px]">
+              <div className="text-[18px] leading-[1.55] md:leading-[1.4] text-marrom max-w-[560px] space-y-[14px]">
                 {data.intro.split("\n").map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
