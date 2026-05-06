@@ -62,7 +62,7 @@ export default function BlogCard({ post, variant = "home", imageHeight }: Props)
             bottom: -20,
             width: 220,
             height: 220,
-            background: "url(/imgs/cerebro-coracao.png) center/contain no-repeat",
+            background: "url(/imgs/cerebro-coracao.webp) center/contain no-repeat",
             opacity: 0.14,
           }}
         />

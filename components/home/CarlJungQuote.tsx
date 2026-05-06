@@ -4,12 +4,12 @@ export default function CarlJungQuote() {
   return (
     <section
       data-animate
-      className="relative overflow-hidden bg-roxo-escuro py-12 md:py-16 px-6 flex items-center justify-center"
+      className="relative overflow-hidden bg-roxo-escuro pt-11 pb-12 md:py-16 px-6 flex items-center justify-center"
       style={{ minHeight: 350 }}
     >
       {/* Ilustração decorativa centralizada atras do texto */}
       <Image
-        src="/imgs/cerebro-coracao-flores.png"
+        src="/imgs/cerebro-coracao-flores.webp"
         alt=""
         aria-hidden
         width={240}

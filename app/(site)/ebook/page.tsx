@@ -47,7 +47,7 @@ export default function EbookPage() {
           <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center">
             <div>
               <Image
-                src="/imgs/livro.png"
+                src="/imgs/livro.webp"
                 alt="O Cultivo da Verdade Interna"
                 width={400}
                 height={533}
@@ -137,7 +137,7 @@ export default function EbookPage() {
               style={{ aspectRatio: "392/379" }}
             >
               <Image
-                src="/imgs/tablet.png"
+                src="/imgs/tablet.webp"
                 alt=""
                 width={392}
                 height={379}
@@ -158,7 +158,7 @@ export default function EbookPage() {
               style={{ aspectRatio: "422/561" }}
             >
               <Image
-                src="/imgs/sobre-mim.png"
+                src="/imgs/sobre-mim.webp"
                 alt="Isa Pupo"
                 width={422}
                 height={561}

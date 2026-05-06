@@ -3,18 +3,18 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 
 export default function SobreMim() {
   return (
-    <section id="sobre" data-animate className="bg-white py-16 md:py-20">
+    <section id="sobre" data-animate className="bg-white pt-11 pb-16 md:py-20 scroll-mt-[55px] md:scroll-mt-0">
       <div className="max-w-site mx-auto px-8 lg:px-[200px]">
         <SectionTitle eyebrow="Sobre Mim" />
 
-        <div className="max-w-content mx-auto mt-[50px] grid grid-cols-1 md:grid-cols-[422px_1fr] gap-14 items-start">
+        <div className="max-w-content mx-auto mt-[25px] md:mt-[50px] grid grid-cols-1 md:grid-cols-[422px_1fr] gap-7 md:gap-14 items-start">
           {/* Foto */}
           <div
             className="rounded-xl overflow-hidden mx-auto md:mx-0 w-full max-w-[422px]"
             style={{ aspectRatio: "422/561" }}
           >
             <Image
-              src="/imgs/sobre-mim.png"
+              src="/imgs/sobre-mim.webp"
               alt="Isa Pupo"
               width={422}
               height={561}

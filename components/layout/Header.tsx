@@ -40,7 +40,7 @@ export default function Header() {
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="w-full bg-verde-escuro sticky top-0 z-50">
+    <header className="w-full bg-verde-escuro sticky top-0 z-50 shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
       <div className="max-w-site mx-auto h-[60px] px-8 lg:px-[200px] flex items-center justify-between">
         {/* Logo */}
         <Link
@@ -118,7 +118,7 @@ export default function Header() {
       {/* Mobile drawer */}
       {mobileOpen && (
         <nav
-          className="lg:hidden bg-verde-escuro border-t border-bege/15 px-8 py-5 pb-7 flex flex-col gap-[18px] absolute left-0 right-0 z-40"
+          className="lg:hidden bg-verde-escuro border-t border-bege/15 px-8 py-5 pb-7 flex flex-col gap-[18px]"
           aria-label="Menu mobile"
         >
           {items.map((link) => {

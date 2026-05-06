@@ -14,7 +14,7 @@ export default function Hero() {
       style={{ background: "rgba(237, 191, 159, 0.6)" }}
     >
       <div className="max-w-site mx-auto px-8 lg:px-[200px]">
-        <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center min-h-[480px]">
+        <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center min-h-[480px]">
 
           {/* Texto */}
           <div className="flex flex-col gap-0">
@@ -62,7 +62,7 @@ export default function Hero() {
           {/* Imagem */}
           <div className="relative h-[320px] md:h-[480px] w-full order-first md:order-none justify-self-center md:justify-self-end max-w-[545px]">
             <Image
-              src="/imgs/hero.png"
+              src="/imgs/hero.webp"
               alt="Isabella Pupo com seu companheiro de quatro patas Mike e seus hobbies."
               fill
               className="object-contain object-center md:object-right"

@@ -21,7 +21,7 @@ export const TERAPIA_JUNGIANA: TherapyData = {
   tagText: "Psicologia analítica de Carl Jung",
   tagIcon: "moon-stars-fill",
   title: "Terapia Junguiana",
-  image: "/imgs/pag-terapia-jungiana.png",
+  image: "/imgs/pag-terapia-jungiana.webp",
   intro: [
     "A análise junguiana é uma abordagem terapêutica baseada na psicologia de Carl Gustav Jung. Através do equilíbrio entre os diferentes aspectos da personalidade, trabalhamos para desenvolver uma identidade mais autêntica e equilibrada, compreendendo os significados profundos por trás de suas vivências e emoções.",
     "As sessões ocorrem de forma online, uma vez por semana, com duração de 50 minutos a 1 hora. Neste espaço seguro, você é convidado a falar livremente sobre o cotidiano, memórias, sonhos, dores e o que você não conseguiria dizer para mais ninguém.",
@@ -31,6 +31,7 @@ export const TERAPIA_JUNGIANA: TherapyData = {
     {
       title: "O que trabalhamos",
       items: [
+        "Equilíbrio entre luz e sombra",
         "Compreensão de sonhos e afetos",
         "Descobertas de padrões repetitivos",
         "Acesso a imagens, fantasias e intuições",
@@ -41,6 +42,7 @@ export const TERAPIA_JUNGIANA: TherapyData = {
     {
       title: "Benefícios",
       items: [
+        "Clareza sobre quem você realmente é",
         "Mudança na forma de lidar com as emoções",
         "Viver de acordo com sua verdade interna",
         "Nova perspectiva sobre a própria história",
@@ -49,6 +51,7 @@ export const TERAPIA_JUNGIANA: TherapyData = {
     {
       title: "Para quem é indicado",
       items: [
+        "Pessoas em processos de transição ou crise existencial",
         "Quem deseja explorar o universo dos sonhos e símbolos",
         "Quem se sente \"preso\" em mesmos ciclos emocionais",
         "Pessoas que buscam uma vida mais consciente e plena",
@@ -66,7 +69,7 @@ export const TERAPIA_INTEGRATIVA: TherapyData = {
   tagText: "Saúde Holística e Bem-estar",
   tagIcon: "stars",
   title: "Terapia Integrativa",
-  image: "/imgs/pag-terapia-integrativa.png",
+  image: "/imgs/pag-terapia-integrativa.webp",
   imageFit: "contain",
   intro: [
     "O atendimento integrativo é um espaço de acolhimento e respeito à individualidade. São fórmulas únicas e relações únicas, cada processo é guiado pela escuta sutil da intuição e pela confiança no que o momento pede. Aqui, a espiritualidade é parte viva, conduzindo um ambiente seguro e amoroso para o que florescer.",
@@ -78,6 +81,7 @@ export const TERAPIA_INTEGRATIVA: TherapyData = {
     {
       title: "O que trabalhamos",
       items: [
+        "Restabelecimento do fluxo vital do corpo",
         "Uso de propriedades botânicas para purificação",
         "Relaxamento profundo através do Reiki e presença",
         "Integração com os elementos ancestrais",
@@ -87,6 +91,7 @@ export const TERAPIA_INTEGRATIVA: TherapyData = {
     {
       title: "Benefícios",
       items: [
+        "Redução imediata do estresse e da carga mental",
         "Sensação de leveza e clareza espiritual",
         "Sentir-se visto em sua total individualidade",
         "Liberação de energias estagnadas",
@@ -96,6 +101,7 @@ export const TERAPIA_INTEGRATIVA: TherapyData = {
     {
       title: "Para quem é indicado",
       items: [
+        "Quem precisa de um espaço seguro e amoroso",
         "Quem se sente sobrecarregado ou \"pesado\" emocionalmente",
         "Quem se identifica com a força das ervas e elementos naturais",
         "Quem busca um atendimento que considere a alma e a intuição",

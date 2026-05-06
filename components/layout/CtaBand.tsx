@@ -14,11 +14,11 @@ export default function CtaBand({
   return (
     <section
       data-animate
-      className="relative bg-marrom text-bege py-12 md:py-16 text-center overflow-hidden"
+      className="relative bg-marrom text-bege pt-11 pb-12 md:py-16 text-center overflow-hidden"
     >
       {/* Ilustração cerebro-lampada centralizada no topo */}
       <Image
-        src="/imgs/cerebro-lampada.png"
+        src="/imgs/cerebro-lampada.webp"
         alt=""
         aria-hidden
         width={162}

@@ -43,7 +43,7 @@ const cards: CardData[] = [
 
 export default function Atendimentos() {
   return (
-    <section id="atendimentos" data-animate className="bg-verde-escuro py-16 md:py-20">
+    <section id="atendimentos" data-animate className="bg-verde-escuro pt-11 pb-16 md:py-20 scroll-mt-[55px] md:scroll-mt-0">
       <div className="max-w-site mx-auto px-8 lg:px-[200px]">
         <SectionTitle eyebrow="Atendimentos" color="var(--bege)" />
 
@@ -54,8 +54,8 @@ export default function Atendimentos() {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="relative w-full max-w-[412px] bg-bege-light rounded-[30px] overflow-hidden flex flex-col"
-              style={{ minHeight: 480, padding: 45 }}
+              className="relative w-full max-w-[412px] bg-bege-light rounded-[30px] overflow-hidden flex flex-col p-[35px] md:p-[45px]"
+              style={{ minHeight: 480 }}
             >
               {/* Watermark decorativa cerebro-coracao */}
               <div
@@ -66,13 +66,13 @@ export default function Atendimentos() {
                   top: 15,
                   width: 286,
                   height: 450,
-                  background: "url(/imgs/cerebro-coracao.png) center/contain no-repeat",
+                  background: "url(/imgs/cerebro-coracao.webp) center/contain no-repeat",
                 }}
               />
 
               <div className="relative flex-1">
                 <IconDisc icon={card.icon} />
-                <h3 className="mt-4 mb-[10px] font-sans font-bold text-[32px] leading-snug text-marrom">
+                <h3 className="mt-4 mb-[10px] font-sans font-bold text-[32px] leading-snug text-marrom tracking-tight">
                   {card.title}
                 </h3>
                 <p className="text-[17px] leading-[1.45] text-marrom max-w-[320px]">

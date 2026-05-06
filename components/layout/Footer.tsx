@@ -12,8 +12,8 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-verde-escuro text-bege">
-      <div className="max-w-site mx-auto px-8 lg:px-[200px] pt-[60px] pb-[32px]">
-        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-10 pb-8 border-b-[3px] border-verde-claro">
+      <div className="max-w-site mx-auto px-8 lg:px-[200px] pt-10 md:pt-[60px] pb-[32px]">
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-6 md:gap-10 pb-8 border-b-[3px] border-verde-claro">
           {/* Brand */}
           <div>
             <p className="font-display text-[36px] leading-none mb-[14px]">Isa Pupo</p>
