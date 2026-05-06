@@ -44,7 +44,7 @@ export default function TherapyPage({ data }: Props) {
                 ))}
               </div>
             </div>
-            <div className={cn("relative w-full rounded-[16px] overflow-hidden h-[560px]", data.imageWrapperClassName)}>
+            <div className={cn("relative w-full rounded-[16px] overflow-hidden h-[560px] order-first md:order-last", data.imageWrapperClassName)}>
               <Image
                 src={data.image}
                 alt={data.imageAlt}
