@@ -21,6 +21,7 @@ const berliana = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://isa-pupo-site.vercel.app"),
   title: {
     default: "Isa Pupo | Psicoterapia Jungiana & Integrativa",
     template: "%s | Isa Pupo",
