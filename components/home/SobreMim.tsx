@@ -3,7 +3,7 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 
 export default function SobreMim() {
   return (
-    <section id="sobre" data-animate className="bg-white pt-11 pb-16 md:py-20 scroll-mt-[55px] md:scroll-mt-0">
+    <section id="sobre" className="bg-white pt-11 pb-16 md:py-20 scroll-mt-[55px] md:scroll-mt-0">
       <div className="max-w-site mx-auto px-8 lg:px-[200px]">
         <SectionTitle eyebrow="Sobre Mim" />
 

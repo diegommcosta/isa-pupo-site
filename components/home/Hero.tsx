@@ -9,7 +9,6 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      data-animate
       className="relative w-full overflow-hidden pt-8 pb-11 md:py-20"
       style={{ background: "rgba(237, 191, 159, 0.6)" }}
     >

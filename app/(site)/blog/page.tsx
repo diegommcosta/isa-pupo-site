@@ -36,7 +36,7 @@ export default async function BlogIndex({
   return (
     <>
       {/* Hero branco minimalista */}
-      <section data-animate className="bg-white pt-[80px] pb-[30px]">
+      <section className="bg-white pt-[80px] pb-[30px]">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle
             eyebrow="Blog"
@@ -46,7 +46,7 @@ export default async function BlogIndex({
       </section>
 
       {/* Grid de posts */}
-      <section data-animate className="bg-white pb-[80px] pt-[30px]">
+      <section className="bg-white pb-[80px] pt-[30px]">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           {posts.length === 0 ? (
             <p className="text-center text-verde-claro py-12 font-sans text-base">

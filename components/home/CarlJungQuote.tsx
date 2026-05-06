@@ -3,7 +3,6 @@ import Image from "next/image";
 export default function CarlJungQuote() {
   return (
     <section
-      data-animate
       className="relative overflow-hidden bg-roxo-escuro pt-11 pb-12 md:py-16 px-6 flex items-center justify-center"
       style={{ minHeight: 350 }}
     >

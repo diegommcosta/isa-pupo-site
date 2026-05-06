@@ -19,26 +19,9 @@ export default function AnimationsProvider() {
       const isMobile = window.innerWidth < 768;
       const triggerStart = isMobile ? "top 95%" : "top 85%";
 
-      // Fade-in + slide-up for each section marked with data-animate
-      document.querySelectorAll<HTMLElement>("[data-animate]").forEach((el) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: el,
-              start: triggerStart,
-              once: true,
-            },
-          }
-        );
-      });
-
-      // Staggered fade-in for grid children marked with data-animate-stagger
+      // Staggered fade-in for grid children marked with data-animate-stagger.
+      // clearProps releases the inline transform after the entrance ends so the
+      // CSS :hover translate (.card-hover) is not overridden by gsap's matrix.
       document.querySelectorAll<HTMLElement>("[data-animate-stagger]").forEach((grid) => {
         const children = Array.from(grid.children) as HTMLElement[];
         if (!children.length) return;
@@ -48,9 +31,10 @@ export default function AnimationsProvider() {
           {
             opacity: 1,
             y: 0,
-            duration: 0.6,
+            duration: 0.72,
             stagger: 0.15,
             ease: "power2.out",
+            clearProps: "transform",
             scrollTrigger: {
               trigger: grid,
               start: triggerStart,
@@ -69,7 +53,7 @@ export default function AnimationsProvider() {
           {
             opacity: 1,
             x: 0,
-            duration: 0.8,
+            duration: 0.96,
             ease: "power3.out",
             scrollTrigger: {
               trigger: el,
@@ -88,7 +72,7 @@ export default function AnimationsProvider() {
           {
             opacity: 1,
             x: 0,
-            duration: 0.6,
+            duration: 0.72,
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,

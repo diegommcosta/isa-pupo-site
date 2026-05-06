@@ -11,7 +11,7 @@ const bullets = [
 
 export default function EbookTeaser() {
   return (
-    <section id="ebook" data-animate className="bg-bege pt-11 pb-16 md:py-20 scroll-mt-[55px] md:scroll-mt-0">
+    <section id="ebook" className="bg-bege pt-11 pb-16 md:py-20 scroll-mt-[55px] md:scroll-mt-0">
       <div className="max-w-site mx-auto px-8 lg:px-[200px]">
         <SectionTitle eyebrow="Ebook" />
 

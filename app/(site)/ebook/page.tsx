@@ -42,7 +42,7 @@ export default function EbookPage() {
   return (
     <>
       {/* Hero */}
-      <section data-animate className="bg-bege py-[80px]">
+      <section className="bg-bege py-[80px]">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center">
             <div data-animate-image="left">
@@ -84,7 +84,7 @@ export default function EbookPage() {
       </section>
 
       {/* Banda roxo-claro */}
-      <section data-animate className="bg-roxo-claro py-[26px]">
+      <section className="bg-roxo-claro py-[26px]">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto flex flex-wrap justify-center gap-9 items-center">
             {highlights.map((h) => (
@@ -98,7 +98,7 @@ export default function EbookPage() {
       </section>
 
       {/* Para quem é este ebook? */}
-      <section data-animate className="bg-white py-[70px]">
+      <section className="bg-white py-[70px]">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle eyebrow="Para quem é este ebook?" />
           <div className="mt-[30px] max-w-[600px] mx-auto text-center text-[19px] leading-[1.5] text-marrom space-y-[10px]">
@@ -150,7 +150,7 @@ export default function EbookPage() {
       </section>
 
       {/* Sobre a Autora */}
-      <section data-animate className="bg-bege-light pt-11 pb-16 md:py-20">
+      <section className="bg-bege-light pt-11 pb-16 md:py-20">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle eyebrow="Sobre a Autora" />
           <div className="max-w-content mx-auto mt-[25px] md:mt-[50px] grid grid-cols-1 md:grid-cols-[422px_1fr] gap-7 md:gap-14 items-start">
@@ -200,7 +200,7 @@ export default function EbookPage() {
       </section>
 
       {/* Investimento */}
-      <section data-animate className="bg-marrom py-[70px] pb-[90px] text-bege">
+      <section className="bg-marrom py-[70px] pb-[90px] text-bege">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <SectionTitle eyebrow="Investimento" color="var(--bege)" />
           <div className="mt-10 flex justify-center">

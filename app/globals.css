@@ -64,12 +64,11 @@
   }
 
   .card-hover {
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    transition: transform var(--transition-base);
     will-change: transform;
   }
   .card-hover:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(45, 22, 5, 0.12);
+    transform: translateY(-7px);
   }
   @media (prefers-reduced-motion: reduce) {
     .card-hover {
@@ -77,7 +76,6 @@
     }
     .card-hover:hover {
       transform: none;
-      box-shadow: var(--shadow-card);
     }
   }
 }

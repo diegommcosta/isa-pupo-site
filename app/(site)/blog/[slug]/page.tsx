@@ -65,7 +65,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   return (
     <>
       {/* Seção 1 — meta + título */}
-      <section data-animate className="bg-white pt-[80px] pb-[30px]">
+      <section className="bg-white pt-[80px] pb-[30px]">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto">
             {/* Back link */}
@@ -110,7 +110,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
       {/* Seção 2 — capa */}
       {coverUrl && (
-        <section data-animate className="bg-white py-[30px]">
+        <section className="bg-white py-[30px]">
           <div className="max-w-site mx-auto px-8 lg:px-[200px]">
             <div className="max-w-content mx-auto">
               <div className="w-full h-[360px] rounded-[20px] overflow-hidden relative">
@@ -127,7 +127,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       )}
 
       {/* Seção 3 — corpo (single column) */}
-      <section data-animate className="bg-white pb-[70px]">
+      <section className="bg-white pb-[70px]">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto">
             {/* Artigo */}
@@ -172,7 +172,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       {/* Posts recentes */}
       {post.related && post.related.length > 0 && (
         <section
-          data-animate
           className="py-[70px]"
           style={{ background: "rgba(237,191,159,0.6)" }}
         >

@@ -43,7 +43,7 @@ const cards: CardData[] = [
 
 export default function Atendimentos() {
   return (
-    <section id="atendimentos" data-animate className="bg-verde-escuro pt-11 pb-16 md:py-20 scroll-mt-[55px] md:scroll-mt-0">
+    <section id="atendimentos" className="bg-verde-escuro pt-11 pb-16 md:py-20 scroll-mt-[55px] md:scroll-mt-0">
       <div className="max-w-site mx-auto px-8 lg:px-[200px]">
         <SectionTitle eyebrow="Atendimentos" color="var(--bege)" />
 
@@ -54,7 +54,7 @@ export default function Atendimentos() {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="card-hover relative w-full max-w-[412px] bg-bege-light rounded-[30px] overflow-hidden flex flex-col p-[35px] md:p-[45px]"
+              className="card-hover relative w-full max-w-[412px] bg-bege-light rounded-[30px] overflow-hidden flex flex-col p-[30px] md:p-[45px]"
               style={{ minHeight: 480 }}
             >
               {/* Watermark decorativa cerebro-coracao */}
