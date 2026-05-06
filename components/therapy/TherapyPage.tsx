@@ -43,7 +43,7 @@ export default function TherapyPage({ data }: Props) {
                 ))}
               </div>
             </div>
-            <div className="relative w-full rounded-[16px] overflow-hidden" style={{ height: 560 }}>
+            <div className={`relative w-full rounded-[16px] overflow-hidden h-[560px] ${data.imageWrapperClassName ?? ""}`}>
               <Image
                 src={data.image}
                 alt={data.imageAlt}
