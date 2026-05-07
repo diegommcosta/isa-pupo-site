@@ -1,6 +1,4 @@
 import { ImageResponse } from "next/og";
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 
 export const alt = "Isa Pupo | Psicoterapia Jungiana & Integrativa";
 export const size = { width: 1200, height: 630 };
@@ -8,11 +6,6 @@ export const contentType = "image/png";
 export const dynamic = "force-dynamic";
 
 export default async function Image() {
-  const imgBuffer = readFileSync(
-    join(process.cwd(), "public/imgs/sobre-mim.webp")
-  );
-  const imgSrc = `data:image/webp;base64,${imgBuffer.toString("base64")}`;
-
   return new ImageResponse(
     (
       <div
@@ -21,88 +14,64 @@ export default async function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "80px 100px",
         }}
       >
         <div
           style={{
-            flex: 1,
+            color: "#BC2F0A",
+            fontSize: 28,
+            letterSpacing: 8,
+            textTransform: "uppercase",
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            padding: "60px 64px",
-            gap: 16,
           }}
         >
-          <div
-            style={{
-              color: "#BC2F0A",
-              fontSize: 22,
-              letterSpacing: 5,
-              textTransform: "uppercase",
-            }}
-          >
-            Psicoterapia
-          </div>
-          <div
-            style={{
-              color: "#EFDDD1",
-              fontSize: 84,
-              fontWeight: 700,
-              lineHeight: 1.05,
-            }}
-          >
-            Isa Pupo
-          </div>
-          <div
-            style={{
-              color: "#EDBF9F",
-              fontSize: 28,
-              marginTop: 4,
-            }}
-          >
-            Jungiana & Integrativa
-          </div>
-          <div
-            style={{
-              width: 56,
-              height: 3,
-              background: "#BC2F0A",
-              marginTop: 20,
-            }}
-          />
-          <div
-            style={{
-              color: "#6E7C59",
-              fontSize: 20,
-              marginTop: 8,
-              lineHeight: 1.5,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <span>Cuidando da sua jornada interior</span>
-            <span>com acolhimento e profundidade.</span>
-          </div>
+          Psicoterapia
         </div>
-
         <div
           style={{
-            width: 420,
+            color: "#EFDDD1",
+            fontSize: 140,
+            fontWeight: 700,
+            lineHeight: 1.05,
+            marginTop: 24,
             display: "flex",
-            overflow: "hidden",
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={imgSrc}
-            alt=""
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "top center",
-            }}
-          />
+          Isa Pupo
+        </div>
+        <div
+          style={{
+            color: "#EDBF9F",
+            fontSize: 44,
+            marginTop: 16,
+            display: "flex",
+          }}
+        >
+          Jungiana & Integrativa
+        </div>
+        <div
+          style={{
+            width: 80,
+            height: 4,
+            background: "#BC2F0A",
+            marginTop: 40,
+          }}
+        />
+        <div
+          style={{
+            color: "#6E7C59",
+            fontSize: 32,
+            marginTop: 24,
+            lineHeight: 1.4,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <span>Cuidando da sua jornada interior</span>
+          <span>com acolhimento e profundidade.</span>
         </div>
       </div>
     ),
