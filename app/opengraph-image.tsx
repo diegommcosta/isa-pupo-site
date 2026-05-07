@@ -1,6 +1,5 @@
 import { ImageResponse } from "next/og";
-import { readFileSync } from "fs";
-import { join } from "path";
+import { readFileSync } from "node:fs";
 
 export const alt = "Isa Pupo | Psicoterapia Jungiana & Integrativa";
 export const size = { width: 1200, height: 630 };
@@ -8,7 +7,7 @@ export const contentType = "image/png";
 
 export default async function Image() {
   const imgBuffer = readFileSync(
-    join(process.cwd(), "public/imgs/sobre-mim.webp")
+    new URL("../public/imgs/sobre-mim.webp", import.meta.url)
   );
   const imgSrc = `data:image/webp;base64,${imgBuffer.toString("base64")}`;
 

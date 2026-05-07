@@ -8,6 +8,9 @@ const nextConfig = {
       },
     ],
   },
+  outputFileTracingIncludes: {
+    "/opengraph-image": ["./public/imgs/sobre-mim.webp"],
+  },
 };
 
 export default nextConfig;
