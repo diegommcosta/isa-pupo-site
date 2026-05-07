@@ -1,13 +1,15 @@
 import { ImageResponse } from "next/og";
 import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 export const alt = "Isa Pupo | Psicoterapia Jungiana & Integrativa";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const dynamic = "force-dynamic";
 
 export default async function Image() {
   const imgBuffer = readFileSync(
-    new URL("../public/imgs/sobre-mim.webp", import.meta.url)
+    join(process.cwd(), "public/imgs/sobre-mim.webp")
   );
   const imgSrc = `data:image/webp;base64,${imgBuffer.toString("base64")}`;
 
@@ -74,10 +76,12 @@ export default async function Image() {
               fontSize: 20,
               marginTop: 8,
               lineHeight: 1.5,
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            Cuidando da sua jornada interior
-            {"\n"}com acolhimento e profundidade.
+            <span>Cuidando da sua jornada interior</span>
+            <span>com acolhimento e profundidade.</span>
           </div>
         </div>
 
