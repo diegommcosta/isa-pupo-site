@@ -5,7 +5,7 @@ import { navLinks } from "@/lib/nav";
 
 const INSTAGRAM_URL = "https://www.instagram.com/isapupopsicoterapia/";
 
-const footerLinks = [{ label: "Home", href: "/" }, ...navLinks.map((l) => ({ ...l }))];
+const footerLinks = navLinks.map((l) => ({ ...l }));
 
 export default function Footer() {
   const whatsapp = buildWhatsappLink(defaultMessage);
