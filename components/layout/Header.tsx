@@ -199,7 +199,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                "font-sans text-[16px] text-bege transition-opacity pb-[2px] self-start",
+                "font-sans text-[16px] text-bege transition-opacity pb-[2px] self-end",
                 link.href === activeHref
                   ? "opacity-100 border-b border-bege"
                   : "opacity-85 border-b border-transparent"
