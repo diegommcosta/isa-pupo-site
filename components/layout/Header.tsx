@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/ui/Logo";
@@ -12,25 +12,84 @@ import { cn } from "@/lib/utils";
 
 const INSTAGRAM_URL = "https://www.instagram.com/isapupopsicoterapia/";
 
-function useNavItems() {
+// Section IDs derived from anchor nav links (e.g. "/#sobre" → "sobre")
+const ANCHOR_IDS = navLinks
+  .filter((l) => l.href.startsWith("/#"))
+  .map((l) => l.href.slice(2));
+
+function useScrollSpy(enabled: boolean): string | null {
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!enabled) {
+      setActiveId(null);
+      return;
+    }
+
+    const visible = new Set<string>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(({ target, isIntersecting }) => {
+          isIntersecting ? visible.add(target.id) : visible.delete(target.id);
+        });
+        // Pick the first anchor section (in nav order) that is currently in view
+        setActiveId(ANCHOR_IDS.find((id) => visible.has(id)) ?? null);
+      },
+      // Section is "active" when it occupies the upper-middle band of the viewport
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+    );
+
+    ANCHOR_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [enabled]);
+
+  return activeId;
+}
+
+function useActiveHref(): string | null {
   const pathname = usePathname();
+  const isHome = pathname === "/";
+  const activeId = useScrollSpy(isHome);
 
-  function isActive(href: string) {
-    if (href === "/") return pathname === "/";
-    if (href.startsWith("/#")) return false;
-    if (href === "/blog") return pathname === "/blog" || pathname.startsWith("/blog/");
-    if (href === "/ebook") return pathname === "/ebook";
-    if (pathname.startsWith("/terapia")) return href === "/#atendimentos";
-    return pathname === href;
-  }
-
-  return { items: navLinks, isActive };
+  if (isHome) return activeId ? `/#${activeId}` : "/";
+  if (pathname === "/blog" || pathname.startsWith("/blog/")) return "/blog";
+  if (pathname === "/ebook") return "/ebook";
+  if (pathname.startsWith("/terapia")) return "/#atendimentos";
+  return null;
 }
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const whatsapp = buildWhatsappLink(defaultMessage);
-  const { items, isActive } = useNavItems();
+  const activeHref = useActiveHref();
+
+  // Sliding indicator
+  const linksRef = useRef<HTMLDivElement>(null);
+  const linkElems = useRef<Map<string, HTMLAnchorElement>>(new Map());
+  const [indicator, setIndicator] = useState<{ left: number; width: number } | null>(null);
+
+  useEffect(() => {
+    if (!activeHref || !linksRef.current) {
+      setIndicator(null);
+      return;
+    }
+    const link = linkElems.current.get(activeHref);
+    if (!link) {
+      setIndicator(null);
+      return;
+    }
+    const containerRect = linksRef.current.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+    setIndicator({
+      left: linkRect.left - containerRect.left,
+      width: linkRect.width,
+    });
+  }, [activeHref]);
 
   const closeMobile = () => setMobileOpen(false);
 
@@ -48,24 +107,37 @@ export default function Header() {
         </Link>
 
         {/* Coluna 2 — Nav links (centro, só desktop) */}
-        <nav className="hidden lg:flex items-center justify-center gap-6" aria-label="Navegação principal">
-          {items.map((link) => {
-            const active = isActive(link.href);
-            return (
+        <nav className="hidden lg:flex items-center justify-center" aria-label="Navegação principal">
+          {/* Relative wrapper so the sliding indicator is contained here */}
+          <div ref={linksRef} className="relative flex items-center gap-6 pb-[2px]">
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
+                ref={(el) => {
+                  if (el) linkElems.current.set(link.href, el);
+                  else linkElems.current.delete(link.href);
+                }}
                 className={cn(
-                  "font-sans text-[16px] text-bege transition-opacity whitespace-nowrap pb-[2px]",
-                  active
-                    ? "opacity-100 border-b border-bege"
-                    : "opacity-85 border-b border-transparent hover:opacity-100"
+                  "font-sans text-[16px] text-bege transition-opacity whitespace-nowrap",
+                  link.href === activeHref ? "opacity-100" : "opacity-85 hover:opacity-100"
                 )}
               >
                 {link.label}
               </Link>
-            );
-          })}
+            ))}
+
+            {/* Sliding underline — transitions between nav items on scroll */}
+            <span
+              aria-hidden
+              className="absolute bottom-0 h-px bg-bege pointer-events-none transition-all duration-300 ease-in-out"
+              style={
+                indicator
+                  ? { left: indicator.left, width: indicator.width, opacity: 1 }
+                  : { left: 0, width: 0, opacity: 0 }
+              }
+            />
+          </div>
         </nav>
 
         {/* Coluna 3 — Ações (direita) */}
@@ -122,24 +194,21 @@ export default function Header() {
           className="lg:hidden bg-verde-escuro border-t border-bege/15 px-8 py-5 pb-7 flex flex-col gap-[18px]"
           aria-label="Menu mobile"
         >
-          {items.map((link) => {
-            const active = isActive(link.href);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "font-sans text-[16px] text-bege transition-opacity pb-[2px] self-start",
-                  active
-                    ? "opacity-100 border-b border-bege"
-                    : "opacity-85 border-b border-transparent"
-                )}
-                onClick={closeMobile}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "font-sans text-[16px] text-bege transition-opacity pb-[2px] self-start",
+                link.href === activeHref
+                  ? "opacity-100 border-b border-bege"
+                  : "opacity-85 border-b border-transparent"
+              )}
+              onClick={closeMobile}
+            >
+              {link.label}
+            </Link>
+          ))}
 
           <div className="flex items-center gap-3 mt-1">
             <Button
