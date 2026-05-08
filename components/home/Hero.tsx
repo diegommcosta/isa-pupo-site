@@ -43,7 +43,7 @@ export default function Hero() {
                 href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                leftIcon="chat"
+                leftIcon="whatsapp"
               >
                 Agendar Consulta
               </Button>

@@ -94,7 +94,7 @@ export default function Atendimentos() {
                   href={buildWhatsappLink(card.whatsappMsg)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  leftIcon="chat"
+                  leftIcon="whatsapp"
                 >
                   Agendar Consulta
                 </Button>

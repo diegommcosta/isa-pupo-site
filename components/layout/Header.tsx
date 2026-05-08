@@ -36,19 +36,19 @@ export default function Header() {
 
   return (
     <header className="w-full bg-verde-escuro sticky top-0 z-50 shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
-      <div className="max-w-site mx-auto h-[60px] px-8 lg:px-[200px] flex items-center justify-between">
-        {/* Logo */}
+      <div className="max-w-site mx-auto h-[60px] px-8 lg:px-[200px] grid grid-cols-3 items-center">
+        {/* Coluna 1 — Logo (esquerda) */}
         <Link
           href="/"
-          className="shrink-0 flex items-center text-bege"
+          className="justify-self-start flex items-center text-bege"
           style={{ height: 48 }}
           onClick={closeMobile}
         >
           <Logo className="h-10 w-auto" />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-6" aria-label="Navegação principal">
+        {/* Coluna 2 — Nav links (centro, só desktop) */}
+        <nav className="hidden lg:flex items-center justify-center gap-6" aria-label="Navegação principal">
           {items.map((link) => {
             const active = isActive(link.href);
             return (
@@ -66,48 +66,54 @@ export default function Header() {
               </Link>
             );
           })}
-
-          <Button
-            variant="primary"
-            size="sm"
-            href={whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Agendar
-          </Button>
-
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram da Isa Pupo"
-            className="text-bege hover:opacity-80 transition-opacity flex items-center"
-          >
-            <Icon name="instagram" size={18} color="var(--bege)" />
-          </a>
         </nav>
 
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden text-bege p-2 -mr-2 flex flex-col justify-center items-center gap-[5px] w-10 h-10"
-          onClick={() => setMobileOpen((prev) => !prev)}
-          aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={mobileOpen}
-        >
-          <span
-            className="block w-[22px] h-[2px] bg-bege transition-transform duration-200"
-            style={{ transform: mobileOpen ? "translateY(7px) rotate(45deg)" : "none" }}
-          />
-          <span
-            className="block w-[22px] h-[2px] bg-bege transition-opacity duration-150"
-            style={{ opacity: mobileOpen ? 0 : 1 }}
-          />
-          <span
-            className="block w-[22px] h-[2px] bg-bege transition-transform duration-200"
-            style={{ transform: mobileOpen ? "translateY(-7px) rotate(-45deg)" : "none" }}
-          />
-        </button>
+        {/* Coluna 3 — Ações (direita) */}
+        <div className="justify-self-end flex items-center gap-6">
+          {/* Desktop: Agendar + Instagram */}
+          <div className="hidden lg:flex items-center gap-6">
+            <Button
+              variant="primary"
+              size="sm"
+              href={whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              leftIcon="whatsapp"
+            >
+              Agendar
+            </Button>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram da Isa Pupo"
+              className="text-bege hover:opacity-80 transition-opacity flex items-center"
+            >
+              <Icon name="instagram" size={18} color="var(--bege)" />
+            </a>
+          </div>
+
+          {/* Mobile: hamburger */}
+          <button
+            className="lg:hidden text-bege p-2 -mr-2 flex flex-col justify-center items-center gap-[5px] w-10 h-10"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={mobileOpen}
+          >
+            <span
+              className="block w-[22px] h-[2px] bg-bege transition-transform duration-200"
+              style={{ transform: mobileOpen ? "translateY(7px) rotate(45deg)" : "none" }}
+            />
+            <span
+              className="block w-[22px] h-[2px] bg-bege transition-opacity duration-150"
+              style={{ opacity: mobileOpen ? 0 : 1 }}
+            />
+            <span
+              className="block w-[22px] h-[2px] bg-bege transition-transform duration-200"
+              style={{ transform: mobileOpen ? "translateY(-7px) rotate(-45deg)" : "none" }}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}
@@ -142,6 +148,7 @@ export default function Header() {
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
+              leftIcon="whatsapp"
               onClick={closeMobile}
             >
               Agendar

@@ -41,7 +41,7 @@ export default function CtaBand({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            leftIcon="chat"
+            leftIcon="whatsapp"
           >
             Agende sua Consulta
           </Button>
