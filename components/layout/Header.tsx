@@ -210,7 +210,7 @@ export default function Header() {
             </Link>
           ))}
 
-          <div className="flex items-center gap-3 mt-1">
+          <div className="self-start flex items-center gap-3 mt-1">
             <Button
               variant="primary"
               size="sm"
