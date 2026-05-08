@@ -14,22 +14,17 @@ const INSTAGRAM_URL = "https://www.instagram.com/isapupopsicoterapia/";
 
 function useNavItems() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-
-  const items = isHome
-    ? navLinks.map((l) => ({ ...l }))
-    : [{ label: "Home", href: "/" } as const, ...navLinks.map((l) => ({ ...l }))];
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
-    if (href.startsWith("/#")) return false; // anchor items never show as active
+    if (href.startsWith("/#")) return false;
     if (href === "/blog") return pathname === "/blog" || pathname.startsWith("/blog/");
     if (href === "/ebook") return pathname === "/ebook";
     if (pathname.startsWith("/terapia")) return href === "/#atendimentos";
     return pathname === href;
   }
 
-  return { items, isActive };
+  return { items: navLinks, isActive };
 }
 
 export default function Header() {
