@@ -68,6 +68,19 @@ export default function Header() {
   const whatsapp = buildWhatsappLink(defaultMessage);
   const activeHref = useActiveHref();
 
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    function handleOutside(e: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setMobileOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleOutside);
+    return () => document.removeEventListener("mousedown", handleOutside);
+  }, [mobileOpen]);
+
   // Sliding indicator
   const linksRef = useRef<HTMLDivElement>(null);
   const linkElems = useRef<Map<string, HTMLAnchorElement>>(new Map());
@@ -94,7 +107,7 @@ export default function Header() {
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="w-full bg-verde-escuro sticky top-0 z-50 shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
+    <header ref={headerRef} className="w-full bg-verde-escuro sticky top-0 z-50 shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
       <div className="max-w-site mx-auto h-[60px] px-8 lg:px-[200px] flex items-center justify-between lg:grid lg:grid-cols-3">
         {/* Coluna 1 — Logo (esquerda) */}
         <Link
@@ -199,7 +212,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                "font-sans text-[16px] text-bege transition-opacity pb-[2px] self-end",
+                "font-sans text-[16px] text-bege transition-opacity pb-[2px] self-start",
                 link.href === activeHref
                   ? "opacity-100 border-b border-bege"
                   : "opacity-85 border-b border-transparent"
@@ -210,7 +223,7 @@ export default function Header() {
             </Link>
           ))}
 
-          <div className="self-end flex items-center gap-3 mt-1">
+          <div className="self-start flex items-center gap-3 mt-1">
             <Button
               variant="primary"
               size="sm"
