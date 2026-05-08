@@ -95,7 +95,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-verde-escuro sticky top-0 z-50 shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
-      <div className="max-w-site mx-auto h-[60px] px-8 lg:px-[200px] grid grid-cols-3 items-center">
+      <div className="max-w-site mx-auto h-[60px] px-8 lg:px-[200px] flex items-center justify-between lg:grid lg:grid-cols-3">
         {/* Coluna 1 — Logo (esquerda) */}
         <Link
           href="/"
