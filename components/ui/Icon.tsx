@@ -2,7 +2,6 @@ import ArrowRight from "@/components/ui/icons/ArrowRight";
 import BookHalf from "@/components/ui/icons/BookHalf";
 import BoxArrowUpRight from "@/components/ui/icons/BoxArrowUpRight";
 import Calendar from "@/components/ui/icons/Calendar";
-import Chat from "@/components/ui/icons/Chat";
 import Check2 from "@/components/ui/icons/Check2";
 import Instagram from "@/components/ui/icons/Instagram";
 import LogoBullet from "@/components/ui/icons/LogoBullet";
@@ -19,7 +18,6 @@ const MAP = {
   "book-half": BookHalf,
   "box-arrow-up-right": BoxArrowUpRight,
   calendar: Calendar,
-  chat: Chat,
   check2: Check2,
   instagram: Instagram,
   "logo-bullet": LogoBullet,

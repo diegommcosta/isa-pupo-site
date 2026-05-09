@@ -47,7 +47,7 @@ Required in `.env.local`:
 
 ### Content flow
 
-All content comes from Sanity. Pages fetch via GROQ queries in `lib/sanity/queries.ts`. The Sanity client at `lib/sanity/client.ts` uses the read token for server-side fetches; `sanity/lib/client.ts` is the unauthenticated client used internally by the Studio config.
+All content comes from Sanity. Pages fetch via GROQ queries in `lib/sanity/queries.ts`. The Sanity client at `lib/sanity/client.ts` uses the read token for server-side fetches.
 
 ### Rendering strategy
 
@@ -70,8 +70,7 @@ All content comes from Sanity. Pages fetch via GROQ queries in `lib/sanity/queri
 
 ### Sanity schema (active — in `studio/schemas/`)
 
-Singletons (one document each): `homePage`, `siteSettings`, `ebook`  
-Collections: `post`, `therapy`, `author`, `category`
+Collections: `post`, `author`, `category`
 
 The root `sanity.config.ts` (used by the `/studio` embed) imports schemas from `studio/schemas/`. The CLI config at `sanity.cli.ts` reads from env vars.
 
@@ -99,9 +98,9 @@ Homepage sections use `id` anchors (`#sobre`, `#atendimentos`, `#ebook`, `#blog`
 
 **Utilities:** `cn()` in `lib/utils.ts` (clsx + tailwind-merge). WhatsApp links via `lib/whatsapp.ts`. Nav links compartilhados via `lib/nav.ts`.
 
-**UI Components:** `Button` (variants: filled/outlined/ghost, sizes: sm/md/lg, slots leftIcon/rightIcon) · `Tag` (opacidade 15% rosa) · `AnimationsProvider` (GSAP ScrollTrigger global — adicionar `data-animate` em seções e `data-animate-stagger` em grids).
+**UI Components:** `Button` (variants: primary/dark/purple/outline-orange/outline-dark/outline-purple, size: sm, slots leftIcon/rightIcon) · `Tag` (opacidade 15% rosa) · `AnimationsProvider` (GSAP ScrollTrigger global — adicionar `data-animate` em seções e `data-animate-stagger` em grids).
 
-**CSS utilities:** `.btn-filled` · `.btn-outlined` · `.tag` · `.card-30` · `.card-40` (definidas em `app/globals.css`).
+**CSS utilities:** `.tag` · `.eyebrow-rule` · `.card-hover` (definidas em `app/globals.css`).
 
 ### Images
 
