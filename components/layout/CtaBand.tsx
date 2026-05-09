@@ -1,14 +1,12 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import { buildWhatsappLink } from "@/lib/whatsapp";
+import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 
 interface Props {
   message?: string;
 }
 
-export default function CtaBand({
-  message = "Olá Isa! Gostaria de agendar uma consulta.",
-}: Props) {
+export default function CtaBand({ message = defaultMessage }: Props) {
   const href = buildWhatsappLink(message);
 
   return (

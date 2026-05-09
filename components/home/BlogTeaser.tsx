@@ -22,7 +22,7 @@ export default function BlogTeaser({ posts }: Props) {
             className="mt-[50px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[22px] max-w-[1080px] mx-auto"
           >
             {posts.map((post) => (
-              <BlogCard key={post._id} post={post} variant="home" />
+              <BlogCard key={post._id} post={post} />
             ))}
           </div>
         ) : (

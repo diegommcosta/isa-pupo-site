@@ -31,7 +31,7 @@ function useScrollSpy(enabled: boolean): string | null {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(({ target, isIntersecting }) => {
-          isIntersecting ? visible.add(target.id) : visible.delete(target.id);
+          if (isIntersecting) visible.add(target.id); else visible.delete(target.id);
         });
         // Pick the first anchor section (in nav order) that is currently in view
         setActiveId(ANCHOR_IDS.find((id) => visible.has(id)) ?? null);

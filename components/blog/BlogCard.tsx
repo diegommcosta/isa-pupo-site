@@ -6,7 +6,6 @@ import { urlFor } from "@/lib/sanity/client";
 
 interface Props {
   post: Post;
-  variant?: "home" | "index";
   imageHeight?: number;
 }
 
@@ -19,12 +18,12 @@ function formatDate(dateStr?: string) {
   });
 }
 
-export default function BlogCard({ post, variant = "home", imageHeight }: Props) {
+export default function BlogCard({ post, imageHeight = 190 }: Props) {
   const coverUrl = post.cover
     ? urlFor(post.cover).width(600).height(400).url()
     : null;
 
-  const imgH = imageHeight ?? (variant === "index" ? 220 : 190);
+  const imgH = imageHeight;
   const postHref = post.slug?.current ? `/blog/${post.slug.current}` : "#";
 
   return (
