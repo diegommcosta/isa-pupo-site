@@ -25,34 +25,14 @@
     --verde-escuro: #2D3322;
     --cinza: #9E9E9E;
     --rosa-15: rgba(207, 106, 97, 0.15);
-    --bege-60: rgba(237, 191, 159, 0.6);
-    --shadow-card: 0 2px 8px rgba(45, 22, 5, 0.06);
     --transition-base: 200ms cubic-bezier(0.22, 1, 0.36, 1);
-    --stroke-1: 1px;
-    --stroke-3: 3px;
   }
 }
 
 @layer components {
-  .btn-filled {
-    @apply inline-flex items-center gap-2 bg-laranja text-bege font-sans text-base font-normal px-6 py-3 rounded-[5px] hover:bg-laranja/90 transition-colors whitespace-nowrap;
-  }
-
-  .btn-outlined {
-    @apply inline-flex items-center gap-2 border border-laranja text-laranja bg-transparent font-sans text-base font-normal px-6 py-3 rounded-[5px] hover:bg-laranja hover:text-bege transition-colors whitespace-nowrap;
-  }
-
   .tag {
     @apply inline-flex items-center gap-[6px] text-marrom text-sm font-sans px-[9px] py-[8px] rounded-[3px];
     background-color: rgba(207, 106, 97, 0.15);
-  }
-
-  .card-30 {
-    @apply bg-bege-light rounded-[30px] p-[30px];
-  }
-
-  .card-40 {
-    @apply bg-bege-light rounded-[30px] p-[40px];
   }
 
   .eyebrow-rule {
