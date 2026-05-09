@@ -29,6 +29,15 @@ const config: Config = {
         site: "1440px",
         content: "1040px",
       },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 22s linear infinite",
+      },
     },
   },
   plugins: [],

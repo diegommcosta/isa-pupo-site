@@ -84,13 +84,26 @@ export default function EbookPage() {
       </section>
 
       {/* Banda roxo-claro */}
-      <section className="bg-roxo-claro py-[26px]">
-        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
+      <section className="bg-roxo-claro py-[26px] overflow-hidden">
+        {/* Desktop: estático, centralizado */}
+        <div className="hidden md:block max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto flex flex-wrap justify-center gap-9 items-center">
             {highlights.map((h) => (
               <div key={h} className="flex items-center gap-2.5">
                 <Icon name="star-fill" size={18} color="var(--bege)" />
                 <span className="font-sans font-bold text-[18px] text-bege">{h}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: marquee infinito direita → esquerda */}
+        <div className="md:hidden">
+          <div className="flex w-max animate-marquee motion-reduce:animate-none">
+            {[...highlights, ...highlights].map((h, i) => (
+              <div key={`${h}-${i}`} className="flex items-center gap-2.5 shrink-0 px-6">
+                <Icon name="star-fill" size={18} color="var(--bege)" />
+                <span className="font-sans font-bold text-[18px] text-bege whitespace-nowrap">{h}</span>
               </div>
             ))}
           </div>
