@@ -8,6 +8,7 @@ import PortableTextComponents from "@/components/blog/PortableTextComponents";
 import { blogPostQuery, blogSlugsQuery } from "@/lib/sanity/queries";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Icon } from "@/components/ui/Icon";
+import ShareButtons from "@/components/blog/ShareButtons";
 import BlogCard from "@/components/blog/BlogCard";
 import CtaBand from "@/components/layout/CtaBand";
 import type { Post } from "@/lib/sanity/types";
@@ -132,26 +133,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               <p className="font-sans font-bold text-[18px] text-verde-escuro mb-3">
                 Gostou do conteúdo? Me ajude a espalhar!
               </p>
-              <div className="flex gap-2">
-                <a
-                  href="https://www.instagram.com/isapupopsicoterapia/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Compartilhar no Instagram"
-                  className="w-[34px] h-[34px] rounded-lg bg-roxo-escuro flex items-center justify-center hover:opacity-80 transition-opacity"
-                >
-                  <Icon name="instagram" size={18} color="var(--bege)" />
-                </a>
-                <a
-                  href={`https://wa.me/?text=${encodeURIComponent(post.title + " — " + shareUrl)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Compartilhar no WhatsApp"
-                  className="w-[34px] h-[34px] rounded-lg bg-roxo-escuro flex items-center justify-center hover:opacity-80 transition-opacity"
-                >
-                  <Icon name="whatsapp" size={18} color="var(--bege)" />
-                </a>
-              </div>
+              <ShareButtons title={post.title} url={shareUrl} />
             </div>
           </div>
         </div>
