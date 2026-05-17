@@ -54,15 +54,16 @@ export default function BlogCard({ post, imageHeight = 190 }: Props) {
         {/* Watermark cerebro-coracao */}
         <div
           aria-hidden
-          className="absolute pointer-events-none opacity-[0.35]"
-          style={{
-            right: -10,
-            bottom: -10,
-            width: 180,
-            height: 180,
-            background: "url(/imgs/cerebro-coracao.webp) center/contain no-repeat",
-          }}
-        />
+          className="absolute inset-0 pointer-events-none opacity-55 flex items-center justify-center"
+        >
+          <div
+            style={{
+              width: 180,
+              height: 180,
+              background: "url(/imgs/cerebro-coracao.webp) center/contain no-repeat",
+            }}
+          />
+        </div>
 
         <div className="relative flex flex-col flex-1">
           {/* Data */}
