@@ -10,19 +10,15 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const type: string = body?._type ?? "";
     const slug: string = body?.slug?.current ?? "";
 
-    if (type === "post") {
-      revalidatePath("/");
-      revalidatePath("/blog");
-      if (slug) revalidatePath(`/blog/${slug}`);
-    } else {
-      revalidatePath("/");
-      revalidatePath("/blog");
-    }
+    // Revalida tudo que depende de posts: home, /blog e todos os /blog/[slug]
+    revalidatePath("/", "layout");
 
-    return NextResponse.json({ revalidated: true, type, slug });
+    // Se o slug estiver disponível, força o post específico também
+    if (slug) revalidatePath(`/blog/${slug}`, "page");
+
+    return NextResponse.json({ revalidated: true, slug });
   } catch {
     return NextResponse.json({ message: "Error revalidating" }, { status: 500 });
   }
