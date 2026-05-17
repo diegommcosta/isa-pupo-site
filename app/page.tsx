@@ -17,7 +17,9 @@ const latestPostsQuery = groq`*[_type == "post"] | order(publishedAt desc)[0..2]
 }`;
 
 export default async function HomePage() {
-  const posts = await client.fetch(latestPostsQuery).catch(() => []);
+  const posts = await client
+    .fetch(latestPostsQuery, {}, { next: { revalidate: 3600, tags: ["post"] } })
+    .catch(() => []);
 
   return (
     <SiteLayout>

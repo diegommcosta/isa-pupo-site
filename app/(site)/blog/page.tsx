@@ -26,7 +26,7 @@ export default async function BlogIndex({
   const to = from + PER_PAGE - 1;
 
   const data = await client
-    .fetch(blogIndexQuery, { from, to })
+    .fetch(blogIndexQuery, { from, to }, { next: { revalidate: 3600, tags: ["post"] } })
     .catch(() => ({ posts: [], total: 0 }));
 
   const posts = data?.posts ?? [];
