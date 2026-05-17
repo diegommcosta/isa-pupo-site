@@ -12,7 +12,8 @@ import BlogCard from "@/components/blog/BlogCard";
 import CtaBand from "@/components/layout/CtaBand";
 import type { Post } from "@/lib/sanity/types";
 
-export const revalidate = 3600;
+export const revalidate = 30;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const slugs: string[] = await client.fetch(blogSlugsQuery).catch(() => []);

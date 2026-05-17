@@ -9,7 +9,7 @@ import EbookTeaser from "@/components/home/EbookTeaser";
 import BlogTeaser from "@/components/home/BlogTeaser";
 import CtaBand from "@/components/layout/CtaBand";
 
-export const revalidate = 3600;
+export const revalidate = 30;
 
 const latestPostsQuery = groq`*[_type == "post"] | order(publishedAt desc)[0..2] {
   _id, title, slug, excerpt, cover, publishedAt,

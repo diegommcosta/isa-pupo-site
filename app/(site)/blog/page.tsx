@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Reflexões, artigos e conteúdos sobre psicologia integrativa e jungiana.",
 };
 
-export const revalidate = 3600;
+export const revalidate = 30;
 
 const PER_PAGE = 9;
 
