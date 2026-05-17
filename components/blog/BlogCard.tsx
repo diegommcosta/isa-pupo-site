@@ -13,7 +13,7 @@ function formatDate(dateStr?: string) {
   if (!dateStr) return "";
   return new Date(dateStr).toLocaleDateString("pt-BR", {
     day: "2-digit",
-    month: "long",
+    month: "2-digit",
     year: "numeric",
   });
 }
