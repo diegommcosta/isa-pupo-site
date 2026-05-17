@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { client, urlFor } from "@/lib/sanity/client";
+import PortableTextComponents from "@/components/blog/PortableTextComponents";
 import { blogPostQuery, blogSlugsQuery } from "@/lib/sanity/queries";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Icon } from "@/components/ui/Icon";
@@ -117,9 +118,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto">
             {/* Artigo */}
-            <article className="text-[18px] leading-[1.7] text-marrom font-sans prose prose-lg max-w-none">
+            <article className="max-w-none">
               {post.body ? (
-                <PortableText value={post.body} />
+                <PortableText value={post.body} components={PortableTextComponents} />
               ) : (
                 <p className="text-cinza">Conteúdo em breve.</p>
               )}
