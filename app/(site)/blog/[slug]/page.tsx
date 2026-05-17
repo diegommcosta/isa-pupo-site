@@ -39,15 +39,6 @@ export async function generateMetadata({
   };
 }
 
-function formatDate(dateStr?: string) {
-  if (!dateStr) return "";
-  return new Date(dateStr).toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
-}
-
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post: Post | null = await client
@@ -83,16 +74,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </Link>
 
             {/* Meta */}
-            <div className="flex items-center gap-2 text-[14px] text-verde-claro font-sans mb-3 flex-wrap">
-              <Icon name="calendar" size={14} color="var(--verde-claro)" />
-              {post.publishedAt && <time>{formatDate(post.publishedAt)}</time>}
-              {post.author?.name && (
-                <>
-                  <span className="opacity-60">·</span>
-                  <span>{post.author.name}</span>
-                </>
-              )}
-            </div>
+            {post.author?.name && (
+              <p className="text-[14px] text-verde-claro font-sans mb-3">
+                {post.author.name}
+              </p>
+            )}
 
             {/* Título */}
             <h1
