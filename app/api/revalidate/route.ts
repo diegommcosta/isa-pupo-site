@@ -14,9 +14,11 @@ export async function POST(req: NextRequest) {
     const slug: string = body?.slug?.current ?? "";
 
     if (type === "post") {
+      revalidatePath("/");
       revalidatePath("/blog");
       if (slug) revalidatePath(`/blog/${slug}`);
     } else {
+      revalidatePath("/");
       revalidatePath("/blog");
     }
 
