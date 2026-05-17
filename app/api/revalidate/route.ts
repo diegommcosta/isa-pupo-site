@@ -1,4 +1,4 @@
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -12,13 +12,10 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const slug: string = body?.slug?.current ?? "";
 
-    // Invalida o cache de fetch de todas as queries tagueadas com "post"
-    revalidateTag("post");
-
-    // Invalida o cache de rota de todo o site
+    // Invalida cache de rota de todo o site
     revalidatePath("/", "layout");
 
-    // Força o post específico também, se o slug vier no body
+    // Força o post específico também se o slug vier no body
     if (slug) revalidatePath(`/blog/${slug}`, "page");
 
     return NextResponse.json({ revalidated: true, slug });

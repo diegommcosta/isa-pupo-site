@@ -26,7 +26,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post: Post | null = await client
-    .fetch(blogPostQuery, { slug }, { next: { revalidate: 3600, tags: ["post"] } })
+    .fetch(blogPostQuery, { slug })
     .catch(() => null);
   if (!post) return {};
   return {
@@ -43,7 +43,7 @@ export async function generateMetadata({
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post: Post | null = await client
-    .fetch(blogPostQuery, { slug }, { next: { revalidate: 3600, tags: ["post"] } })
+    .fetch(blogPostQuery, { slug })
     .catch(() => null);
 
   if (!post) notFound();
