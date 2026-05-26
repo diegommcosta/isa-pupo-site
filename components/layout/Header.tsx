@@ -106,6 +106,15 @@ export default function Header() {
 
   const closeMobile = () => setMobileOpen(false);
 
+  const pathname = usePathname();
+  function handleHomeClick(e: React.MouseEvent) {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    closeMobile();
+  }
+
   return (
     <header ref={headerRef} className="w-full bg-verde-escuro sticky top-0 z-50 shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
       <div className="max-w-site mx-auto h-[60px] px-8 lg:px-[200px] flex items-center justify-between lg:grid lg:grid-cols-3">
@@ -114,7 +123,7 @@ export default function Header() {
           href="/"
           className="justify-self-start flex items-center text-bege"
           style={{ height: 48 }}
-          onClick={closeMobile}
+          onClick={handleHomeClick}
         >
           <Logo className="h-10 w-auto" />
         </Link>
@@ -135,6 +144,7 @@ export default function Header() {
                   "font-sans text-[16px] text-bege transition-opacity whitespace-nowrap",
                   link.href === activeHref ? "opacity-100" : "opacity-85 hover:opacity-100"
                 )}
+                onClick={link.href === "/" ? handleHomeClick : undefined}
               >
                 {link.label}
               </Link>
@@ -217,7 +227,7 @@ export default function Header() {
                   ? "opacity-100 border-b border-bege"
                   : "opacity-85 border-b border-transparent"
               )}
-              onClick={closeMobile}
+              onClick={link.href === "/" ? handleHomeClick : closeMobile}
             >
               {link.label}
             </Link>
