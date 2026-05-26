@@ -44,9 +44,6 @@ export default function BlogCard({ post, imageHeight = 190 }: Props) {
             <span className="font-display text-marrom/30 text-xl">Isa Pupo</span>
           </div>
         )}
-        {post.category && (
-          <span className="tag absolute top-3 left-3" data-animate-tag>{post.category.title}</span>
-        )}
       </div>
 
       {/* Conteúdo */}
@@ -66,13 +63,18 @@ export default function BlogCard({ post, imageHeight = 190 }: Props) {
         </div>
 
         <div className="relative flex flex-col flex-1">
-          {/* Data */}
-          {post.publishedAt && (
-            <div className="flex items-center gap-1.5 text-[14px] text-verde-claro mb-[10px]">
-              <Icon name="calendar" size={14} color="var(--verde-claro)" />
-              <time>{formatDate(post.publishedAt)}</time>
-            </div>
-          )}
+          {/* Data + Tag */}
+          <div className="flex items-center justify-between mb-[10px]">
+            {post.publishedAt ? (
+              <div className="flex items-center gap-1.5 text-[14px] text-verde-claro">
+                <Icon name="calendar" size={14} color="var(--verde-claro)" />
+                <time>{formatDate(post.publishedAt)}</time>
+              </div>
+            ) : <span />}
+            {post.category && (
+              <span className="tag">{post.category.title}</span>
+            )}
+          </div>
 
           {/* Título */}
           <h3 className="font-sans font-bold text-[22px] leading-[1.2] text-verde-escuro">
