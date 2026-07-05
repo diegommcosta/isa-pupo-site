@@ -25,9 +25,11 @@ export default async function HomePage() {
       <Hero />
       <WaveDivider from="bg-bege-light" to="text-roxo-escuro" variant="soft" />
       <CarlJungQuote />
-      <WaveDivider from="bg-roxo-escuro" to="text-white" variant="organic" flip />
+      <WaveDivider from="bg-roxo-escuro" to="text-bege-light" variant="organic" flip />
       <SobreMim />
+      <WaveDivider from="bg-bege-light" to="text-verde-escuro" variant="organic" />
       <Atendimentos />
+      <WaveDivider from="bg-verde-escuro" to="text-bege" variant="soft" flip />
       <EbookTeaser />
       <BlogTeaser posts={posts ?? []} />
       <CtaBand />

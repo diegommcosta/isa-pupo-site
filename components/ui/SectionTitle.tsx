@@ -11,6 +11,8 @@ interface SectionTitleProps {
   subColor?: string;
   eyebrowColor?: string;
   className?: string;
+  /** Anima o título linha a linha via AnimationsProvider. */
+  animate?: boolean;
 }
 
 export function SectionTitle({
@@ -22,6 +24,7 @@ export function SectionTitle({
   subColor = "var(--verde-escuro)",
   eyebrowColor = "var(--laranja)",
   className,
+  animate = true,
 }: SectionTitleProps) {
   const heading = title ?? eyebrow;
 
@@ -43,8 +46,9 @@ export function SectionTitle({
         </span>
       )}
       <h2
-        className="font-display text-display-lg px-2 -mx-2"
+        className="font-display font-normal text-display-lg px-2 -mx-2"
         style={{ color }}
+        {...(animate ? { "data-anim": "lines" } : {})}
       >
         {heading}
       </h2>

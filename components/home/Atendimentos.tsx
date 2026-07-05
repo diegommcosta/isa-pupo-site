@@ -3,6 +3,7 @@ import { IconDisc } from "@/components/ui/IconDisc";
 import { BulletRow } from "@/components/ui/BulletRow";
 import Button from "@/components/ui/Button";
 import { buildWhatsappLink } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
 import type { IconName } from "@/components/ui/Icon";
 
 interface CardData {
@@ -43,18 +44,21 @@ const cards: CardData[] = [
 
 export default function Atendimentos() {
   return (
-    <section id="atendimentos" className="bg-verde-escuro pt-11 pb-16 md:py-20 scroll-mt-[88px]">
-      <div className="max-w-site mx-auto px-8 lg:px-[200px]">
-        <SectionTitle eyebrow="Atendimentos" color="var(--bege)" />
+    <section id="atendimentos" className="relative overflow-hidden bg-verde-escuro py-20 md:py-28 scroll-mt-[88px]">
+      <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
+        <SectionTitle eyebrow="Atendimentos" color="var(--bege)" className="lg:ml-[8%]" />
 
         <div
-          data-animate-stagger
-          className="max-w-content mx-auto mt-[50px] flex justify-center gap-8 flex-wrap"
+          data-anim="stagger"
+          className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[960px] mx-auto lg:mx-0 lg:ml-[8%]"
         >
-          {cards.map((card) => (
+          {cards.map((card, i) => (
             <div
               key={card.title}
-              className="card-hover relative w-full max-w-[412px] bg-bege-light rounded-[30px] overflow-hidden flex flex-col p-[30px] md:p-[45px]"
+              className={cn(
+                "card-hover relative w-full max-w-[460px] bg-bege-light rounded-organic overflow-hidden flex flex-col p-8 md:p-10",
+                i === 1 && "md:mt-16"
+              )}
               style={{ minHeight: 480 }}
             >
               {/* Watermark decorativa cerebro-coracao */}
