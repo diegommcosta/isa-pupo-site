@@ -1,6 +1,7 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
 import BlogCard from "@/components/blog/BlogCard";
+import { cn } from "@/lib/utils";
 import type { Post } from "@/lib/sanity/types";
 
 interface Props {
@@ -9,32 +10,41 @@ interface Props {
 
 export default function BlogTeaser({ posts }: Props) {
   return (
-    <section id="blog" className="bg-white pt-11 pb-16 md:py-20 scroll-mt-[88px]">
-      <div className="max-w-site mx-auto px-8 lg:px-[200px]">
-        <SectionTitle
-          eyebrow="Blog"
-          subtitle="Reflexões, artigos e conteúdos sobre psicologia integrativa e jungiana."
-        />
+    <section id="blog" className="relative overflow-hidden bg-white py-20 md:py-28 scroll-mt-[88px]">
+      <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <SectionTitle
+            eyebrow="Blog"
+            subtitle="Reflexões, artigos e conteúdos sobre psicologia integrativa e jungiana."
+          />
+          <div className="hidden lg:block pb-2">
+            <Button variant="outline-dark" size="md" href="/blog" rightIcon="arrow-right">
+              Ver todos os blogs
+            </Button>
+          </div>
+        </div>
 
         {posts.length > 0 ? (
           <div
-            data-animate-stagger
-            className="mt-[50px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[22px] max-w-[1080px] mx-auto"
+            data-anim="stagger"
+            className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7"
           >
-            {posts.map((post) => (
-              <BlogCard key={post._id} post={post} />
+            {posts.map((post, i) => (
+              <div key={post._id} className={cn(i === 1 && "md:mt-10")}>
+                <BlogCard post={post} />
+              </div>
             ))}
           </div>
         ) : (
-          <p className="mt-12 text-center text-verde-claro font-sans text-base">
+          <p className="mt-12 text-verde-claro font-sans text-base">
             Em breve, artigos sobre psicologia e autoconhecimento.
           </p>
         )}
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-12 flex justify-center lg:hidden">
           <Button
             variant="outline-dark"
-            size="sm"
+            size="md"
             href="/blog"
             rightIcon="arrow-right"
           >

@@ -31,8 +31,11 @@ export default async function HomePage() {
       <Atendimentos />
       <WaveDivider from="bg-verde-escuro" to="text-bege" variant="soft" flip />
       <EbookTeaser />
+      <WaveDivider from="bg-bege" to="text-white" variant="organic" />
       <BlogTeaser posts={posts ?? []} />
+      <WaveDivider from="bg-white" to="text-marrom" variant="soft" flip />
       <CtaBand />
+      <WaveDivider from="bg-marrom" to="text-verde-escuro" variant="organic" />
     </SiteLayout>
   );
 }

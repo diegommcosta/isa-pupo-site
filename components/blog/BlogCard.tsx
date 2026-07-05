@@ -28,7 +28,7 @@ export default function BlogCard({ post, imageHeight = 190 }: Props) {
 
   return (
     <article
-      className="blog-card card-hover bg-bege-light rounded-[30px] overflow-hidden flex flex-col w-full"
+      className="blog-card card-hover bg-bege-light rounded-organic overflow-hidden flex flex-col w-full h-full"
     >
       {/* Imagem de capa */}
       <div className={`relative overflow-hidden`} style={{ height: imgH, flexShrink: 0 }}>
