@@ -10,7 +10,7 @@ export type Variant =
   | "outline-dark"
   | "outline-purple";
 
-export type Size = "sm";
+export type Size = "sm" | "md" | "lg";
 
 type BaseProps = {
   variant?: Variant;
@@ -29,20 +29,24 @@ type LinkProps = BaseProps &
 type Props = ButtonProps | LinkProps;
 
 const base =
-  "inline-flex items-center gap-1.5 font-sans font-normal whitespace-nowrap transition-[filter,background,color] duration-200 cursor-pointer";
+  "group inline-flex items-center justify-center gap-2 font-sans font-normal whitespace-nowrap rounded-full transition-[filter,background,color,transform,box-shadow] duration-200 cursor-pointer motion-reduce:transition-[filter,background,color] motion-reduce:hover:translate-y-0 motion-reduce:hover:shadow-none";
+
+const filledHover =
+  "hover:brightness-[0.96] hover:-translate-y-[2px] hover:shadow-[0_6px_20px_rgba(45,22,5,0.18)] active:translate-y-0 active:shadow-none";
 
 const variants: Record<Variant, string> = {
-  primary:           "bg-laranja text-bege border border-transparent hover:brightness-[0.92] active:translate-y-px",
-  dark:              "bg-verde-escuro text-bege border border-transparent hover:brightness-[0.92] active:translate-y-px",
-  purple:            "bg-roxo-escuro text-bege border border-transparent hover:brightness-[0.92] active:translate-y-px",
+  primary:           `bg-laranja text-bege border border-transparent ${filledHover}`,
+  dark:              `bg-verde-escuro text-bege border border-transparent ${filledHover}`,
+  purple:            `bg-roxo-escuro text-bege border border-transparent ${filledHover}`,
   "outline-orange":  "bg-transparent text-laranja border border-laranja hover:bg-laranja hover:text-bege",
   "outline-dark":    "bg-transparent text-verde-escuro border border-verde-escuro hover:bg-verde-escuro hover:text-bege",
   "outline-purple":  "bg-transparent text-roxo-escuro border border-roxo-escuro hover:bg-roxo-escuro hover:text-bege",
 };
 
-// compact design size: 29px h, 5×10 padding, 16px font
 const sizes: Record<Size, string> = {
-  sm: "h-[29px] px-[10px] py-[5px] text-[16px] leading-none rounded-[5px]",
+  sm: "h-[34px] px-4 text-[16px] leading-none",
+  md: "h-[46px] px-6 text-[17px] leading-none",
+  lg: "h-[56px] px-8 text-[18px] leading-none",
 };
 
 function resolveIcon(icon: ReactNode | IconName | undefined, iconColor?: string): ReactNode {
@@ -70,7 +74,11 @@ export default function Button({
     <>
       {resolveIcon(leftIcon, iconColor)}
       <span>{children}</span>
-      {resolveIcon(rightIcon, iconColor)}
+      {rightIcon && (
+        <span className="transition-transform duration-200 group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0">
+          {resolveIcon(rightIcon, iconColor)}
+        </span>
+      )}
     </>
   );
 
