@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full overflow-hidden pt-8 pb-11 md:py-20"
+      className="relative w-full overflow-hidden pt-[104px] pb-11 md:pt-[128px] md:pb-20"
       style={{ background: "rgba(237, 191, 159, 0.6)" }}
     >
       <div className="max-w-site mx-auto px-8 lg:px-[200px]">

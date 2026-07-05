@@ -43,7 +43,7 @@ const cards: CardData[] = [
 
 export default function Atendimentos() {
   return (
-    <section id="atendimentos" className="bg-verde-escuro pt-11 pb-16 md:py-20 scroll-mt-[55px] md:scroll-mt-0">
+    <section id="atendimentos" className="bg-verde-escuro pt-11 pb-16 md:py-20 scroll-mt-[88px]">
       <div className="max-w-site mx-auto px-8 lg:px-[200px]">
         <SectionTitle eyebrow="Atendimentos" color="var(--bege)" />
 

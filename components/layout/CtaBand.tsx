@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import Sparkle from "@/components/ui/shapes/Sparkle";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 
 interface Props {
@@ -10,39 +11,54 @@ export default function CtaBand({ message = defaultMessage }: Props) {
   const href = buildWhatsappLink(message);
 
   return (
-    <section
-      className="relative bg-marrom text-bege pt-11 pb-12 md:py-16 text-center overflow-hidden"
-    >
-      {/* Ilustração cerebro-lampada centralizada no topo */}
-      <Image
-        src="/imgs/cerebro-lampada.webp"
-        alt="Uma lampada com um cerebro dentro, uma mente capaz de iluminar."
-        width={162}
-        height={267}
-        className="absolute top-0 left-1/2 -translate-x-1/2 opacity-90 pointer-events-none select-none"
+    <section className="relative bg-marrom text-bege py-24 md:py-32 overflow-hidden">
+      {/* Ilustração cerebro-lampada à direita, com parallax sutil */}
+      <div
+        className="absolute right-[4%] md:right-[8%] bottom-[-40px] pointer-events-none select-none"
+        data-anim="parallax"
+        data-speed="0.9"
+      >
+        <Image
+          src="/imgs/cerebro-lampada.webp"
+          alt="Uma lampada com um cerebro dentro, uma mente capaz de iluminar."
+          width={162}
+          height={267}
+          className="opacity-30 md:opacity-70 w-[120px] md:w-[162px] h-auto"
+        />
+      </div>
+
+      <Sparkle size={20} className="absolute top-[18%] left-[10%] text-bege/60 animate-twinkle" />
+      <Sparkle
+        size={13}
+        className="absolute bottom-[22%] left-[30%] text-rosa animate-twinkle [animation-delay:1.6s]"
       />
 
       <div className="relative max-w-site mx-auto px-8 lg:px-[200px]">
-        <h2 className="font-sans font-bold text-[32px] leading-none text-bege">
-          Pronta para começar?
-        </h2>
-        <p
-          className="mt-[14px] text-[20px] leading-[1.35] text-bege mx-auto"
-          style={{ opacity: 0.95, maxWidth: 440 }}
-        >
-          Agende sua sessão e dê o primeiro passo na sua jornada de autoconhecimento.
-        </p>
-        <div className="mt-[22px] flex justify-center">
-          <Button
-            variant="primary"
-            size="sm"
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            leftIcon="whatsapp"
+        <div className="max-w-[720px]">
+          <h2
+            className="font-display text-display-lg text-bege px-2 -mx-2"
+            data-anim="lines"
           >
-            Agende sua Consulta
-          </Button>
+            Pronta para começar?
+          </h2>
+          <p
+            className="mt-6 font-sans text-[19px] md:text-[21px] leading-[1.5] text-bege/90 max-w-[480px]"
+            data-anim="fade-up"
+          >
+            Agende sua sessão e dê o primeiro passo na sua jornada de autoconhecimento.
+          </p>
+          <div className="mt-9" data-anim="fade-up">
+            <Button
+              variant="primary"
+              size="lg"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              leftIcon="whatsapp"
+            >
+              Agende sua Consulta
+            </Button>
+          </div>
         </div>
       </div>
     </section>

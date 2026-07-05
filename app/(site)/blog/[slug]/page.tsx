@@ -59,7 +59,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   return (
     <>
       {/* Seção 1 — meta + título */}
-      <section className="bg-white pt-[80px] pb-[30px]">
+      <section className="bg-white pt-[128px] pb-[30px]">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto">
             {/* Back link */}

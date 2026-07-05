@@ -42,7 +42,7 @@ export default function EbookPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-bege py-[80px]">
+      <section className="bg-bege pt-[128px] pb-[80px]">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center">
             <div data-animate-image="left">

@@ -21,7 +21,7 @@ export default function TherapyPage({ data }: Props) {
   return (
     <>
       {/* Hero branco */}
-      <section className="bg-white pt-11 pb-16 md:py-20">
+      <section className="bg-white pt-[104px] pb-16 md:pt-[128px] md:pb-20">
         <div className="max-w-site mx-auto px-8 lg:px-[200px]">
           <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-[1fr_422px] gap-x-14 gap-y-[30px] md:gap-y-0 items-start">
             <div>

@@ -63,12 +63,27 @@ function useActiveHref(): string | null {
   return null;
 }
 
-export default function Header() {
+export type HeaderTone = "light" | "dark";
+
+interface HeaderProps {
+  /** Cor do texto no estado transparente: "light" = primeira seção clara (texto verde-escuro), "dark" = primeira seção escura (texto bege). */
+  tone?: HeaderTone;
+}
+
+export default function Header({ tone = "light" }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const whatsapp = buildWhatsappLink(defaultMessage);
   const activeHref = useActiveHref();
 
   const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 48);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -116,12 +131,23 @@ export default function Header() {
   }
 
   return (
-    <header ref={headerRef} className="w-full bg-verde-escuro sticky top-0 z-50 shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
-      <div className="max-w-site mx-auto h-[60px] px-8 lg:px-[200px] flex items-center justify-between lg:grid lg:grid-cols-3">
+    <header
+      ref={headerRef}
+      data-scrolled={scrolled || undefined}
+      className={cn(
+        "fixed top-0 inset-x-0 z-50 transition-[background-color,color,box-shadow] duration-300",
+        mobileOpen
+          ? "bg-bege-light text-verde-escuro shadow-[0_2px_12px_rgba(45,22,5,0.12)]"
+          : scrolled
+            ? "bg-verde-escuro/95 backdrop-blur-md text-bege shadow-[0_2px_8px_rgba(0,0,0,0.25)]"
+            : cn("bg-transparent", tone === "light" ? "text-verde-escuro" : "text-bege")
+      )}
+    >
+      <div className="max-w-site mx-auto h-[72px] px-8 lg:px-[200px] flex items-center justify-between lg:grid lg:grid-cols-3">
         {/* Coluna 1 — Logo (esquerda) */}
         <Link
           href="/"
-          className="justify-self-start flex items-center text-bege"
+          className="justify-self-start flex items-center text-current"
           style={{ height: 48 }}
           onClick={handleHomeClick}
         >
@@ -141,8 +167,8 @@ export default function Header() {
                   else linkElems.current.delete(link.href);
                 }}
                 className={cn(
-                  "font-sans text-[16px] text-bege transition-opacity whitespace-nowrap",
-                  link.href === activeHref ? "opacity-100" : "opacity-85 hover:opacity-100"
+                  "font-sans text-[16px] text-current transition-opacity whitespace-nowrap",
+                  link.href === activeHref ? "opacity-100" : "opacity-80 hover:opacity-100"
                 )}
                 onClick={link.href === "/" ? handleHomeClick : undefined}
               >
@@ -153,7 +179,7 @@ export default function Header() {
             {/* Sliding underline — transitions between nav items on scroll */}
             <span
               aria-hidden
-              className="absolute bottom-0 h-px bg-bege pointer-events-none transition-all duration-300 ease-in-out"
+              className="absolute bottom-0 h-px bg-current pointer-events-none transition-all duration-300 ease-in-out"
               style={
                 indicator
                   ? { left: indicator.left, width: indicator.width, opacity: 1 }
@@ -182,29 +208,29 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram da Isa Pupo"
-              className="text-bege hover:opacity-80 transition-opacity flex items-center"
+              className="text-current hover:opacity-80 transition-opacity flex items-center"
             >
-              <Icon name="instagram" size={18} color="var(--bege)" />
+              <Icon name="instagram" size={18} color="currentColor" />
             </a>
           </div>
 
           {/* Mobile: hamburger */}
           <button
-            className="lg:hidden text-bege p-2 -mr-2 flex flex-col justify-center items-center gap-[5px] w-10 h-10"
+            className="lg:hidden text-current p-2 -mr-2 flex flex-col justify-center items-center gap-[5px] w-10 h-10"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={mobileOpen}
           >
             <span
-              className="block w-[22px] h-[2px] bg-bege transition-transform duration-200"
+              className="block w-[22px] h-[2px] bg-current transition-transform duration-200"
               style={{ transform: mobileOpen ? "translateY(7px) rotate(45deg)" : "none" }}
             />
             <span
-              className="block w-[22px] h-[2px] bg-bege transition-opacity duration-150"
+              className="block w-[22px] h-[2px] bg-current transition-opacity duration-150"
               style={{ opacity: mobileOpen ? 0 : 1 }}
             />
             <span
-              className="block w-[22px] h-[2px] bg-bege transition-transform duration-200"
+              className="block w-[22px] h-[2px] bg-current transition-transform duration-200"
               style={{ transform: mobileOpen ? "translateY(-7px) rotate(-45deg)" : "none" }}
             />
           </button>
@@ -212,20 +238,24 @@ export default function Header() {
       </div>
 
       {/* Mobile drawer */}
-      {mobileOpen && (
-        <nav
-          className="lg:hidden bg-verde-escuro border-t border-bege/15 px-8 py-5 pb-7 flex flex-col gap-[18px]"
-          aria-label="Menu mobile"
-        >
+      <nav
+        className={cn(
+          "lg:hidden bg-bege-light text-verde-escuro overflow-hidden transition-[max-height,opacity] duration-300 ease-out",
+          mobileOpen ? "max-h-[480px] opacity-100 border-t border-verde-escuro/10" : "max-h-0 opacity-0"
+        )}
+        aria-label="Menu mobile"
+      >
+        <div className="px-8 py-7 flex flex-col gap-5">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
+              tabIndex={mobileOpen ? undefined : -1}
               className={cn(
-                "font-sans text-[16px] text-bege transition-opacity pb-[2px] self-start",
+                "font-sans text-[22px] text-verde-escuro transition-opacity pb-[2px] self-start",
                 link.href === activeHref
-                  ? "opacity-100 border-b border-bege"
-                  : "opacity-85 border-b border-transparent"
+                  ? "opacity-100 border-b-2 border-laranja"
+                  : "opacity-80 border-b-2 border-transparent"
               )}
               onClick={link.href === "/" ? handleHomeClick : closeMobile}
             >
@@ -236,12 +266,13 @@ export default function Header() {
           <div className="self-start flex items-center gap-3 mt-1">
             <Button
               variant="primary"
-              size="sm"
+              size="md"
               href={whatsapp}
               target="_blank"
               rel="noopener noreferrer"
               leftIcon="whatsapp"
               onClick={closeMobile}
+              tabIndex={mobileOpen ? undefined : -1}
             >
               Agendar
             </Button>
@@ -250,14 +281,19 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram da Isa Pupo"
-              className="text-bege hover:opacity-80 transition-opacity flex items-center px-2"
+              className="text-verde-escuro hover:opacity-80 transition-opacity flex items-center px-2"
               onClick={closeMobile}
+              tabIndex={mobileOpen ? undefined : -1}
             >
-              <Icon name="instagram" size={18} color="var(--bege)" />
+              <Icon name="instagram" size={20} color="currentColor" />
             </a>
           </div>
-        </nav>
-      )}
+
+          <p className="font-display text-[40px] leading-none text-verde-escuro/60 mt-2" aria-hidden="true">
+            Isa Pupo
+          </p>
+        </div>
+      </nav>
     </header>
   );
 }
