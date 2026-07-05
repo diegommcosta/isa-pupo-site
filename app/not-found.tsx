@@ -1,11 +1,12 @@
 import SiteLayout from "@/components/layout/SiteLayout";
 import Button from "@/components/ui/Button";
 import Sparkle from "@/components/ui/shapes/Sparkle";
+import WaveDivider from "@/components/ui/shapes/WaveDivider";
 
 export default function NotFound() {
   return (
     <SiteLayout>
-      <div className="relative overflow-hidden bg-bege-light min-h-[70vh] pt-[104px] flex items-center justify-center">
+      <div className="relative overflow-hidden bg-bege-light min-h-[calc(100svh-90px)] pt-[104px] flex items-center justify-center">
         <Sparkle
           size={22}
           className="absolute top-[20%] right-[16%] text-roxo-claro animate-twinkle"
@@ -32,6 +33,7 @@ export default function NotFound() {
           </div>
         </div>
       </div>
+      <WaveDivider from="bg-bege-light" to="text-verde-escuro" variant="soft" />
     </SiteLayout>
   );
 }

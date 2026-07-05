@@ -27,16 +27,8 @@
 
 @layer components {
   .tag {
-    @apply inline-flex items-center gap-[6px] text-marrom text-sm font-sans px-[9px] pt-[5px] pb-[8px] rounded-[3px];
+    @apply inline-flex items-center gap-[6px] text-marrom text-[13px] uppercase tracking-wide font-sans px-3 py-[5px] rounded-full border border-rosa/40;
     background-color: rgba(207, 106, 97, 0.15);
-  }
-
-  .eyebrow-rule {
-    width: 73px;
-    height: 3px;
-    background: theme('colors.laranja');
-    margin-top: 14px;
-    margin-bottom: 14px;
   }
 
   .card-hover {

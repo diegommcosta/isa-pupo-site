@@ -66,7 +66,7 @@ export default function Hero() {
               </h1>
               <Sparkle
                 size={20}
-                className="absolute -top-1 -right-8 text-laranja animate-twinkle [animation-delay:0.6s]"
+                className="absolute -top-1 right-0 md:-right-8 text-laranja animate-twinkle [animation-delay:0.6s]"
               />
             </div>
             <div

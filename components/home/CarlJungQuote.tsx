@@ -3,7 +3,7 @@ import Sparkle from "@/components/ui/shapes/Sparkle";
 
 export default function CarlJungQuote() {
   return (
-    <section className="relative overflow-hidden bg-roxo-escuro py-24 md:py-36">
+    <section className="relative overflow-hidden bg-roxo-escuro py-16 md:py-28">
       {/* Ilustração deslocada à direita com parallax sutil */}
       <div
         className="absolute right-[4%] md:right-[6%] top-1/2 -translate-y-1/2 pointer-events-none select-none"

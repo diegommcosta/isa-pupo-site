@@ -134,7 +134,7 @@ export default function EbookPage() {
           <SectionTitle eyebrow="Para quem é este ebook?" align="center" />
           <div
             data-anim="fade-up"
-            className="mt-6 max-w-[620px] mx-auto text-center text-[18px] md:text-[19px] leading-[1.55] text-marrom"
+            className="mt-6 max-w-[620px] mx-auto text-left md:text-center text-[18px] md:text-[19px] leading-[1.55] text-marrom"
           >
             <p>
               Este guia foi cuidadosamente desenvolvido para pessoas que sentem que é
@@ -148,10 +148,10 @@ export default function EbookPage() {
           <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 flex flex-col gap-8" data-anim="stagger">
               {forWhom.map((it, i) => (
-                <div key={it.title} className="flex gap-5 items-start">
+                <div key={it.title} className="flex flex-col sm:flex-row gap-2 sm:gap-5 items-start">
                   <span
                     aria-hidden="true"
-                    className="font-display text-[52px] md:text-[64px] leading-none text-rosa/50 w-[68px] md:w-[84px] shrink-0 select-none"
+                    className="font-display text-[52px] md:text-[64px] leading-none text-rosa/70 sm:w-[68px] md:w-[84px] shrink-0 select-none"
                   >
                     0{i + 1}
                   </span>
@@ -197,7 +197,10 @@ export default function EbookPage() {
 
       {/* Investimento */}
       <section className="relative overflow-hidden bg-marrom py-20 md:py-28 text-bege">
-        <Sparkle size={20} className="absolute top-[16%] left-[12%] text-bege/60 animate-twinkle" />
+        <Sparkle
+          size={20}
+          className="absolute top-[16%] left-[12%] text-bege/60 animate-twinkle hidden md:block"
+        />
         <Sparkle
           size={13}
           className="absolute bottom-[18%] right-[14%] text-rosa animate-twinkle [animation-delay:1.4s]"

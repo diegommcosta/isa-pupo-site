@@ -11,7 +11,7 @@ const bullets = [
 
 export default function EbookTeaser() {
   return (
-    <section id="ebook" className="relative overflow-hidden bg-bege py-20 md:py-28 scroll-mt-[88px]">
+    <section id="ebook" className="relative overflow-hidden bg-bege py-16 md:py-28 scroll-mt-[88px]">
       <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
           {/* Livro flutuante com blob */}

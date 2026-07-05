@@ -44,13 +44,13 @@ const cards: CardData[] = [
 
 export default function Atendimentos() {
   return (
-    <section id="atendimentos" className="relative overflow-hidden bg-verde-escuro py-20 md:py-28 scroll-mt-[88px]">
+    <section id="atendimentos" className="relative overflow-hidden bg-verde-escuro py-16 md:py-28 scroll-mt-[88px]">
       <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
         <SectionTitle eyebrow="Atendimentos" color="var(--bege)" className="lg:ml-[8%]" />
 
         <div
           data-anim="stagger"
-          className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[960px] mx-auto lg:mx-0 lg:ml-[8%]"
+          className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[960px] mx-auto lg:mx-0 lg:ml-[8%] items-start"
         >
           {cards.map((card, i) => (
             <div

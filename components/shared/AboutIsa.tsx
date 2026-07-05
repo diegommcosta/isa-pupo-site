@@ -20,7 +20,7 @@ export default function AboutIsa({ eyebrow, variant = "light", id }: Props) {
     <section
       id={id}
       className={cn(
-        "relative overflow-hidden py-20 md:py-28",
+        "relative overflow-hidden py-16 md:py-28",
         id && "scroll-mt-[88px]",
         dark ? "bg-verde-escuro" : "bg-bege-light"
       )}
@@ -28,21 +28,18 @@ export default function AboutIsa({ eyebrow, variant = "light", id }: Props) {
       <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
         {/* Título editorial à esquerda */}
         <div className="relative">
+          {/* cor via style: tailwind-merge confunde text-eyebrow/text-display-* (font-size) com classes de cor e descarta uma delas */}
           <span
-            className={cn(
-              "inline-flex items-center gap-2 font-sans font-bold text-eyebrow uppercase",
-              dark ? "text-bege" : "text-laranja"
-            )}
+            className="inline-flex items-center gap-2 font-sans font-bold text-eyebrow uppercase"
+            style={{ color: dark ? "var(--bege)" : "var(--laranja)" }}
           >
             <Sparkle size={12} />
             {eyebrow}
           </span>
           <h2
             data-anim="lines"
-            className={cn(
-              "relative z-10 font-display font-normal text-display-xl px-2 -mx-2 mt-3",
-              dark ? "text-bege" : "text-verde-escuro"
-            )}
+            className="relative z-10 font-display font-normal text-display-xl px-2 -mx-2 mt-3"
+            style={{ color: dark ? "var(--bege)" : "var(--verde-escuro)" }}
           >
             Isa Pupo
           </h2>

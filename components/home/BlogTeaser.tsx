@@ -10,7 +10,7 @@ interface Props {
 
 export default function BlogTeaser({ posts }: Props) {
   return (
-    <section id="blog" className="relative overflow-hidden bg-white py-20 md:py-28 scroll-mt-[88px]">
+    <section id="blog" className="relative overflow-hidden bg-white py-16 md:py-28 scroll-mt-[88px]">
       <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <SectionTitle

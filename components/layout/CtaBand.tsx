@@ -11,12 +11,12 @@ export default function CtaBand({ message = defaultMessage }: Props) {
   const href = buildWhatsappLink(message);
 
   return (
-    <section className="relative bg-marrom text-bege py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-marrom text-bege py-16 md:py-32 overflow-hidden">
       {/* Ilustração cerebro-lampada à direita, com parallax sutil */}
       <div
-        className="absolute right-[4%] md:right-[8%] bottom-[-40px] pointer-events-none select-none"
+        className="absolute right-[4%] md:right-[8%] bottom-[12%] pointer-events-none select-none"
         data-anim="parallax"
-        data-speed="0.9"
+        data-speed="0.95"
       >
         <Image
           src="/imgs/cerebro-lampada.webp"
@@ -27,10 +27,13 @@ export default function CtaBand({ message = defaultMessage }: Props) {
         />
       </div>
 
-      <Sparkle size={20} className="absolute top-[18%] left-[10%] text-bege/60 animate-twinkle" />
+      <Sparkle
+        size={20}
+        className="absolute top-[14%] right-[18%] text-bege/60 animate-twinkle hidden md:block"
+      />
       <Sparkle
         size={13}
-        className="absolute bottom-[22%] left-[30%] text-rosa animate-twinkle [animation-delay:1.6s]"
+        className="absolute bottom-[18%] left-[55%] text-rosa animate-twinkle [animation-delay:1.6s] hidden md:block"
       />
 
       <div className="relative max-w-site mx-auto px-8 lg:px-[200px]">

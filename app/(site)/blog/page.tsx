@@ -44,16 +44,12 @@ export default async function BlogIndex({
         />
         <Sparkle
           size={13}
-          className="absolute bottom-[18%] left-[8%] text-rosa animate-twinkle [animation-delay:1.2s] hidden md:block"
+          className="absolute bottom-[24%] right-[28%] text-rosa animate-twinkle [animation-delay:1.2s] hidden md:block"
         />
         <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
-          <span className="inline-flex items-center gap-2 font-sans font-bold text-eyebrow uppercase text-bege">
-            <Sparkle size={12} />
-            Blog
-          </span>
           <h1
             data-anim="lines"
-            className="mt-3 font-display font-normal text-bege px-2 -mx-2 leading-[0.95]"
+            className="font-display font-normal text-bege px-2 -mx-2 leading-[0.95]"
             style={{ fontSize: "clamp(72px, 12vw, 140px)" }}
           >
             Blog

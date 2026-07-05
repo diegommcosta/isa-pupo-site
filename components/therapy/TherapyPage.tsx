@@ -119,7 +119,7 @@ export default function TherapyPage({ data }: Props) {
           />
           <div
             data-anim="stagger"
-            className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-7"
+            className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-7 items-start"
           >
             {data.sections.map((sec, i) => (
               <div
