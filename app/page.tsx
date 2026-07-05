@@ -8,6 +8,7 @@ import Atendimentos from "@/components/home/Atendimentos";
 import EbookTeaser from "@/components/home/EbookTeaser";
 import BlogTeaser from "@/components/home/BlogTeaser";
 import CtaBand from "@/components/layout/CtaBand";
+import WaveDivider from "@/components/ui/shapes/WaveDivider";
 
 export const revalidate = 30;
 
@@ -22,7 +23,9 @@ export default async function HomePage() {
   return (
     <SiteLayout>
       <Hero />
+      <WaveDivider from="bg-bege-light" to="text-roxo-escuro" variant="soft" />
       <CarlJungQuote />
+      <WaveDivider from="bg-roxo-escuro" to="text-white" variant="organic" flip />
       <SobreMim />
       <Atendimentos />
       <EbookTeaser />
