@@ -4,6 +4,10 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Icon } from "@/components/ui/Icon";
 import Tag from "@/components/ui/Tag";
 import Button from "@/components/ui/Button";
+import Blob from "@/components/ui/shapes/Blob";
+import Sparkle from "@/components/ui/shapes/Sparkle";
+import WaveDivider from "@/components/ui/shapes/WaveDivider";
+import AboutIsa from "@/components/shared/AboutIsa";
 
 export const metadata: Metadata = {
   title: "Ebook — O Cultivo da Verdade Interna | Isa Pupo",
@@ -42,34 +46,61 @@ export default function EbookPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-bege pt-[128px] pb-[80px]">
-        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
-          <div className="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center">
-            <div data-animate-image="left">
-              <Image
-                src="/imgs/livro.webp"
-                alt="O Cultivo da Verdade Interna"
-                width={400}
-                height={533}
-                className="w-full h-auto object-contain"
-              />
+      <section className="relative overflow-hidden bg-bege pt-[104px] md:pt-[136px] pb-16 md:pb-24">
+        <Sparkle
+          size={18}
+          className="absolute top-[14%] right-[8%] text-roxo-escuro animate-twinkle hidden md:block"
+        />
+        <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
+            {/* Livro flutuante com blob */}
+            <div className="relative lg:col-span-5 flex justify-center lg:justify-start">
+              <div
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                data-anim="parallax"
+                data-speed="0.92"
+              >
+                <Blob variant={3} color="text-roxo-claro/25" className="w-[110%] max-w-[520px]" />
+              </div>
+              <div className="relative animate-float motion-reduce:animate-none">
+                <div data-anim="image" className="rotate-[3deg] max-w-[320px] md:max-w-[400px]">
+                  <Image
+                    src="/imgs/livro.webp"
+                    alt="O Cultivo da Verdade Interna"
+                    width={400}
+                    height={533}
+                    className="w-full h-auto object-contain drop-shadow-[0_24px_40px_rgba(45,22,5,0.28)]"
+                    priority
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <Tag icon="book-half" iconColor="var(--roxo-escuro)" style={{ color: "var(--roxo-escuro)" }} data-animate-tag>
-                Ebook
-              </Tag>
-              <h1 className="mt-5 font-sans font-bold text-[48px] leading-[1.1] text-roxo-escuro">
+
+            {/* Texto */}
+            <div className="lg:col-span-7 lg:pl-14 xl:pl-20">
+              <div data-anim="fade-up">
+                <Tag icon="book-half" iconColor="var(--roxo-escuro)" style={{ color: "var(--roxo-escuro)" }}>
+                  Ebook
+                </Tag>
+              </div>
+              <h1
+                data-anim="lines"
+                className="mt-4 font-display font-normal text-display-lg text-roxo-escuro px-2 -mx-2 max-w-[640px]"
+              >
                 O Cultivo da Verdade Interna
               </h1>
-              <p className="mt-5 text-[20px] leading-[1.45] text-verde-escuro max-w-[460px]">
+              <p
+                data-anim="fade-up"
+                className="mt-6 text-[19px] md:text-[20px] leading-[1.5] text-verde-escuro max-w-[460px]"
+              >
                 Um guia para quem busca iniciar ou aprofundar sua jornada de
                 autoconhecimento através da perspectiva da psicologia analítica e das
                 práticas integrativas.
               </p>
-              <div className="mt-7">
+              <div className="mt-8" data-anim="fade-up">
                 <Button
                   variant="purple"
-                  size="sm"
+                  size="lg"
                   href={ebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -83,38 +114,28 @@ export default function EbookPage() {
         </div>
       </section>
 
-      {/* Banda roxo-claro */}
-      <section className="bg-roxo-claro py-[26px] overflow-hidden">
-        {/* Desktop: estático, centralizado */}
-        <div className="hidden md:block max-w-site mx-auto px-8 lg:px-[200px]">
-          <div className="max-w-content mx-auto flex flex-wrap justify-center gap-9 items-center">
-            {highlights.map((h) => (
-              <div key={h} className="flex items-center gap-2.5">
-                <Icon name="star-fill" size={18} color="var(--bege)" />
-                <span className="font-sans font-bold text-[18px] text-bege">{h}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile: marquee infinito direita → esquerda */}
-        <div className="md:hidden">
-          <div className="flex w-max animate-marquee motion-reduce:animate-none">
-            {[...highlights, ...highlights].map((h, i) => (
-              <div key={`${h}-${i}`} className="flex items-center gap-2.5 shrink-0 px-6">
-                <Icon name="star-fill" size={18} color="var(--bege)" />
-                <span className="font-sans font-bold text-[18px] text-bege whitespace-nowrap">{h}</span>
-              </div>
-            ))}
-          </div>
+      {/* Banda roxo-claro — marquee em todos os breakpoints */}
+      <section className="bg-roxo-claro py-6 overflow-hidden" aria-label="Destaques do ebook">
+        <div className="flex w-max animate-marquee [animation-duration:28s] motion-reduce:animate-none">
+          {[...highlights, ...highlights].map((h, i) => (
+            <div key={`${h}-${i}`} className="flex items-center gap-3 shrink-0 px-8 md:px-10">
+              <Sparkle size={16} className="text-bege" />
+              <span className="font-sans font-bold text-[18px] md:text-[20px] text-bege whitespace-nowrap">
+                {h}
+              </span>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Para quem é este ebook? */}
-      <section className="bg-white py-[70px]">
-        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
-          <SectionTitle eyebrow="Para quem é este ebook?" />
-          <div className="mt-[30px] max-w-[600px] mx-auto text-center text-[19px] leading-[1.5] text-marrom space-y-[10px]">
+      <section className="relative overflow-hidden bg-white py-20 md:py-28">
+        <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
+          <SectionTitle eyebrow="Para quem é este ebook?" align="center" />
+          <div
+            data-anim="fade-up"
+            className="mt-6 max-w-[620px] mx-auto text-center text-[18px] md:text-[19px] leading-[1.55] text-marrom"
+          >
             <p>
               Este guia foi cuidadosamente desenvolvido para pessoas que sentem que é
               hora de olhar para dentro com mais profundidade e autonomia.
@@ -124,121 +145,96 @@ export default function EbookPage() {
             </p>
           </div>
 
-          <div className="mt-[50px] max-w-content mx-auto grid grid-cols-1 md:grid-cols-[1fr_392px] gap-14 items-center">
-            <div className="flex flex-col gap-5">
-              {forWhom.map((it) => (
-                <div key={it.title} className="flex gap-4 items-start">
-                  <div
-                    className="rounded-lg flex items-center justify-center shrink-0"
-                    style={{
-                      width: 36,
-                      height: 36,
-                      background: "var(--rosa-15)",
-                    }}
+          <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 flex flex-col gap-8" data-anim="stagger">
+              {forWhom.map((it, i) => (
+                <div key={it.title} className="flex gap-5 items-start">
+                  <span
+                    aria-hidden="true"
+                    className="font-display text-[52px] md:text-[64px] leading-none text-rosa/50 w-[68px] md:w-[84px] shrink-0 select-none"
                   >
-                    <Icon name="logo-bullet" size={18} color="var(--laranja)" />
-                  </div>
-                  <div>
-                    <p className="font-sans font-bold text-[18px] text-verde-escuro">{it.title}</p>
-                    <p className="mt-1.5 font-sans text-[16px] leading-[1.5] text-marrom">{it.desc}</p>
+                    0{i + 1}
+                  </span>
+                  <div className="pt-1">
+                    <p className="font-sans font-bold text-[19px] text-verde-escuro">{it.title}</p>
+                    <p className="mt-2 font-sans text-[16px] leading-[1.55] text-marrom max-w-[520px]">{it.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <div
-              data-animate-image="right"
-              className="rounded-[16px] overflow-hidden mx-auto md:mx-0 w-full max-w-[392px]"
-              style={{ aspectRatio: "392/379" }}
-            >
-              <Image
-                src="/imgs/tablet.webp"
-                alt=""
-                width={392}
-                height={379}
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sobre a Autora */}
-      <section className="bg-bege-light pt-11 pb-16 md:py-20">
-        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
-          <SectionTitle eyebrow="Sobre a Autora" />
-          <div className="max-w-content mx-auto mt-[25px] md:mt-[50px] grid grid-cols-1 md:grid-cols-[422px_1fr] gap-7 md:gap-14 items-start">
-            <div
-              data-animate-image="left"
-              className="rounded-xl overflow-hidden mx-auto md:mx-0 w-full max-w-[422px]"
-              style={{ aspectRatio: "422/561" }}
-            >
-              <Image
-                src="/imgs/sobre-mim.webp"
-                alt="Quadro com elementos de colagem em volta, com a foto da Isa Pupo feliz em blusa vermelha e calça branca, num fundo marrom com elementos naturais."
-                width={422}
-                height={561}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <h2 className="font-sans font-bold text-[48px] leading-none text-verde-escuro">
-                Isa Pupo
-              </h2>
-              <div className="mt-4 text-[18px] leading-[1.30] text-marrom space-y-[14px]">
-                <p>
-                  <em>Uma mulher de alma curiosa, passos corajosos e em constante
-                    movimento.</em> <span className="text-laranja">Minha trajetória é feita de escolhas e reencontros.</span>
-                </p>
-                <p>
-                  Sou graduada em Ciências Contábeis e, entre razonetes e planilhas
-                  nos dez anos que passei no mundo corporativo, percebi que aquele
-                  espaço não me pertencia mais. Recalculei minhas rotas e,
-                  atualmente, mergulho na clínica através da minha especialização em{" "}
-                  <strong>Psicologia Analítica (Jung)</strong> e sigo no processo de
-                  graduação em Psicologia (2026).
-                </p>
-                <p>
-                  Minha prática une comprometimento do estudo acadêmico à sabedoria que vem da terra. Amo a natureza e os mistérios da vida, sou apaixonada por ervas e confesso: um galhinho de arruda atrás da orelha e um maço de manjericão têm o meu coração. Amo o cheiro de incensos, cristais e o prazer de uma taça de vinho com o meu parceiro no fim do dia.
-                </p>
-                <p>
-                  Divido a vida com o <em>Mike</em>, meu companheiro de quatro patas e o meu mestre mais lindo em afeto e amor. Sou viciada em aprender sobre psicologia e espiritualidade e em observar como cada detalhe do mundo toca a nossa subjetividade.
-                </p>
-                <p>
-                  Acredito que o autoconhecimento só ganha vida quando paramos de fugir de quem somos. Meu trabalho é caminhar ao seu lado, respeitando o seu tempo e ajudando você a ouvir a si mesmo.
-                </p>
+            <div className="relative lg:col-span-5">
+              <div
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                data-anim="parallax"
+                data-speed="0.93"
+              >
+                <Blob variant={1} color="text-bege" className="w-[105%] max-w-[480px]" />
+              </div>
+              <div
+                data-anim="image"
+                className="relative overflow-hidden mx-auto w-full max-w-[392px]"
+                style={{ aspectRatio: "392/379" }}
+              >
+                <Image
+                  src="/imgs/tablet.webp"
+                  alt=""
+                  width={392}
+                  height={379}
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <WaveDivider from="bg-white" to="text-verde-escuro" variant="organic" />
+
+      {/* Sobre a Autora — bloco escuro */}
+      <AboutIsa eyebrow="Sobre a Autora" variant="dark" />
+
+      <WaveDivider from="bg-verde-escuro" to="text-marrom" variant="soft" flip />
+
       {/* Investimento */}
-      <section className="bg-marrom py-[70px] pb-[90px] text-bege">
-        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
-          <SectionTitle eyebrow="Investimento" color="var(--bege)" />
-          <div className="mt-10 flex justify-center">
+      <section className="relative overflow-hidden bg-marrom py-20 md:py-28 text-bege">
+        <Sparkle size={20} className="absolute top-[16%] left-[12%] text-bege/60 animate-twinkle" />
+        <Sparkle
+          size={13}
+          className="absolute bottom-[18%] right-[14%] text-rosa animate-twinkle [animation-delay:1.4s]"
+        />
+        <Sparkle
+          size={15}
+          className="absolute top-[30%] right-[26%] text-bege/40 animate-twinkle [animation-delay:0.7s]"
+        />
+        <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
+          <SectionTitle eyebrow="Investimento" color="var(--bege)" align="center" />
+          <div className="mt-12 flex justify-center">
             <div
-              className="card-hover bg-bege rounded-[20px] text-center text-marrom w-full max-w-[384px]"
-              style={{ padding: "30px 24px 28px", boxShadow: "0 8px 24px rgba(0,0,0,.15)" }}
+              className="card-hover bg-bege rounded-organic text-center text-marrom w-full max-w-[420px] px-8 pt-10 pb-9"
+              style={{ boxShadow: "0 16px 40px rgba(0,0,0,.3)" }}
             >
-              <p className="font-sans text-[18px]" style={{ textDecoration: "line-through", opacity: 0.7 }}>
+              <p className="font-sans text-[18px] line-through opacity-70">
                 de R$ 40,00
               </p>
-              <div className="mt-[10px] flex items-baseline justify-center gap-2">
-                <span className="font-sans text-[18px]">por R$</span>
-                <span className="font-sans font-bold text-[56px] leading-none text-roxo-escuro">
+              <div className="mt-3 flex items-baseline justify-center gap-3">
+                <span className="font-sans text-[20px]">por R$</span>
+                <span
+                  className="font-display text-[72px] md:text-[88px] leading-none text-roxo-escuro"
+                  data-anim="counter"
+                  data-to="19.90"
+                >
                   19,90
                 </span>
               </div>
-              <p className="mt-1.5 font-sans text-[16px]">em até 3x sem juros</p>
-              <div className="mt-[18px] flex justify-center gap-3">
+              <p className="mt-3 font-sans text-[16px]">em até 3x sem juros</p>
+              <div className="mt-6 flex justify-center gap-3">
                 <Icon name="book-half" size={28} color="var(--roxo-escuro)" />
                 <Icon name="logo-bullet" size={28} color="var(--laranja)" />
               </div>
-              <div className="mt-[22px] flex justify-center">
+              <div className="mt-7 flex justify-center">
                 <Button
                   variant="purple"
-                  size="sm"
+                  size="lg"
                   href={ebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -251,6 +247,7 @@ export default function EbookPage() {
           </div>
         </div>
       </section>
+      <WaveDivider from="bg-marrom" to="text-verde-escuro" variant="organic" />
     </>
   );
 }
