@@ -11,6 +11,8 @@ import { Icon } from "@/components/ui/Icon";
 import ShareButtons from "@/components/blog/ShareButtons";
 import BlogCard from "@/components/blog/BlogCard";
 import CtaBand from "@/components/layout/CtaBand";
+import Sparkle from "@/components/ui/shapes/Sparkle";
+import WaveDivider from "@/components/ui/shapes/WaveDivider";
 import type { Post } from "@/lib/sanity/types";
 
 export const revalidate = 30;
@@ -85,14 +87,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             {/* Título */}
             <h1
-              className="font-sans font-bold text-[44px] leading-[1.1] text-verde-escuro"
-              style={{ maxWidth: 820 }}
+              className="font-sans font-bold leading-[1.12] text-verde-escuro"
+              style={{ maxWidth: 820, fontSize: "clamp(36px, 5vw, 54px)" }}
             >
               {post.title}
             </h1>
 
-            {/* Regra laranja */}
-            <span className="block w-[73px] h-[3px] bg-laranja mt-[22px]" />
+            <Sparkle size={20} className="block mt-5 text-laranja" />
           </div>
         </div>
       </section>
@@ -102,7 +103,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <section className="bg-white py-[30px]">
           <div className="max-w-site mx-auto px-8 lg:px-[200px]">
             <div className="max-w-content mx-auto">
-              <div className="w-full h-[360px] rounded-[20px] overflow-hidden relative">
+              <div
+                data-anim="image"
+                className="w-full h-[360px] md:h-[420px] rounded-organic overflow-hidden relative"
+              >
                 <Image
                   src={coverUrl}
                   alt={post.cover?.alt ?? post.title}
@@ -141,22 +145,30 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
       {/* Posts recentes */}
       {post.related && post.related.length > 0 && (
-        <section
-          className="py-[70px]"
-          style={{ background: "rgba(237,191,159,0.6)" }}
-        >
-          <div className="max-w-site mx-auto px-8 lg:px-[200px]">
-            <SectionTitle eyebrow="Posts recentes" />
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-[22px] max-w-content mx-auto">
-              {post.related.map((p) => (
-                <BlogCard key={p._id} post={p} />
-              ))}
+        <>
+          <WaveDivider from="bg-white" to="text-bege" variant="organic" />
+          <section className="bg-bege py-20 md:py-24">
+            <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
+              <SectionTitle eyebrow="Posts recentes" />
+              <div
+                data-anim="stagger"
+                className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-7 max-w-content"
+              >
+                {post.related.map((p) => (
+                  <BlogCard key={p._id} post={p} />
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+          <WaveDivider from="bg-bege" to="text-marrom" variant="soft" flip />
+        </>
+      )}
+      {(!post.related || post.related.length === 0) && (
+        <WaveDivider from="bg-white" to="text-marrom" variant="soft" flip />
       )}
 
       <CtaBand />
+      <WaveDivider from="bg-marrom" to="text-verde-escuro" variant="organic" />
     </>
   );
 }

@@ -70,11 +70,15 @@ interface HeaderProps {
   tone?: HeaderTone;
 }
 
-export default function Header({ tone = "light" }: HeaderProps) {
+export default function Header({ tone: toneProp = "light" }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const whatsapp = buildWhatsappLink(defaultMessage);
   const activeHref = useActiveHref();
+  const headerPathname = usePathname();
+  // O layout de (site) é compartilhado entre rotas com heros claros e escuros,
+  // então o tom do estado transparente é derivado da rota.
+  const tone: HeaderTone = headerPathname === "/blog" ? "dark" : toneProp;
 
   const headerRef = useRef<HTMLElement>(null);
 
