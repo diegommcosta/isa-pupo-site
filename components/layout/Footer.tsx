@@ -12,22 +12,22 @@ export default function Footer() {
   const whatsapp = buildWhatsappLink(defaultMessage);
 
   return (
-    <footer className="w-full bg-verde-escuro text-bege overflow-hidden">
-      <div className="max-w-site mx-auto px-8 lg:px-[200px] pt-14 md:pt-20 pb-8">
-        {/* Assinatura */}
-        <div className="relative pb-10 md:pb-14" data-anim="fade-up">
-          <p className="font-display text-display-xl leading-none px-2 -mx-2">Isa Pupo</p>
-          <Sparkle size={22} className="absolute top-0 right-[4%] text-rosa animate-twinkle" />
-          <Sparkle
-            size={14}
-            className="absolute bottom-6 right-[16%] text-bege/70 animate-twinkle [animation-delay:1.4s]"
-          />
-        </div>
+    <footer className="relative w-full bg-verde-escuro text-bege overflow-hidden">
+      <Sparkle
+        size={18}
+        className="absolute top-8 right-[8%] text-rosa animate-twinkle"
+      />
+      <Sparkle
+        size={12}
+        className="absolute bottom-16 left-[6%] text-bege/60 animate-twinkle [animation-delay:1.4s]"
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-8 md:gap-10 pb-10 border-t border-verde-claro/50 pt-10">
+      <div className="max-w-site mx-auto px-8 lg:px-[200px] pt-10 md:pt-[60px] pb-[32px]">
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-6 md:gap-10 pb-8 border-b-[3px] border-verde-claro">
           {/* Brand */}
           <div>
-            <p className="font-sans text-[16px] leading-[1.6] opacity-90 max-w-[380px]">
+            <p className="font-display text-[36px] leading-none mb-[14px]">Isa Pupo</p>
+            <p className="font-sans text-[16px] leading-[1.5] opacity-90 max-w-[380px]">
               Terapia Integrativa &amp; Junguiana, cuidando da sua jornada
               interior com acolhimento e profundidade.
             </p>
@@ -35,16 +35,13 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="inline-flex items-center gap-2 font-sans font-bold text-eyebrow uppercase text-bege mb-4">
-              <Sparkle size={11} className="text-rosa" />
-              Navegação
-            </p>
+            <p className="font-sans font-bold text-[22px] text-bege mb-[10px]">Navegação</p>
             <ul>
               {footerLinks.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="font-sans text-[16px] text-bege/85 hover:text-bege hover:underline underline-offset-[4px] transition-colors block py-1.5"
+                    className="font-sans text-[16px] text-bege/90 underline underline-offset-[3px] hover:text-bege transition-colors block py-1"
                   >
                     {l.label}
                   </Link>
@@ -55,19 +52,16 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="inline-flex items-center gap-2 font-sans font-bold text-eyebrow uppercase text-bege mb-4">
-              <Sparkle size={11} className="text-rosa" />
-              Contato
-            </p>
+            <p className="font-sans font-bold text-[22px] text-bege mb-[10px]">Contato</p>
             <ul>
               <li>
                 <a
                   href={whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-sans text-[16px] text-bege/85 hover:text-bege hover:underline underline-offset-[4px] transition-colors py-1.5"
+                  className="flex items-center gap-2 font-sans text-[16px] text-bege/90 underline underline-offset-[3px] hover:text-bege transition-colors py-1"
                 >
-                  <Icon name="whatsapp" size={16} color="currentColor" />
+                  <Icon name="whatsapp" size={16} color="var(--bege)" />
                   WhatsApp
                 </a>
               </li>
@@ -76,9 +70,9 @@ export default function Footer() {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-sans text-[16px] text-bege/85 hover:text-bege hover:underline underline-offset-[4px] transition-colors py-1.5"
+                  className="flex items-center gap-2 font-sans text-[16px] text-bege/90 underline underline-offset-[3px] hover:text-bege transition-colors py-1"
                 >
-                  <Icon name="instagram" size={16} color="currentColor" />
+                  <Icon name="instagram" size={16} color="var(--bege)" />
                   Instagram
                 </a>
               </li>
@@ -86,7 +80,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="pt-5 border-t border-verde-claro/30 text-center font-sans text-[14px] text-bege/70">
+        <p className="pt-5 text-center font-sans text-[14px] text-bege/80">
           © {new Date().getFullYear()} Isa Pupo. Feito com ♥ por Diego Manoel
         </p>
       </div>

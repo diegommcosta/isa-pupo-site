@@ -1,34 +1,39 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 /**
- * Sistema de animação global v2 (Editorial Orgânico).
+ * Sistema de animação global v2.1 (Editorial Orgânico).
  *
  * Anti-FOUC por construção:
  * - Nenhum estado oculto vem do CSS/markup — todo estado inicial nasce de
  *   gsap.set()/from() no cliente. Sem JS o site fica 100% visível.
- * - Elementos que já estão dentro do viewport no momento do scan não são
- *   escondidos nem animados (evita "conteúdo some e reanima" em hidratação
- *   tardia ou navegação com âncora).
+ * - Elementos acima da dobra ganham uma TIMELINE DE ENTRADA em cascata
+ *   (páginas internas têm hero visível no load); a entrada só roda se a
+ *   página acabou de pintar — em hidratação tardia no primeiro load
+ *   (> 2500ms) nada é escondido, o conteúdo segue como está.
  * - prefers-reduced-motion: early-return total, GSAP nem é carregado.
  *
  * Catálogo (data-attributes):
  * - data-anim="lines"                título revelado linha a linha (SplitText mask)
- * - data-anim="fade-up"              fade + y:28→0
+ * - data-anim="fade-up"              fade + y:32→0
  * - data-anim="stagger"              filhos diretos em cascata
  * - data-anim="image"                reveal por clip-path de baixo pra cima + scale
  * - data-anim="parallax" data-speed  deslocamento vertical em scrub (decorativos)
  * - data-anim="counter" data-to      número rola de 0 até o alvo (formato pt-BR)
- * - data-anim-group="hero"           timeline de intro on-mount; filhos com
+ * - data-anim-group="hero"           timeline de intro dedicada; filhos com
  *   data-hero="lines|fade|image|blob" e data-hero-order
  */
 export default function AnimationsProvider() {
   const pathname = usePathname();
+  const firstRunRef = useRef(true);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const isFirstRun = firstRunRef.current;
+    firstRunRef.current = false;
 
     let killed = false;
     let ctx: { revert: () => void } | undefined;
@@ -47,7 +52,6 @@ export default function AnimationsProvider() {
 
       const isMobile = window.innerWidth < 768;
       const start = isMobile ? "top 97%" : "top 92%";
-      // Elemento já visível no scan → não esconder (fica como está)
       const belowFold = (el: HTMLElement) =>
         el.getBoundingClientRect().top > window.innerHeight * 0.88;
       const claim = (el: HTMLElement) => {
@@ -55,20 +59,23 @@ export default function AnimationsProvider() {
         el.dataset.animDone = "1";
         return true;
       };
+      // Entrada acima da dobra: em navegação client-side sempre (DOM recém-
+      // pintado); no primeiro load só se a hidratação foi rápida — senão o
+      // usuário já está lendo e nada deve sumir/reanimar.
+      const allowIntro = !isFirstRun || performance.now() < 2500;
 
       ctx = gsap.context(() => {
-        // ---- intro do hero (on-mount, sem ScrollTrigger) ----
+        // ---- intro do hero da home (timeline dedicada) ----
         document.querySelectorAll<HTMLElement>('[data-anim-group="hero"]').forEach((group) => {
           if (!claim(group)) return;
-          // Hidratação tardia: usuário já está lendo — não esconder nada
-          if (performance.now() > 2500) return;
+          if (!allowIntro) return;
           const items = Array.from(group.querySelectorAll<HTMLElement>("[data-hero]")).sort(
             (a, b) => Number(a.dataset.heroOrder ?? 0) - Number(b.dataset.heroOrder ?? 0)
           );
           if (!items.length) return;
           const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
           items.forEach((el, i) => {
-            const at = i === 0 ? 0 : "-=0.45";
+            const at = i === 0 ? 0 : "-=0.55";
             switch (el.dataset.hero) {
               case "lines":
                 SplitText.create(el, {
@@ -78,7 +85,7 @@ export default function AnimationsProvider() {
                   onSplit: (self) =>
                     tl.from(
                       self.lines,
-                      { yPercent: 112, duration: 0.9, stagger: 0.12 },
+                      { yPercent: 112, duration: 1.0, stagger: 0.12, ease: "expo.out" },
                       at
                     ),
                 });
@@ -87,82 +94,131 @@ export default function AnimationsProvider() {
                 tl.fromTo(
                   el,
                   { clipPath: "inset(100% 0% 0% 0%)" },
-                  { clipPath: "inset(0% 0% 0% 0%)", duration: 1.0, ease: "power2.inOut" },
+                  { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" },
                   at
                 );
                 break;
               case "blob":
-                tl.from(el, { scale: 0.85, opacity: 0, duration: 0.9, ease: "power2.out" }, at);
+                tl.from(el, { scale: 0.85, opacity: 0, duration: 1.1, ease: "power2.out" }, at);
                 break;
               default:
-                tl.from(el, { opacity: 0, y: 24, duration: 0.6 }, at);
+                tl.from(el, { opacity: 0, y: 28, duration: 0.9 }, at);
             }
           });
         });
 
+        // ---- timeline de entrada para o que já está visível no load ----
+        const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+        let introIndex = 0;
+        const introAt = () => (introIndex === 0 ? 0 : `-=${0.62}`);
+
         // ---- títulos linha a linha ----
         document.querySelectorAll<HTMLElement>('[data-anim="lines"]').forEach((el) => {
           if (!claim(el)) return;
-          if (!belowFold(el)) return;
-          SplitText.create(el, {
-            type: "lines",
-            mask: "lines",
-            autoSplit: true,
-            onSplit: (self) =>
-              gsap.from(self.lines, {
-                yPercent: 112,
-                duration: 0.8,
-                stagger: 0.09,
-                ease: "power3.out",
-                scrollTrigger: { trigger: el, start, once: true },
-              }),
-          });
+          if (belowFold(el)) {
+            SplitText.create(el, {
+              type: "lines",
+              mask: "lines",
+              autoSplit: true,
+              onSplit: (self) =>
+                gsap.from(self.lines, {
+                  yPercent: 112,
+                  duration: 1.0,
+                  stagger: 0.1,
+                  ease: "expo.out",
+                  scrollTrigger: { trigger: el, start, once: true },
+                }),
+            });
+          } else if (allowIntro) {
+            const at = introAt();
+            introIndex++;
+            SplitText.create(el, {
+              type: "lines",
+              mask: "lines",
+              autoSplit: true,
+              onSplit: (self) =>
+                intro.from(
+                  self.lines,
+                  { yPercent: 112, duration: 1.0, stagger: 0.1, ease: "expo.out" },
+                  at
+                ),
+            });
+          }
         });
 
         // ---- fade-up ----
         document.querySelectorAll<HTMLElement>('[data-anim="fade-up"]').forEach((el) => {
           if (!claim(el)) return;
-          if (!belowFold(el)) return;
-          gsap.from(el, {
-            opacity: 0,
-            y: 28,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: { trigger: el, start, once: true },
-          });
+          if (belowFold(el)) {
+            gsap.from(el, {
+              opacity: 0,
+              y: 32,
+              duration: 0.9,
+              ease: "power3.out",
+              scrollTrigger: { trigger: el, start, once: true },
+            });
+          } else if (allowIntro) {
+            intro.from(el, { opacity: 0, y: 32, duration: 0.9 }, introAt());
+            introIndex++;
+          }
         });
 
         // ---- cascata de filhos ----
         document.querySelectorAll<HTMLElement>('[data-anim="stagger"]').forEach((grid) => {
           if (!claim(grid)) return;
-          if (!belowFold(grid)) return;
           const children = Array.from(grid.children) as HTMLElement[];
           if (!children.length) return;
-          gsap.from(children, {
-            opacity: 0,
-            y: 24,
-            duration: 0.7,
-            stagger: 0.12,
-            ease: "power2.out",
-            clearProps: "transform", // preserva hovers CSS (.card-hover)
-            scrollTrigger: { trigger: grid, start, once: true },
-          });
+          if (belowFold(grid)) {
+            gsap.from(children, {
+              opacity: 0,
+              y: 26,
+              duration: 0.9,
+              stagger: 0.14,
+              ease: "power3.out",
+              clearProps: "transform", // preserva hovers CSS (.card-hover)
+              scrollTrigger: { trigger: grid, start, once: true },
+            });
+          } else if (allowIntro) {
+            intro.from(
+              children,
+              {
+                opacity: 0,
+                y: 26,
+                duration: 0.9,
+                stagger: 0.14,
+                clearProps: "transform",
+              },
+              introAt()
+            );
+            introIndex++;
+          }
         });
 
         // ---- reveal de imagem (clip de baixo pra cima + settle de escala) ----
         document.querySelectorAll<HTMLElement>('[data-anim="image"]').forEach((el) => {
           if (!claim(el)) return;
-          if (!belowFold(el)) return;
           const img = el.querySelector("img");
-          const tl = gsap.timeline({
-            scrollTrigger: { trigger: el, start, once: true },
-          });
-          tl.fromTo(
-            el,
-            { clipPath: "inset(100% 0% 0% 0%)" },
-            { clipPath: "inset(0% 0% 0% 0%)", duration: 1.0, ease: "power2.inOut" }
-          );
-          if (img) tl.from(img, { scale: 1.06, duration: 1.2, ease: "power2.out" }, 0);
+          if (belowFold(el)) {
+            const tl = gsap.timeline({
+              scrollTrigger: { trigger: el, start, once: true },
+            });
+            tl.fromTo(
+              el,
+              { clipPath: "inset(100% 0% 0% 0%)" },
+              { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" }
+            );
+            if (img) tl.from(img, { scale: 1.06, duration: 1.5, ease: "power2.out" }, 0);
+          } else if (allowIntro) {
+            const at = introAt();
+            introIndex++;
+            intro.fromTo(
+              el,
+              { clipPath: "inset(100% 0% 0% 0%)" },
+              { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" },
+              at
+            );
+            if (img) intro.from(img, { scale: 1.06, duration: 1.5, ease: "power2.out" }, at);
+          }
         });
 
         // ---- parallax decorativo (scrub) ----
@@ -188,21 +244,25 @@ export default function AnimationsProvider() {
         // ---- contador numérico (pt-BR) ----
         document.querySelectorAll<HTMLElement>('[data-anim="counter"]').forEach((el) => {
           if (!claim(el)) return;
-          if (!belowFold(el)) return;
+          if (!belowFold(el) && !allowIntro) return;
           const to = Number(el.dataset.to ?? el.textContent?.replace(",", ".") ?? 0);
           const decimals = (el.dataset.to ?? "").includes(".") ? 2 : 0;
           const state = { v: 0 };
+          const format = () => {
+            el.textContent = state.v.toFixed(decimals).replace(".", ",");
+          };
           gsap.to(state, {
             v: to,
-            duration: 0.8,
+            duration: 0.9,
             ease: "power2.out",
-            scrollTrigger: { trigger: el, start, once: true },
+            ...(belowFold(el)
+              ? { scrollTrigger: { trigger: el, start, once: true } }
+              : {}),
             onStart: () => {
-              el.textContent = (0).toFixed(decimals).replace(".", ",");
+              state.v = 0;
+              format();
             },
-            onUpdate: () => {
-              el.textContent = state.v.toFixed(decimals).replace(".", ",");
-            },
+            onUpdate: format,
           });
         });
       });

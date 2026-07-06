@@ -10,20 +10,26 @@ type Props = {
   className?: string;
 };
 
+// Ondulações rasas (amplitude contida) — o fill fecha em y=92 (2px além do
+// viewBox) e o svg tem margin-bottom negativa para a seção seguinte pintar por
+// cima da base sólida, eliminando o fio de subpixel entre onda e seção.
 const PATHS: Record<NonNullable<Props["variant"]>, string> = {
-  soft: "M0,90 L0,55 C240,10 480,0 720,25 C960,50 1200,80 1440,45 L1440,90 Z",
+  soft: "M0,92 L0,64 C240,52 480,48 720,56 C960,64 1200,72 1440,58 L1440,92 Z",
   organic:
-    "M0,90 L0,60 C120,25 260,5 420,30 C560,52 640,75 800,60 C980,43 1060,8 1220,18 C1320,25 1390,50 1440,38 L1440,90 Z",
+    "M0,92 L0,62 C160,50 300,46 460,56 C620,66 720,72 880,64 C1040,56 1160,46 1300,52 C1360,55 1410,60 1440,56 L1440,92 Z",
 };
 
 export default function WaveDivider({ to, from, variant = "soft", flip = false, className }: Props) {
   return (
-    <div className={cn("overflow-hidden leading-none mt-[-1px]", to, from, className)} aria-hidden="true">
+    <div
+      className={cn("leading-none mt-[-1px] relative z-[1] pointer-events-none", to, from, className)}
+      aria-hidden="true"
+    >
       <svg
         viewBox="0 0 1440 90"
         preserveAspectRatio="none"
         className={cn(
-          "block w-full h-[clamp(40px,6vw,90px)] mb-[-1px]",
+          "block w-full h-[clamp(24px,4vw,56px)] mb-[-2px] overflow-visible",
           flip && "-scale-x-100"
         )}
         fill="currentColor"
