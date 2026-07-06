@@ -62,7 +62,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     <>
       {/* Seção 1 — meta + título */}
       <section className="bg-white pt-[128px] pb-[30px]">
-        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
           <div className="max-w-content mx-auto">
             {/* Back link */}
             <Link
@@ -101,7 +101,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       {/* Seção 2 — capa */}
       {coverUrl && (
         <section className="bg-white py-[30px]">
-          <div className="max-w-site mx-auto px-8 lg:px-[200px]">
+          <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
             <div className="max-w-content mx-auto">
               <div
                 data-anim="image"
@@ -121,7 +121,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
       {/* Seção 3 — corpo (single column) */}
       <section className="bg-white pb-[70px]">
-        <div className="max-w-site mx-auto px-8 lg:px-[200px]">
+        <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
           <div className="max-w-content mx-auto">
             {/* Artigo */}
             <article className="max-w-none">

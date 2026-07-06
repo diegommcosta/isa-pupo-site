@@ -22,7 +22,7 @@ export default function Footer() {
         className="absolute bottom-16 left-[6%] text-bege/60 animate-twinkle [animation-delay:1.4s]"
       />
 
-      <div className="max-w-site mx-auto px-8 lg:px-[200px] pt-10 md:pt-[60px] pb-[32px]">
+      <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24 pt-10 md:pt-[60px] pb-[32px]">
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-6 md:gap-10 pb-8 border-b-[3px] border-verde-claro">
           {/* Brand */}
           <div>

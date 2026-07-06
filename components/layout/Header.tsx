@@ -147,7 +147,7 @@ export default function Header({ tone: toneProp = "light" }: HeaderProps) {
             : cn("bg-transparent", tone === "light" ? "text-verde-escuro" : "text-bege")
       )}
     >
-      <div className="max-w-site mx-auto h-[72px] px-8 lg:px-[200px] flex items-center justify-between lg:grid lg:grid-cols-3">
+      <div className="max-w-site mx-auto h-[72px] px-6 md:px-10 lg:px-16 xl:px-24 flex items-center justify-between lg:grid lg:grid-cols-3">
         {/* Coluna 1 — Logo (esquerda) */}
         <Link
           href="/"
@@ -249,7 +249,7 @@ export default function Header({ tone: toneProp = "light" }: HeaderProps) {
         )}
         aria-label="Menu mobile"
       >
-        <div className="px-8 py-7 flex flex-col gap-5">
+        <div className="px-6 md:px-10 py-7 flex flex-col gap-5">
           {navLinks.map((link) => (
             <Link
               key={link.href}

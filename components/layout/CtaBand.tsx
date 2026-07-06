@@ -36,7 +36,7 @@ export default function CtaBand({ message = defaultMessage }: Props) {
         className="absolute bottom-[18%] left-[55%] text-rosa animate-twinkle [animation-delay:1.6s] hidden md:block"
       />
 
-      <div className="relative max-w-site mx-auto px-8 lg:px-[200px]">
+      <div className="relative max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
         <div className="max-w-[720px]">
           <h2
             className="font-display text-display-lg text-bege px-2 -mx-2"
