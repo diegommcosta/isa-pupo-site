@@ -74,8 +74,10 @@ export default function AnimationsProvider() {
           );
           if (!items.length) return;
           const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-          items.forEach((el, i) => {
-            const at = i === 0 ? 0 : "-=0.55";
+          let textIndex = 0;
+          items.forEach((el) => {
+            // Imagem e blob entram JUNTO com o texto (posições absolutas no
+            // início da timeline), não depois — entrada mais fluida.
             switch (el.dataset.hero) {
               case "lines":
                 SplitText.create(el, {
@@ -85,32 +87,37 @@ export default function AnimationsProvider() {
                   onSplit: (self) =>
                     tl.from(
                       self.lines,
-                      { yPercent: 112, duration: 1.0, stagger: 0.12, ease: "expo.out" },
-                      at
+                      { yPercent: 112, duration: 0.9, stagger: 0.1, ease: "expo.out" },
+                      textIndex === 0 ? 0 : "-=0.6"
                     ),
                 });
+                textIndex++;
                 break;
-              case "image":
-                tl.fromTo(
-                  el,
-                  { clipPath: "inset(100% 0% 0% 0%)" },
-                  { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" },
-                  at
-                );
+              case "image": {
+                const img = el.querySelector("img");
+                tl.from(el, { opacity: 0, y: 32, duration: 1.0 }, 0.15);
+                if (img) tl.from(img, { scale: 1.1, duration: 1.5, ease: "power2.out" }, 0.15);
                 break;
+              }
               case "blob":
-                tl.from(el, { scale: 0.85, opacity: 0, duration: 1.1, ease: "power2.out" }, at);
+                tl.from(el, { scale: 0.85, opacity: 0, duration: 1.1, ease: "power2.out" }, 0.1);
                 break;
               default:
-                tl.from(el, { opacity: 0, y: 28, duration: 0.9 }, at);
+                tl.from(
+                  el,
+                  { opacity: 0, y: 26, duration: 0.75 },
+                  textIndex === 0 ? 0 : "-=0.6"
+                );
+                textIndex++;
             }
           });
         });
 
         // ---- timeline de entrada para o que já está visível no load ----
+        // Texto entra em cascata; imagens entram em paralelo desde o início.
         const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
         let introIndex = 0;
-        const introAt = () => (introIndex === 0 ? 0 : `-=${0.62}`);
+        const introAt = () => (introIndex === 0 ? 0 : `-=${0.6}`);
 
         // ---- títulos linha a linha ----
         document.querySelectorAll<HTMLElement>('[data-anim="lines"]').forEach((el) => {
@@ -123,8 +130,8 @@ export default function AnimationsProvider() {
               onSplit: (self) =>
                 gsap.from(self.lines, {
                   yPercent: 112,
-                  duration: 1.0,
-                  stagger: 0.1,
+                  duration: 0.9,
+                  stagger: 0.08,
                   ease: "expo.out",
                   scrollTrigger: { trigger: el, start, once: true },
                 }),
@@ -139,7 +146,7 @@ export default function AnimationsProvider() {
               onSplit: (self) =>
                 intro.from(
                   self.lines,
-                  { yPercent: 112, duration: 1.0, stagger: 0.1, ease: "expo.out" },
+                  { yPercent: 112, duration: 0.9, stagger: 0.08, ease: "expo.out" },
                   at
                 ),
             });
@@ -152,13 +159,13 @@ export default function AnimationsProvider() {
           if (belowFold(el)) {
             gsap.from(el, {
               opacity: 0,
-              y: 32,
-              duration: 0.9,
+              y: 28,
+              duration: 0.75,
               ease: "power3.out",
               scrollTrigger: { trigger: el, start, once: true },
             });
           } else if (allowIntro) {
-            intro.from(el, { opacity: 0, y: 32, duration: 0.9 }, introAt());
+            intro.from(el, { opacity: 0, y: 28, duration: 0.75 }, introAt());
             introIndex++;
           }
         });
@@ -171,9 +178,9 @@ export default function AnimationsProvider() {
           if (belowFold(grid)) {
             gsap.from(children, {
               opacity: 0,
-              y: 26,
-              duration: 0.9,
-              stagger: 0.14,
+              y: 24,
+              duration: 0.75,
+              stagger: 0.1,
               ease: "power3.out",
               clearProps: "transform", // preserva hovers CSS (.card-hover)
               scrollTrigger: { trigger: grid, start, once: true },
@@ -183,9 +190,9 @@ export default function AnimationsProvider() {
               children,
               {
                 opacity: 0,
-                y: 26,
-                duration: 0.9,
-                stagger: 0.14,
+                y: 24,
+                duration: 0.75,
+                stagger: 0.1,
                 clearProps: "transform",
               },
               introAt()
@@ -194,7 +201,7 @@ export default function AnimationsProvider() {
           }
         });
 
-        // ---- reveal de imagem (clip de baixo pra cima + settle de escala) ----
+        // ---- reveal de imagem (fade + drift + zoom-settle na <img>) ----
         document.querySelectorAll<HTMLElement>('[data-anim="image"]').forEach((el) => {
           if (!claim(el)) return;
           const img = el.querySelector("img");
@@ -202,22 +209,12 @@ export default function AnimationsProvider() {
             const tl = gsap.timeline({
               scrollTrigger: { trigger: el, start, once: true },
             });
-            tl.fromTo(
-              el,
-              { clipPath: "inset(100% 0% 0% 0%)" },
-              { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" }
-            );
-            if (img) tl.from(img, { scale: 1.06, duration: 1.5, ease: "power2.out" }, 0);
+            tl.from(el, { opacity: 0, y: 32, duration: 1.0, ease: "power3.out" });
+            if (img) tl.from(img, { scale: 1.1, duration: 1.5, ease: "power2.out" }, 0);
           } else if (allowIntro) {
-            const at = introAt();
-            introIndex++;
-            intro.fromTo(
-              el,
-              { clipPath: "inset(100% 0% 0% 0%)" },
-              { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" },
-              at
-            );
-            if (img) intro.from(img, { scale: 1.06, duration: 1.5, ease: "power2.out" }, at);
+            // Imagens acima da dobra entram em paralelo com o texto
+            intro.from(el, { opacity: 0, y: 32, duration: 1.0 }, 0.15);
+            if (img) intro.from(img, { scale: 1.1, duration: 1.5, ease: "power2.out" }, 0.15);
           }
         });
 
