@@ -43,7 +43,7 @@ export default function Hero() {
             >
               <Image
                 src="/imgs/hero.webp"
-                alt="Isa Pupo em blusa vermelha e calça branca com seu companheiro de quatro patas, Mike, rodeados por elementos de seu hobbie, como cristais, ervas, vinho, natureza."
+                alt="Isa Pupo em blusa vermelha e calça branca com seu companheiro de quatro patas, Mike, rodeados por elementos de seus hobbies, como cristais, ervas, vinho, natureza."
                 fill
                 className="object-contain object-center lg:object-right"
                 priority
@@ -84,7 +84,7 @@ export default function Hero() {
             </div>
             <div data-hero="fade" data-hero-order="3" className="mt-8 flex gap-3 flex-wrap">
               <Button
-                variant="dark"
+                variant="primary"
                 size="md"
                 href={whatsapp}
                 target="_blank"

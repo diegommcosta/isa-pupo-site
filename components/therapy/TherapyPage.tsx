@@ -137,7 +137,7 @@ export default function TherapyPage({ data }: Props) {
                     <BulletRow
                       key={j}
                       icon={bulletIcon(sec.title)}
-                      iconColor="var(--laranja)"
+                      iconColor="var(--verde-claro)"
                       textColor="var(--marrom)"
                       size={15}
                     >

@@ -12,7 +12,8 @@ interface BulletRowProps {
 
 export function BulletRow({
   icon = "logo-bullet",
-  iconColor = "var(--laranja)",
+  // verde-claro: laranja é reservado ao CTA primário + eyebrow (Regra da Faísca)
+  iconColor = "var(--verde-claro)",
   textColor = "var(--marrom)",
   size = 16,
   iconSize = 16,

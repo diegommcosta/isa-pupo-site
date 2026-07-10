@@ -10,9 +10,10 @@ export default function CarlJungQuote() {
         data-anim="parallax"
         data-speed="0.85"
       >
+        {/* Decorativa (opacity-25): alt vazio para leitores de tela pularem */}
         <Image
           src="/imgs/cerebro-coracao-flores.webp"
-          alt="Metade esquerda cerébro, metade direita coração, ambos envoltos de flores."
+          alt=""
           width={240}
           height={308}
           className="w-[180px] md:w-[280px] h-auto opacity-25"

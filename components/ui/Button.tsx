@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
@@ -35,10 +36,11 @@ const filledHover =
   "hover:brightness-[0.96] hover:-translate-y-[2px] hover:shadow-[0_6px_20px_rgba(45,22,5,0.18)] active:translate-y-0 active:shadow-none";
 
 const variants: Record<Variant, string> = {
-  primary:           `bg-laranja text-bege border border-transparent ${filledHover}`,
+  // texto branco no laranja: 5.9:1 (bege ficava em 3.54:1, abaixo do AA)
+  primary:           `bg-laranja text-branco border border-transparent ${filledHover}`,
   dark:              `bg-verde-escuro text-bege border border-transparent ${filledHover}`,
   purple:            `bg-roxo-escuro text-bege border border-transparent ${filledHover}`,
-  "outline-orange":  "bg-transparent text-laranja border border-laranja hover:bg-laranja hover:text-bege",
+  "outline-orange":  "bg-transparent text-laranja border border-laranja hover:bg-laranja hover:text-branco",
   "outline-dark":    "bg-transparent text-verde-escuro border border-verde-escuro hover:bg-verde-escuro hover:text-bege",
   "outline-purple":  "bg-transparent text-roxo-escuro border border-roxo-escuro hover:bg-roxo-escuro hover:text-bege",
 };
@@ -84,6 +86,14 @@ export default function Button({
 
   if ("href" in props && props.href !== undefined) {
     const { href, ...rest } = props as LinkProps;
+    // Rotas internas via next/link (client nav + prefetch); externas/âncoras em <a> puro.
+    if (href.startsWith("/") && !rest.target) {
+      return (
+        <Link href={href} className={cls} {...rest}>
+          {content}
+        </Link>
+      );
+    }
     return (
       <a href={href} className={cls} {...rest}>
         {content}

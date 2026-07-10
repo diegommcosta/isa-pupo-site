@@ -84,7 +84,7 @@ export default function Atendimentos() {
                 </p>
                 <div className="mt-[18px] flex flex-col gap-2">
                   {card.bullets.map((b) => (
-                    <BulletRow key={b} icon="logo-bullet" iconColor="var(--laranja)" textColor="var(--marrom)">
+                    <BulletRow key={b} icon="logo-bullet" iconColor="var(--verde-claro)" textColor="var(--marrom)">
                       {b}
                     </BulletRow>
                   ))}
@@ -103,7 +103,7 @@ export default function Atendimentos() {
                   Agendar Consulta
                 </Button>
                 <Button
-                  variant="outline-orange"
+                  variant="outline-dark"
                   size="sm"
                   href={card.href}
                   rightIcon="arrow-right"

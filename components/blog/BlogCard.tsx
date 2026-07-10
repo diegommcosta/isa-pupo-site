@@ -24,7 +24,8 @@ export default function BlogCard({ post, imageHeight = 190 }: Props) {
     : null;
 
   const imgH = imageHeight;
-  const postHref = post.slug?.current ? `/blog/${post.slug.current}` : "#";
+  // Sem slug não há destino: renderiza título sem link e omite o botão.
+  const postHref = post.slug?.current ? `/blog/${post.slug.current}` : null;
 
   return (
     <article
@@ -66,8 +67,8 @@ export default function BlogCard({ post, imageHeight = 190 }: Props) {
           {/* Data + Tag */}
           <div className="flex items-center justify-between mb-[10px]">
             {post.publishedAt ? (
-              <div className="flex items-center gap-1.5 text-[14px] text-verde-claro">
-                <Icon name="calendar" size={14} color="var(--verde-claro)" />
+              <div className="flex items-center gap-1.5 text-[14px] text-verde-escuro">
+                <Icon name="calendar" size={14} color="var(--verde-escuro)" />
                 <time>{formatDate(post.publishedAt)}</time>
               </div>
             ) : <span />}
@@ -78,9 +79,13 @@ export default function BlogCard({ post, imageHeight = 190 }: Props) {
 
           {/* Título */}
           <h3 className="font-sans font-bold text-[22px] leading-[1.2] text-verde-escuro">
-            <a href={postHref} className="hover:text-laranja transition-colors">
-              {post.title}
-            </a>
+            {postHref ? (
+              <a href={postHref} className="hover:text-roxo-escuro transition-colors">
+                {post.title}
+              </a>
+            ) : (
+              post.title
+            )}
           </h3>
 
           {/* Resumo */}
@@ -99,16 +104,18 @@ export default function BlogCard({ post, imageHeight = 190 }: Props) {
           )}
 
           {/* Botão */}
-          <div className="mt-4">
-            <Button
-              variant="outline-orange"
-              size="sm"
-              href={postHref}
-              rightIcon="arrow-right"
-            >
-              Ler mais
-            </Button>
-          </div>
+          {postHref && (
+            <div className="mt-4">
+              <Button
+                variant="outline-dark"
+                size="sm"
+                href={postHref}
+                rightIcon="arrow-right"
+              >
+                Ler mais
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </article>

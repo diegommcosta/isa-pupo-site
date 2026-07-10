@@ -36,7 +36,7 @@ export default function BlogTeaser({ posts }: Props) {
             ))}
           </div>
         ) : (
-          <p className="mt-12 text-verde-claro font-sans text-base">
+          <p className="mt-12 text-verde-escuro font-sans text-base">
             Em breve, artigos sobre psicologia e autoconhecimento.
           </p>
         )}

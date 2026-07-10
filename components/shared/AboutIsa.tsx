@@ -29,20 +29,22 @@ export default function AboutIsa({ eyebrow, variant = "light", id }: Props) {
         {/* Título editorial à esquerda */}
         <div className="relative">
           {/* cor via style: tailwind-merge confunde text-eyebrow/text-display-* (font-size) com classes de cor e descarta uma delas */}
-          <span
+          {/* O eyebrow é o heading real da seção ("Sobre Mim"/"Sobre a Autora");
+              o nome gigante é display text — evita h1 "Isa Pupo" → h2 "Isa Pupo" no outline. */}
+          <h2
             className="inline-flex items-center gap-2 font-sans font-bold text-eyebrow uppercase"
             style={{ color: dark ? "var(--bege)" : "var(--laranja)" }}
           >
             <Sparkle size={12} />
             {eyebrow}
-          </span>
-          <h2
+          </h2>
+          <p
             data-anim="lines"
             className="relative z-10 font-display font-normal text-display-xl px-2 -mx-2 mt-3"
             style={{ color: dark ? "var(--bege)" : "var(--verde-escuro)" }}
           >
             Isa Pupo
-          </h2>
+          </p>
           <Sparkle
             size={18}
             className={cn(
@@ -90,7 +92,7 @@ export default function AboutIsa({ eyebrow, variant = "light", id }: Props) {
               >
                 <em>Uma mulher de alma curiosa, passos corajosos e em constante
                   movimento.</em>{" "}
-                <span className={dark ? "text-bege font-bold" : "text-laranja"}>
+                <span className={dark ? "text-bege font-bold" : "text-roxo-escuro"}>
                   Minha trajetória é feita de escolhas e reencontros.
                 </span>
               </p>

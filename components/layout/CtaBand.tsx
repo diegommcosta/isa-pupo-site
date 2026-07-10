@@ -18,9 +18,10 @@ export default function CtaBand({ message = defaultMessage }: Props) {
         data-anim="parallax"
         data-speed="0.95"
       >
+        {/* Decorativa (opacity-30/70): alt vazio para leitores de tela pularem */}
         <Image
           src="/imgs/cerebro-lampada.webp"
-          alt="Uma lampada com um cerebro dentro, uma mente capaz de iluminar."
+          alt=""
           width={162}
           height={267}
           className="opacity-30 md:opacity-70 w-[120px] md:w-[162px] h-auto"

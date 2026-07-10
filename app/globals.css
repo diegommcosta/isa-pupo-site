@@ -9,6 +9,14 @@
     color: #2D1605;
   }
 
+  /* Anel de foco em dois tons: o traço branco garante contraste nos fundos
+     escuros (verde-escuro/marrom) e o halo laranja nos claros (bege). */
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 0;
+    box-shadow: 0 0 0 5px var(--laranja);
+  }
+
   :root {
     --bege: #EDBF9F;
     --bege-light: #EFDDD1;

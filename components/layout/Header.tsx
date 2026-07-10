@@ -96,8 +96,15 @@ export default function Header({ tone: toneProp = "light" }: HeaderProps) {
         setMobileOpen(false);
       }
     }
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === "Escape") setMobileOpen(false);
+    }
     document.addEventListener("mousedown", handleOutside);
-    return () => document.removeEventListener("mousedown", handleOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
   }, [mobileOpen]);
 
   // Sliding indicator
@@ -143,7 +150,7 @@ export default function Header({ tone: toneProp = "light" }: HeaderProps) {
         mobileOpen
           ? "bg-bege-light text-verde-escuro shadow-[0_2px_12px_rgba(45,22,5,0.12)]"
           : scrolled
-            ? "bg-verde-escuro/95 backdrop-blur-md text-bege shadow-[0_2px_8px_rgba(0,0,0,0.25)]"
+            ? "bg-verde-escuro/95 backdrop-blur-md text-bege shadow-[0_2px_8px_rgba(45,22,5,0.28)]"
             : cn("bg-transparent", tone === "light" ? "text-verde-escuro" : "text-bege")
       )}
     >
@@ -258,7 +265,7 @@ export default function Header({ tone: toneProp = "light" }: HeaderProps) {
               className={cn(
                 "font-sans text-[22px] text-verde-escuro transition-opacity pb-[2px] self-start",
                 link.href === activeHref
-                  ? "opacity-100 border-b-2 border-laranja"
+                  ? "opacity-100 border-b-2 border-verde-escuro"
                   : "opacity-80 border-b-2 border-transparent"
               )}
               onClick={link.href === "/" ? handleHomeClick : closeMobile}

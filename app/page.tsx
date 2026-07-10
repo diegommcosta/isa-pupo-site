@@ -18,7 +18,10 @@ const latestPostsQuery = groq`*[_type == "post"] | order(publishedAt desc)[0..2]
 }`;
 
 export default async function HomePage() {
-  const posts = await client.fetch(latestPostsQuery).catch(() => []);
+  const posts = await client.fetch(latestPostsQuery).catch((err) => {
+    console.error("[home] Falha ao buscar posts no Sanity:", err);
+    return [];
+  });
 
   return (
     <SiteLayout>
