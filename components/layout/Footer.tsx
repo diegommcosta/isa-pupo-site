@@ -26,7 +26,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-6 md:gap-10 pb-8 border-b-[3px] border-verde-claro">
           {/* Brand */}
           <div>
-            <p className="font-display text-[36px] leading-none mb-[14px]">Isa Pupo</p>
+            <p className="font-display text-[30px] leading-none mb-[14px]">Isa Pupo</p>
             <p className="font-sans text-[16px] leading-[1.5] opacity-90 max-w-[380px]">
               Terapia Integrativa &amp; Junguiana, cuidando da sua jornada
               interior com acolhimento e profundidade.

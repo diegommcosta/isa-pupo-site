@@ -13,6 +13,11 @@ interface SectionTitleProps {
   className?: string;
   /** Anima o título linha a linha via AnimationsProvider. */
   animate?: boolean;
+  /**
+   * Fonte do título grande. "display" = Berliana (padrão, só para frases curtas).
+   * "sans" = Amaranth Bold, para títulos longos (Regra da Berliana Curta).
+   */
+  displayFont?: "display" | "sans";
 }
 
 export function SectionTitle({
@@ -25,8 +30,10 @@ export function SectionTitle({
   eyebrowColor = "var(--laranja)",
   className,
   animate = true,
+  displayFont = "display",
 }: SectionTitleProps) {
   const heading = title ?? eyebrow;
+  const sans = displayFont === "sans";
 
   return (
     <div
@@ -46,7 +53,12 @@ export function SectionTitle({
         </span>
       )}
       <h2
-        className="font-display font-normal text-display-lg px-2 -mx-2"
+        className={cn(
+          "px-2 -mx-2",
+          sans
+            ? "font-sans font-bold text-display-md leading-[1.1]"
+            : "font-display font-normal text-display-lg"
+        )}
         style={{ color }}
         {...(animate ? { "data-anim": "lines" } : {})}
       >

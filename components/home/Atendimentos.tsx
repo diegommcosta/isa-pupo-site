@@ -76,7 +76,7 @@ export default function Atendimentos() {
 
               <div className="relative flex-1">
                 <IconDisc icon={card.icon} />
-                <h3 className="mt-4 mb-[10px] font-sans font-bold text-[32px] leading-snug text-marrom tracking-tight">
+                <h3 className="mt-4 mb-[10px] font-sans font-bold text-[26px] leading-snug text-marrom tracking-tight">
                   {card.title}
                 </h3>
                 <p className="text-[17px] leading-[1.45] text-marrom max-w-[320px]">

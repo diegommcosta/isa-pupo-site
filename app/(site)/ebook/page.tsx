@@ -131,7 +131,7 @@ export default function EbookPage() {
       {/* Para quem é este ebook? */}
       <section className="relative overflow-hidden bg-white py-20 md:py-28">
         <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
-          <SectionTitle eyebrow="Para quem é este ebook?" align="center" />
+          <SectionTitle eyebrow="Para quem é este ebook?" align="center" displayFont="sans" />
           <div
             data-anim="fade-up"
             className="mt-6 max-w-[620px] mx-auto text-left md:text-center text-[18px] md:text-[19px] leading-[1.55] text-marrom"
@@ -151,7 +151,7 @@ export default function EbookPage() {
                 <div key={it.title} className="flex flex-col sm:flex-row gap-2 sm:gap-5 items-start">
                   <span
                     aria-hidden="true"
-                    className="font-display text-[52px] md:text-[64px] leading-none text-rosa/70 sm:w-[68px] md:w-[84px] shrink-0 select-none"
+                    className="font-display text-[38px] md:text-[48px] leading-none text-rosa/70 sm:w-[68px] md:w-[84px] shrink-0 select-none"
                   >
                     0{i + 1}
                   </span>
@@ -222,7 +222,7 @@ export default function EbookPage() {
               <div className="mt-3 flex items-baseline justify-center gap-3">
                 <span className="font-sans text-[20px]">por R$</span>
                 <span
-                  className="font-display text-[72px] md:text-[88px] leading-none text-roxo-escuro"
+                  className="font-display text-[52px] md:text-[68px] leading-none text-roxo-escuro"
                   data-anim="counter"
                   data-to="19.90"
                 >

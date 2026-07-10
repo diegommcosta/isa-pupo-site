@@ -116,6 +116,7 @@ export default function TherapyPage({ data }: Props) {
           <SectionTitle
             eyebrow="O que esperar das sessões"
             color="var(--bege)"
+            displayFont="sans"
           />
           <div
             data-anim="stagger"
@@ -129,7 +130,7 @@ export default function TherapyPage({ data }: Props) {
                   i === 1 && "lg:mt-12"
                 )}
               >
-                <h3 className="font-sans font-bold text-[22px] leading-[1.15] text-verde-escuro">
+                <h3 className="font-sans font-bold text-[20px] leading-[1.15] text-verde-escuro">
                   {sec.title}
                 </h3>
                 <div className="flex flex-col gap-3">

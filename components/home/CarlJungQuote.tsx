@@ -29,13 +29,14 @@ export default function CarlJungQuote() {
         <blockquote className="relative max-w-[900px] lg:ml-[10%]">
           <span
             aria-hidden="true"
-            className="absolute -top-10 -left-3 md:-top-16 md:-left-6 font-display text-[110px] md:text-[180px] leading-none text-roxo-claro/60 select-none pointer-events-none"
+            className="absolute -top-7 -left-2 md:-top-12 md:-left-5 font-display text-[72px] md:text-[104px] leading-none text-roxo-claro/60 select-none pointer-events-none"
           >
             &ldquo;
           </span>
+          {/* Frase longa: Amaranth Bold (Regra da Berliana Curta), não Berliana */}
           <p
             data-anim="lines"
-            className="relative font-display text-display-lg leading-[1.12] text-bege px-2 -mx-2"
+            className="relative font-sans font-bold text-[clamp(24px,3.2vw,34px)] leading-[1.3] text-bege px-2 -mx-2"
           >
             &ldquo;Quem olha para fora sonha, quem olha para dentro, desperta.&rdquo;
           </p>

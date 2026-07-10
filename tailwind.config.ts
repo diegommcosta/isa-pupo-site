@@ -26,10 +26,10 @@ const config: Config = {
         display: ["var(--font-berliana)", "cursive"],
       },
       fontSize: {
-        "display-hero": ["clamp(80px, 12vw, 160px)", { lineHeight: "0.95" }],
-        "display-xl": ["clamp(56px, 8vw, 112px)", { lineHeight: "1" }],
-        "display-lg": ["clamp(44px, 6vw, 88px)", { lineHeight: "1.02" }],
-        "display-md": ["clamp(36px, 4.5vw, 60px)", { lineHeight: "1.05" }],
+        "display-hero": ["clamp(52px, 9vw, 96px)", { lineHeight: "0.98" }],
+        "display-xl": ["clamp(42px, 6.5vw, 76px)", { lineHeight: "1.02" }],
+        "display-lg": ["clamp(34px, 5vw, 60px)", { lineHeight: "1.05" }],
+        "display-md": ["clamp(28px, 3.8vw, 46px)", { lineHeight: "1.08" }],
         eyebrow: ["14px", { lineHeight: "1", letterSpacing: "0.18em" }],
       },
       borderRadius: {

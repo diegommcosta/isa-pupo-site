@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-10T00:00:00.000Z",
+  "title": "Design System: Isa Pupo",
+  "extensions": {
+    "colorMeta": {
+      "bege": { "role": "primary", "displayName": "Bege Argila", "canonical": "#EDBF9F", "tonalRamp": ["#2E2015", "#4A3325", "#6B4C37", "#8E684C", "#B08A66", "#CFA985", "#EDBF9F", "#F7E2D1"] },
+      "bege-light": { "role": "neutral", "displayName": "Bege Névoa", "canonical": "#EFDDD1", "tonalRamp": ["#332821", "#4E3D33", "#6B5548", "#8A7062", "#AC8F7F", "#CBB2A2", "#EFDDD1", "#FAF1E9"] },
+      "verde-escuro": { "role": "secondary", "displayName": "Verde Bosque", "canonical": "#2D3322", "tonalRamp": ["#171A11", "#20251A", "#2D3322", "#3E472F", "#525E40", "#6E7C59", "#96A183", "#C3CBB6"] },
+      "marrom": { "role": "secondary", "displayName": "Marrom Terra", "canonical": "#2D1605", "tonalRamp": ["#160B02", "#2D1605", "#472712", "#623A20", "#7F5232", "#9E6D48", "#C08E68", "#DFB894"] },
+      "laranja": { "role": "tertiary", "displayName": "Laranja Faísca", "canonical": "#BC2F0A", "tonalRamp": ["#3A0E02", "#5C1704", "#7E2006", "#9E2908", "#BC2F0A", "#D6532F", "#E88763", "#F5C0AA"] },
+      "roxo-escuro": { "role": "tertiary", "displayName": "Roxo Inconsciente", "canonical": "#53346B", "tonalRamp": ["#241631", "#331F49", "#432A5B", "#53346B", "#6B4A85", "#856A9E", "#A793BC", "#CEC1DC"] },
+      "roxo-claro": { "role": "tertiary", "displayName": "Roxo Sonho", "canonical": "#725093", "tonalRamp": ["#2E2040", "#3F2C58", "#523A72", "#63478A", "#725093", "#8E71AC", "#AF9AC6", "#D3C6E0"] },
+      "rosa": { "role": "tertiary", "displayName": "Rosa Acolhida", "canonical": "#CF6A61", "tonalRamp": ["#401D19", "#5E2A24", "#7E3931", "#A04A41", "#C05C52", "#CF6A61", "#E0968F", "#F1CAC6"] },
+      "verde-claro": { "role": "neutral", "displayName": "Verde Folha", "canonical": "#6E7C59", "tonalRamp": ["#2C3123", "#3E4630", "#525D40", "#6E7C59", "#8A976F", "#A7B190", "#C6CDB6", "#E4E8DB"] },
+      "cinza": { "role": "neutral", "displayName": "Cinza Bruma", "canonical": "#9E9E9E", "tonalRamp": ["#2B2B2B", "#454545", "#606060", "#7C7C7C", "#9E9E9E", "#BDBDBD", "#DBDBDB", "#F0F0F0"] },
+      "branco": { "role": "neutral", "displayName": "Branco", "canonical": "#FFFFFF", "tonalRamp": ["#E6E6E6", "#EDEDED", "#F2F2F2", "#F7F7F7", "#FBFBFB", "#FDFDFD", "#FFFFFF", "#FFFFFF"] }
+    },
+    "typographyMeta": {
+      "display-hero": { "displayName": "Display Hero (Berliana)", "purpose": "Nome e aberturas. clamp(52,9vw,96). Teto de 96px; só frases muito curtas." },
+      "display-xl": { "displayName": "Display XL (Berliana)", "purpose": "Títulos de página. clamp(42,6.5vw,76)." },
+      "display-lg": { "displayName": "Display LG (Berliana)", "purpose": "Títulos de seção curtos. clamp(34,5vw,60)." },
+      "display-md": { "displayName": "Display MD (Berliana)", "purpose": "Títulos secundários. clamp(28,3.8vw,46)." },
+      "title": { "displayName": "Title (Amaranth Bold)", "purpose": "Títulos longos que não cabem em Berliana — inclui a citação de Jung. clamp(24,3.2vw,34)." },
+      "body": { "displayName": "Body (Amaranth)", "purpose": "Texto corrido, 16–21px, linha 65–75ch." },
+      "label": { "displayName": "Label / Eyebrow", "purpose": "Eyebrow com sparkle, uppercase tracked em laranja, 14px." }
+    },
+    "shadows": [
+      { "name": "ambient-suave", "value": "0 2px 12px rgba(45, 22, 5, 0.06)", "purpose": "Repouso de cards e superfícies levemente elevadas." },
+      { "name": "ambient-media", "value": "0 8px 28px rgba(45, 22, 5, 0.10)", "purpose": "Cards de destaque e containers de conteúdo." },
+      { "name": "lift-hover", "value": "0 6px 20px rgba(45, 22, 5, 0.18)", "purpose": "Resposta a hover em botões e cards, com translateY." }
+    ],
+    "motion": [
+      { "name": "ease-base", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Easing padrão (ease-out-quart) para transições de estado, 200ms." },
+      { "name": "twinkle", "value": "twinkle 3s ease-in-out infinite", "purpose": "Sparkles piscando devagar." },
+      { "name": "float", "value": "float 6s ease-in-out infinite", "purpose": "Blobs e elementos orgânicos flutuando." },
+      { "name": "marquee", "value": "marquee 22s linear infinite", "purpose": "Faixa de highlights aprovados." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "site-max", "value": "1440px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA de agendar. Laranja faísca sobre texto bege, pílula total.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9 .9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2 .8.5 1.1.5 1.4.4.2-.1.5-.5.7-.8.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.5.3.1.2.1.9-.1 1.5Z\"/></svg><span>Agendar Consulta</span></button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 24px;background:#BC2F0A;color:#EDBF9F;border:none;border-radius:9999px;font-family:Amaranth,system-ui,sans-serif;font-size:17px;line-height:1;cursor:pointer;transition:filter .2s cubic-bezier(0.22,1,0.36,1),transform .2s cubic-bezier(0.22,1,0.36,1),box-shadow .2s cubic-bezier(0.22,1,0.36,1)}.ds-btn-primary:hover{filter:brightness(.96);transform:translateY(-2px);box-shadow:0 6px 20px rgba(45,22,5,.18)}.ds-btn-primary:focus-visible{outline:2px solid #2D1605;outline-offset:2px}.ds-btn-primary:active{transform:none;box-shadow:none}"
+    },
+    {
+      "name": "Dark Button",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "CTA de contexto claro / hero. Verde bosque sobre texto bege.",
+      "html": "<button class=\"ds-btn-dark\"><span>Agendar Consulta</span></button>",
+      "css": ".ds-btn-dark{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 24px;background:#2D3322;color:#EDBF9F;border:none;border-radius:9999px;font-family:Amaranth,system-ui,sans-serif;font-size:17px;line-height:1;cursor:pointer;transition:filter .2s cubic-bezier(0.22,1,0.36,1),transform .2s cubic-bezier(0.22,1,0.36,1),box-shadow .2s cubic-bezier(0.22,1,0.36,1)}.ds-btn-dark:hover{filter:brightness(.96);transform:translateY(-2px);box-shadow:0 6px 20px rgba(45,22,5,.18)}.ds-btn-dark:focus-visible{outline:2px solid #EDBF9F;outline-offset:2px}.ds-btn-dark:active{transform:none;box-shadow:none}"
+    },
+    {
+      "name": "Outline Dark Button",
+      "kind": "button",
+      "refersTo": "button-outline-dark",
+      "description": "Ação secundária. Contorno verde-escuro que preenche no hover.",
+      "html": "<button class=\"ds-btn-outline\"><span>Saber mais</span></button>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 24px;background:transparent;color:#2D3322;border:1px solid #2D3322;border-radius:9999px;font-family:Amaranth,system-ui,sans-serif;font-size:17px;line-height:1;cursor:pointer;transition:background .2s,color .2s}.ds-btn-outline:hover{background:#2D3322;color:#EDBF9F}.ds-btn-outline:focus-visible{outline:2px solid #2D3322;outline-offset:2px}"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Rótulo informativo em rosa translúcido com sparkle.",
+      "html": "<span class=\"ds-tag\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"#CF6A61\" aria-hidden=\"true\"><path d=\"M12 0c.7 5.7 5.6 10.6 12 12-6.4 1.4-11.3 6.3-12 12-.7-5.7-5.6-10.6-12-12C6.4 10.6 11.3 5.7 12 0Z\"/></svg>Terapeuta Junguiana e Integrativa</span>",
+      "css": ".ds-tag{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(207,106,97,.15);border:1px solid rgba(207,106,97,.4);color:#2D1605;border-radius:9999px;font-family:Amaranth,system-ui,sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.04em;line-height:1}"
+    },
+    {
+      "name": "Eyebrow",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Kicker de seção: sparkle + label tracked em laranja. Sistema de marca deliberado.",
+      "html": "<span class=\"ds-eyebrow\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 0c.7 5.7 5.6 10.6 12 12-6.4 1.4-11.3 6.3-12 12-.7-5.7-5.6-10.6-12-12C6.4 10.6 11.3 5.7 12 0Z\"/></svg>Sobre Mim</span>",
+      "css": ".ds-eyebrow{display:inline-flex;align-items:center;gap:8px;color:#BC2F0A;font-family:Amaranth,system-ui,sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.18em;line-height:1}"
+    },
+    {
+      "name": "Wave Divider",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Transição em onda entre blocos de cor, pintada na cor da próxima seção. Assinatura do sistema.",
+      "html": "<div class=\"ds-wave\" aria-hidden=\"true\"><svg viewBox=\"0 0 1440 90\" preserveAspectRatio=\"none\" fill=\"#2D3322\"><path d=\"M0,92 L0,54 C160,34 300,28 460,42 C620,56 720,66 880,54 C1040,42 1160,30 1300,40 C1360,45 1410,52 1440,46 L1440,92 Z\"/></svg></div>",
+      "css": ".ds-wave{line-height:0;background:#EFDDD1}.ds-wave svg{display:block;width:100%;height:clamp(32px,5vw,72px)}"
+    },
+    {
+      "name": "Content Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Card de conteúdo (post/teaser) com sombra ambiente terrosa e lift no hover.",
+      "html": "<article class=\"ds-card\"><h3>Autoconhecimento e o inconsciente</h3><p>Um convite à jornada interior pela abordagem junguiana.</p></article>",
+      "css": ".ds-card{background:#FFFFFF;border-radius:36px 80px 36px 36px;padding:32px;box-shadow:0 8px 28px rgba(45,22,5,.10);transition:transform .2s cubic-bezier(0.22,1,0.36,1),box-shadow .2s cubic-bezier(0.22,1,0.36,1);font-family:Amaranth,system-ui,sans-serif;max-width:360px}.ds-card:hover{transform:translateY(-7px);box-shadow:0 6px 20px rgba(45,22,5,.18)}.ds-card h3{margin:0 0 12px;color:#2D3322;font-size:22px;font-weight:700;line-height:1.15}.ds-card p{margin:0;color:#2D1605;font-size:17px;line-height:1.5}@media (prefers-reduced-motion:reduce){.ds-card{transition:none}.ds-card:hover{transform:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Refúgio Interior",
+    "overview": "Este é o santuário visual de uma terapeuta, não a vitrine de uma clínica. O sistema inteiro é organizado por uma única tensão deliberada: o claro acolhe e o escuro aterra. Blocos claros e quentes recebem o visitante como quem abre a porta de casa; blocos escuros full-bleed fecham a experiência com a gravidade de quem sabe o que faz. A paleta é terrosa e humana — bege como argila, marrom como terra, verde como folhagem — pontuada por toques simbólicos raros: os roxos evocam o inconsciente, o laranja é a faísca de consciência. As formas são orgânicas, nunca mecânicas; a Berliana de display parece feita à mão; o movimento é sereno, encantamento e não espetáculo.",
+    "keyCharacteristics": [
+      "Tensão claro×escuro como sistema (~40% de blocos escuros full-bleed por página).",
+      "Paleta terrosa e humana com roxos/laranja como acentos simbólicos raros.",
+      "Formas orgânicas: pílulas, blobs, transições em onda entre seções.",
+      "Berliana (script) só em títulos curtos; Amaranth em todo o resto.",
+      "Movimento sereno e simbólico; nunca frio, nunca gritante."
+    ],
+    "rules": [
+      { "name": "A Regra da Faísca", "body": "O laranja (#BC2F0A) é a faísca, não a fogueira. Aparece no CTA primário e no eyebrow — em nada mais. Sua raridade é o ponto.", "section": "colors" },
+      { "name": "A Regra dos 40% Escuros", "body": "Toda página completa carrega ~40% de superfície escura (verde-escuro ou marrom) em blocos full-bleed. Nunca entregue uma página só clara.", "section": "colors" },
+      { "name": "A Regra do Teto de 96px", "body": "Nenhum texto de display passa de 96px (o hero). Acima disso a página grita. Títulos secundários descem em cascata (76→60→46) mantendo hierarquia.", "section": "typography" },
+      { "name": "A Regra da Berliana Curta", "body": "Berliana só em palavras/frases curtas. Frase ou título longo é sempre Amaranth Bold — inclui a citação de Jung. SectionTitle usa displayFont='sans' nos casos longos.", "section": "typography" },
+      { "name": "A Regra do Eyebrow Nomeado", "body": "O eyebrow (sparkle + label tracked em laranja) é um elemento de marca deliberado, não scaffolding de kicker em toda seção.", "section": "typography" },
+      { "name": "A Regra da Sombra Terrosa", "body": "Nenhuma sombra usa preto. Toda sombra é rgba(45,22,5,α) (marrom) em baixa opacidade. Preto puro é proibido.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do manter ~40% de cada página em blocos escuros full-bleed (verde-escuro/marrom).",
+      "Do reservar o laranja (#BC2F0A) ao CTA primário e ao eyebrow.",
+      "Do usar Berliana só em títulos curtos; título longo (e a citação de Jung) vai em Amaranth Bold.",
+      "Do manter todo texto de display ≤ 96px (Regra do Teto de 96px); a escala serve à seriedade, não ao volume.",
+      "Do costurar seções com o WaveDivider, pintando a onda na cor da seção seguinte.",
+      "Do tingir toda sombra de marrom rgba(45,22,5,α).",
+      "Do dar a cada animação uma alternativa sob prefers-reduced-motion e manter o conteúdo 100% visível sem JavaScript.",
+      "Do verificar contraste: marrom sobre bege e texto muted precisam bater ≥4.5:1."
+    ],
+    "donts": [
+      "Don't deixar o site parecer uma clínica fria ou corporativa (azuis hospitalares, stock photos genéricas, tom institucional).",
+      "Don't derivar para coach de autoajuda (frases motivacionais gritantes, CTAs agressivos, urgência fabricada).",
+      "Don't cair no template genérico de SaaS / cara de 'IA fez isso' (cards idênticos, hero-metric, gradientes decorativos).",
+      "Don't usar background-clip:text com gradiente (texto em gradiente).",
+      "Don't usar faixa lateral colorida (border-left/right > 1px) em cards, listas ou alertas.",
+      "Don't usar glassmorphism decorativo nem sombras pretas rgba(0,0,0,α).",
+      "Don't repetir o eyebrow tracked em toda seção como scaffolding.",
+      "Don't alterar o copy, as 11 cores da paleta ou as fontes Amaranth/Berliana — invariantes da cliente."
+    ]
+  }
+}

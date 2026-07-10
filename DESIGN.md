@@ -14,21 +14,51 @@ colors:
   cinza: "#9E9E9E"
   branco: "#FFFFFF"
 typography:
-  display:
+  display-hero:
     fontFamily: "Berliana, cursive"
-    fontSize: "clamp(44px, 6vw, 88px)"
+    fontSize: "clamp(52px, 9vw, 96px)"
+    fontWeight: 400
+    lineHeight: 0.98
+    letterSpacing: "normal"
+  display-xl:
+    fontFamily: "Berliana, cursive"
+    fontSize: "clamp(42px, 6.5vw, 76px)"
     fontWeight: 400
     lineHeight: 1.02
     letterSpacing: "normal"
+  display-lg:
+    fontFamily: "Berliana, cursive"
+    fontSize: "clamp(34px, 5vw, 60px)"
+    fontWeight: 400
+    lineHeight: 1.05
+    letterSpacing: "normal"
+  display-md:
+    fontFamily: "Berliana, cursive"
+    fontSize: "clamp(28px, 3.8vw, 46px)"
+    fontWeight: 400
+    lineHeight: 1.08
+    letterSpacing: "normal"
   title:
     fontFamily: "Amaranth, sans-serif"
-    fontSize: "clamp(28px, 3.5vw, 44px)"
+    fontSize: "clamp(24px, 3.2vw, 34px)"
     fontWeight: 700
-    lineHeight: 1.1
+    lineHeight: 1.2
     letterSpacing: "-0.01em"
+  subtitle:
+    fontFamily: "Amaranth, sans-serif"
+    fontSize: "21px"
+    fontWeight: 400
+    lineHeight: 1.45
+    letterSpacing: "normal"
   body:
     fontFamily: "Amaranth, sans-serif"
     fontSize: "17px"
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: "normal"
+  body-sm:
+    fontFamily: "Amaranth, sans-serif"
+    fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: "normal"
@@ -136,15 +166,21 @@ Uma paleta terrosa e humana, aquecida pela luz e aterrada pela sombra, com acent
 
 **Character:** Um par de contraste real. A Berliana é uma escrita de traço fluido, quase manuscrita — íntima, presente, a voz pessoal da Isa dizendo "é um prazer ter você aqui". A Amaranth é uma humanista sans arredondada e calorosa, legível e sem pretensão, que sustenta todo o corpo e os títulos longos. Script + humanist sans: nunca dois sans parecidos.
 
+A escala de display é **contida por princípio**: nenhum passo passa de 96px (o hero), para transmitir "confiança e seriedade" sem gritar. Os clamps são fluidos, do celular ao desktop, com ratio ~1.26 entre passos.
+
 ### Hierarchy
-- **Display / Hero** (Berliana 400, `clamp(80px, 12vw, 160px)`, lh 0.95): o nome "Isa Pupo" e aberturas de página. Reservado a **palavras ou frases muito curtas** — a Berliana só respira em pouca extensão.
-- **Display / Seção** (Berliana 400, `clamp(44px, 6vw, 88px)`, lh 1.02): títulos de seção curtos ("Pronta para começar?", "Sobre Mim").
-- **Title / Longo** (Amaranth 700, `clamp(28px, 3.5vw, 44px)`, lh 1.1): quando o título é longo, ele NÃO vai em Berliana — vai em Amaranth Bold. A script gigante só funciona em frases curtas.
-- **Body** (Amaranth 400, 17–21px, lh 1.5): todo o texto corrido. Limite de linha 65–75ch para leitura confortável.
+- **Display / Hero** (Berliana 400, `clamp(52px, 9vw, 96px)`, lh 0.98): o nome "Isa Pupo" e aberturas de página. Teto de 96px. Reservado a **palavras ou frases muito curtas** — a Berliana só respira em pouca extensão.
+- **Display / XL** (Berliana 400, `clamp(42px, 6.5vw, 76px)`, lh 1.02): títulos de página ("Terapia Junguiana", "Sobre Mim" display).
+- **Display / LG** (Berliana 400, `clamp(34px, 5vw, 60px)`, lh 1.05): títulos de seção curtos ("Pronta para começar?", "Atendimentos").
+- **Display / MD** (Berliana 400, `clamp(28px, 3.8vw, 46px)`, lh 1.08): títulos secundários (teaser do ebook).
+- **Title / Longo** (Amaranth 700, `clamp(24px, 3.2vw, 34px)`, lh 1.2): quando o título é longo, ele NÃO vai em Berliana — vai em Amaranth Bold. Inclui a citação de Jung e títulos de seção longos ("Para quem é este ebook?", "O que esperar das sessões").
+- **Body** (Amaranth 400, 16–21px, lh 1.5): texto corrido. 21px = lead/intro, 17px = padrão, 16px = denso/secundário. Limite de linha 65–75ch.
 - **Label / Eyebrow** (Amaranth 700, 14px, tracking `0.18em`, uppercase): o eyebrow acompanhado de sparkle ✦, sempre em laranja. Um sistema de marca deliberado, não um enfeite repetido.
 
 ### Named Rules
-**A Regra da Berliana Curta.** Berliana gigante só em palavras/frases curtas. Título longo é sempre Amaranth Bold. Uma frase inteira em Berliana display vira ilegível — a escrita manuscrita perde a forma quando esticada.
+**A Regra do Teto de 96px.** Nenhum texto de display passa de 96px (o hero). Acima disso a página grita em vez de desenhar. Os títulos secundários descem em cascata (76 → 60 → 46) mantendo hierarquia clara sem volume excessivo.
+
+**A Regra da Berliana Curta.** Berliana só em palavras/frases curtas (um nome, 2–3 palavras). Frase ou título longo é sempre Amaranth Bold — nunca Berliana display. Uma frase inteira em script esticado vira ilegível e perde a forma. Onde um componente compartilhado renderiza títulos de comprimento variável (`SectionTitle`), a prop `displayFont="sans"` troca para Amaranth Bold nos casos longos.
 
 **A Regra do Eyebrow Nomeado.** O eyebrow (sparkle + label tracked em laranja) é um elemento de marca com identidade — não a scaffolding de "kicker em toda seção". Use quando a seção ganha com a assinatura, não por reflexo em cada bloco.
 

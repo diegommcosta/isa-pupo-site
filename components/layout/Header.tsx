@@ -300,7 +300,7 @@ export default function Header({ tone: toneProp = "light" }: HeaderProps) {
             </a>
           </div>
 
-          <p className="font-display text-[40px] leading-none text-verde-escuro/60 mt-2" aria-hidden="true">
+          <p className="font-display text-[32px] leading-none text-verde-escuro/60 mt-2" aria-hidden="true">
             Isa Pupo
           </p>
         </div>

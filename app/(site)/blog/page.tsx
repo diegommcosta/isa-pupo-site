@@ -50,7 +50,7 @@ export default async function BlogIndex({
           <h1
             data-anim="lines"
             className="font-display font-normal text-bege px-2 -mx-2 leading-[0.95]"
-            style={{ fontSize: "clamp(72px, 12vw, 140px)" }}
+            style={{ fontSize: "clamp(48px, 9vw, 92px)" }}
           >
             Blog
           </h1>

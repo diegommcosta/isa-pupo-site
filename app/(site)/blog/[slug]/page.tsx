@@ -88,7 +88,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             {/* Título */}
             <h1
               className="font-sans font-bold leading-[1.12] text-verde-escuro"
-              style={{ maxWidth: 820, fontSize: "clamp(36px, 5vw, 54px)" }}
+              style={{ maxWidth: 820, fontSize: "clamp(30px, 4vw, 46px)" }}
             >
               {post.title}
             </h1>

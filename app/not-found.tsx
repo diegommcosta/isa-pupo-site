@@ -18,7 +18,7 @@ export default function NotFound() {
         <div className="text-center px-6 py-16">
           <p
             className="font-display font-normal leading-none text-rosa px-2"
-            style={{ fontSize: "clamp(120px, 25vw, 280px)" }}
+            style={{ fontSize: "clamp(88px, 20vw, 150px)" }}
             aria-hidden="true"
           >
             404
