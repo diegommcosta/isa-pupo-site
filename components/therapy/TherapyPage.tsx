@@ -120,13 +120,15 @@ export default function TherapyPage({ data }: Props) {
           />
           <div
             data-anim="stagger"
-            className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-7 items-stretch"
+            className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-7 items-start"
           >
             {data.sections.map((sec, i) => (
+              // Alturas naturais (tamanhos diferentes) nas páginas de terapia:
+              // sem h-full/stretch; o card do meio desce via lg:mt-12.
               <div
                 key={sec.title}
                 className={cn(
-                  "card-hover bg-bege-light rounded-card p-7 md:p-8 flex flex-col gap-4 h-full",
+                  "card-hover bg-bege-light rounded-card p-7 md:p-8 flex flex-col gap-4",
                   i === 1 && "lg:mt-12"
                 )}
               >
