@@ -28,8 +28,11 @@ export default function BlogTeaser({ posts }: Props) {
             data-anim="stagger"
             className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7"
           >
-            {posts.map((post) => (
-              <div key={post._id} className="h-full">
+            {posts.map((post, i) => (
+              // Respiro orgânico sutil: o card do meio desce ~24px no desktop via
+              // `top` (relative) — não colide com o transform do GSAP/card-hover;
+              // altura da caixa intacta; todos do mesmo tamanho/raio.
+              <div key={post._id} className={i === 1 ? "h-full relative md:top-6" : "h-full"}>
                 <BlogCard post={post} />
               </div>
             ))}

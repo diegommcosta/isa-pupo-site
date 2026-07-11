@@ -51,9 +51,15 @@ export default function Atendimentos() {
           data-anim="stagger"
           className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[960px] mx-auto lg:mx-0 lg:ml-[8%] items-stretch"
         >
-          {cards.map((card) => (
+          {cards.map((card, i) => (
+            // Respiro orgânico sutil: o 2º card desce ~24px no desktop via `top`
+            // (relative). Não muda a altura da caixa nem colide com o transform do
+            // GSAP (stagger anima y) ou do card-hover; cards seguem do mesmo tamanho.
             <div
               key={card.title}
+              className={i === 1 ? "h-full relative md:top-6" : "h-full"}
+            >
+            <div
               className="card-hover relative w-full max-w-[460px] h-full bg-bege-light rounded-card overflow-hidden flex flex-col p-8 md:p-10"
               style={{ minHeight: 480 }}
             >
@@ -107,6 +113,7 @@ export default function Atendimentos() {
                   Saiba mais
                 </Button>
               </div>
+            </div>
             </div>
           ))}
         </div>
