@@ -7,3 +7,6 @@ export function buildWhatsappLink(message: string): string {
 
 export const defaultMessage =
   "Olá Isa! Gostaria de agendar uma consulta.";
+
+export const chooseMessage =
+  "Olá Isa! Não sei qual terapia combina comigo, pode me ajudar a escolher?";

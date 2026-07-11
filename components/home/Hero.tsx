@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import Tag from "@/components/ui/Tag";
 import Blob from "@/components/ui/shapes/Blob";
 import Sparkle from "@/components/ui/shapes/Sparkle";
+import CtaReassurance from "@/components/ui/CtaReassurance";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 
 export default function Hero() {
@@ -93,6 +94,9 @@ export default function Hero() {
               >
                 Agendar Consulta
               </Button>
+            </div>
+            <div data-hero="fade" data-hero-order="3">
+              <CtaReassurance tone="light" />
             </div>
           </div>
         </div>

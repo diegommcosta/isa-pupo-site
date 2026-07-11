@@ -2,7 +2,7 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { IconDisc } from "@/components/ui/IconDisc";
 import { BulletRow } from "@/components/ui/BulletRow";
 import Button from "@/components/ui/Button";
-import { buildWhatsappLink } from "@/lib/whatsapp";
+import { buildWhatsappLink, chooseMessage } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import type { IconName } from "@/components/ui/Icon";
 
@@ -114,6 +114,23 @@ export default function Atendimentos() {
             </div>
           ))}
         </div>
+
+        {/* Escape hatch: "não sei qual escolher" (copy aprovado) */}
+        <p
+          data-anim="fade-up"
+          className="mt-10 lg:ml-[8%] max-w-[560px] font-sans text-[17px] leading-[1.55] text-bege/90"
+        >
+          Não sabe qual combina com você?{" "}
+          <a
+            href={buildWhatsappLink(chooseMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold underline underline-offset-4 decoration-bege/40 hover:decoration-bege transition-colors"
+          >
+            Me chame no WhatsApp
+          </a>{" "}
+          e a gente vê isso juntas.
+        </p>
       </div>
     </section>
   );
