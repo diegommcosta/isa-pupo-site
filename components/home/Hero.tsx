@@ -3,7 +3,6 @@ import Button from "@/components/ui/Button";
 import Tag from "@/components/ui/Tag";
 import Blob from "@/components/ui/shapes/Blob";
 import Sparkle from "@/components/ui/shapes/Sparkle";
-import CtaReassurance from "@/components/ui/CtaReassurance";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 
 export default function Hero() {
@@ -46,6 +45,7 @@ export default function Hero() {
                 src="/imgs/hero.webp"
                 alt="Isa Pupo em blusa vermelha e calça branca com seu companheiro de quatro patas, Mike, rodeados por elementos de seus hobbies, como cristais, ervas, vinho, natureza."
                 fill
+                sizes="(min-width: 1024px) 55vw, 100vw"
                 className="object-contain object-center lg:object-right"
                 priority
               />
@@ -94,9 +94,6 @@ export default function Hero() {
               >
                 Agendar Consulta
               </Button>
-            </div>
-            <div data-hero="fade" data-hero-order="3">
-              <CtaReassurance tone="light" />
             </div>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Sparkle from "@/components/ui/shapes/Sparkle";
-import CtaReassurance from "@/components/ui/CtaReassurance";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 
 interface Props {
@@ -63,7 +62,6 @@ export default function CtaBand({ message = defaultMessage }: Props) {
             >
               Agende sua Consulta
             </Button>
-            <CtaReassurance tone="dark" />
           </div>
         </div>
       </div>

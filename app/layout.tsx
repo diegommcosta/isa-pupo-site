@@ -4,17 +4,17 @@ import "./globals.css";
 
 const amaranth = localFont({
   src: [
-    { path: "./fonts/Amaranth-Regular.ttf", weight: "400", style: "normal" },
-    { path: "./fonts/Amaranth-Italic.ttf", weight: "400", style: "italic" },
-    { path: "./fonts/Amaranth-Bold.ttf", weight: "700", style: "normal" },
-    { path: "./fonts/Amaranth-BoldItalic.ttf", weight: "700", style: "italic" },
+    { path: "./fonts/Amaranth-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Amaranth-Italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/Amaranth-Bold.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/Amaranth-BoldItalic.woff2", weight: "700", style: "italic" },
   ],
   variable: "--font-amaranth",
   display: "swap",
 });
 
 const berliana = localFont({
-  src: "./fonts/berliana.woff",
+  src: "./fonts/berliana.woff2",
   variable: "--font-berliana",
   weight: "400",
   display: "swap",
