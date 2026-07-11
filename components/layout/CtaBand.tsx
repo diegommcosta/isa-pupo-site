@@ -54,7 +54,7 @@ export default function CtaBand({ message = defaultMessage }: Props) {
           <div className="mt-9" data-anim="fade-up">
             <Button
               variant="primary"
-              size="lg"
+              size="md"
               href={href}
               target="_blank"
               rel="noopener noreferrer"

@@ -77,8 +77,8 @@ export default async function BlogIndex({
               data-anim="stagger"
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7"
             >
-              {posts.map((post: Parameters<typeof BlogCard>[0]["post"], i: number) => (
-                <div key={post._id} className={cn(i % 3 === 1 && "md:mt-10")}>
+              {posts.map((post: Parameters<typeof BlogCard>[0]["post"]) => (
+                <div key={post._id} className="h-full">
                   <BlogCard post={post} imageHeight={220} />
                 </div>
               ))}

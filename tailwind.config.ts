@@ -36,6 +36,8 @@ const config: Config = {
         "blob-1": "58% 42% 55% 45% / 45% 52% 48% 55%",
         "blob-2": "45% 55% 48% 52% / 55% 44% 56% 45%",
         organic: "36px 80px 36px 36px",
+        // Raio uniforme dos cards (mesmo arredondamento nos 4 cantos)
+        card: "28px",
       },
       maxWidth: {
         site: "1440px",

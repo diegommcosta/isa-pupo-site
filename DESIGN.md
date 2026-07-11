@@ -70,6 +70,7 @@ typography:
     letterSpacing: "0.18em"
 rounded:
   full: "9999px"
+  card: "28px"
   organic: "36px 80px 36px 36px"
   blob-1: "58% 42% 55% 45% / 45% 52% 48% 55%"
   blob-2: "45% 55% 48% 52% / 55% 44% 56% 45%"
@@ -211,7 +212,8 @@ Sereno e confiante — pílulas totalmente arredondadas que convidam sem intimid
 - **State:** estático, informativo (ex.: "Terapeuta Junguiana e Integrativa"). Não é um filtro clicável.
 
 ### Cards / Containers
-- **Corner Style:** cantos suaves; a assinatura são os raios orgânicos (`36px 80px 36px 36px`) e blobs em elementos decorativos e molduras de imagem.
+- **Corner Style:** raio **uniforme nos 4 cantos** (`rounded-card` = 28px). Todos os cards de conteúdo compartilham o mesmo arredondamento; a assinatura orgânica vive nos blobs e molduras de imagem (`rounded-blob-*`), não nos cards.
+- **Tamanho e altura:** dentro de uma seção, cards têm largura e altura iguais (grid `items-stretch` + `h-full`); sem offsets de stagger (`mt`) que criem alturas desencontradas.
 - **Background:** bege-light ou branco em contexto claro; verde-escuro/marrom em contexto escuro.
 - **Shadow Strategy:** Ambient Suave/Média em repouso (ver Elevation); Lift de Hover com `translateY(-7px)` na classe `.card-hover`.
 - **Border:** dispensável quando a sombra ambiente já separa do fundo; quando houver, borda inteira de baixo contraste, nunca uma faixa lateral colorida.

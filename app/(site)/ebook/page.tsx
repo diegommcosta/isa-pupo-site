@@ -100,7 +100,7 @@ export default function EbookPage() {
               <div className="mt-8" data-anim="fade-up">
                 <Button
                   variant="purple"
-                  size="lg"
+                  size="md"
                   href={ebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -213,7 +213,7 @@ export default function EbookPage() {
           <SectionTitle eyebrow="Investimento" color="var(--bege)" align="center" />
           <div className="mt-12 flex justify-center">
             <div
-              className="card-hover bg-bege rounded-organic text-center text-marrom w-full max-w-[420px] px-8 pt-10 pb-9"
+              className="card-hover bg-bege rounded-card text-center text-marrom w-full max-w-[420px] px-8 pt-10 pb-9"
               style={{ boxShadow: "0 16px 40px rgba(0,0,0,.3)" }}
             >
               <p className="font-sans text-[18px] line-through opacity-70">
@@ -237,7 +237,7 @@ export default function EbookPage() {
               <div className="mt-7 flex justify-center">
                 <Button
                   variant="purple"
-                  size="lg"
+                  size="md"
                   href={ebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"

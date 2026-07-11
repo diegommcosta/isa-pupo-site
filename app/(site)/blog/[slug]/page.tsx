@@ -105,7 +105,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             <div className="max-w-content mx-auto">
               <div
                 data-anim="image"
-                className="w-full h-[360px] md:h-[420px] rounded-organic overflow-hidden relative"
+                className="w-full h-[360px] md:h-[420px] rounded-card overflow-hidden relative"
               >
                 <Image
                   src={coverUrl}

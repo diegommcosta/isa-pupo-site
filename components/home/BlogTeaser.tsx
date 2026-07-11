@@ -1,7 +1,6 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
 import BlogCard from "@/components/blog/BlogCard";
-import { cn } from "@/lib/utils";
 import type { Post } from "@/lib/sanity/types";
 
 interface Props {
@@ -29,8 +28,8 @@ export default function BlogTeaser({ posts }: Props) {
             data-anim="stagger"
             className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7"
           >
-            {posts.map((post, i) => (
-              <div key={post._id} className={cn(i === 1 && "md:mt-10")}>
+            {posts.map((post) => (
+              <div key={post._id} className="h-full">
                 <BlogCard post={post} />
               </div>
             ))}

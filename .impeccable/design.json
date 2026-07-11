@@ -98,7 +98,7 @@
       "refersTo": null,
       "description": "Card de conteúdo (post/teaser) com sombra ambiente terrosa e lift no hover.",
       "html": "<article class=\"ds-card\"><h3>Autoconhecimento e o inconsciente</h3><p>Um convite à jornada interior pela abordagem junguiana.</p></article>",
-      "css": ".ds-card{background:#FFFFFF;border-radius:36px 80px 36px 36px;padding:32px;box-shadow:0 8px 28px rgba(45,22,5,.10);transition:transform .2s cubic-bezier(0.22,1,0.36,1),box-shadow .2s cubic-bezier(0.22,1,0.36,1);font-family:Amaranth,system-ui,sans-serif;max-width:360px}.ds-card:hover{transform:translateY(-7px);box-shadow:0 6px 20px rgba(45,22,5,.18)}.ds-card h3{margin:0 0 12px;color:#2D3322;font-size:22px;font-weight:700;line-height:1.15}.ds-card p{margin:0;color:#2D1605;font-size:17px;line-height:1.5}@media (prefers-reduced-motion:reduce){.ds-card{transition:none}.ds-card:hover{transform:none}}"
+      "css": ".ds-card{background:#FFFFFF;border-radius:28px;padding:32px;box-shadow:0 8px 28px rgba(45,22,5,.10);transition:transform .2s cubic-bezier(0.22,1,0.36,1),box-shadow .2s cubic-bezier(0.22,1,0.36,1);font-family:Amaranth,system-ui,sans-serif;max-width:360px}.ds-card:hover{transform:translateY(-7px);box-shadow:0 6px 20px rgba(45,22,5,.18)}.ds-card h3{margin:0 0 12px;color:#2D3322;font-size:22px;font-weight:700;line-height:1.15}.ds-card p{margin:0;color:#2D1605;font-size:17px;line-height:1.5}@media (prefers-reduced-motion:reduce){.ds-card{transition:none}.ds-card:hover{transform:none}}"
     }
   ],
   "narrative": {

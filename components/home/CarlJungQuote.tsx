@@ -27,12 +27,6 @@ export default function CarlJungQuote() {
 
       <div className="relative max-w-site mx-auto px-6 md:px-10 lg:px-16">
         <blockquote className="relative max-w-[900px] lg:ml-[10%]">
-          <span
-            aria-hidden="true"
-            className="absolute -top-7 -left-2 md:-top-12 md:-left-5 font-display text-[72px] md:text-[104px] leading-none text-roxo-claro/60 select-none pointer-events-none"
-          >
-            &ldquo;
-          </span>
           {/* Frase longa: Amaranth Bold (Regra da Berliana Curta), não Berliana */}
           <p
             data-anim="lines"

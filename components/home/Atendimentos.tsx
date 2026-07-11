@@ -3,7 +3,6 @@ import { IconDisc } from "@/components/ui/IconDisc";
 import { BulletRow } from "@/components/ui/BulletRow";
 import Button from "@/components/ui/Button";
 import { buildWhatsappLink } from "@/lib/whatsapp";
-import { cn } from "@/lib/utils";
 import type { IconName } from "@/components/ui/Icon";
 
 interface CardData {
@@ -50,15 +49,12 @@ export default function Atendimentos() {
 
         <div
           data-anim="stagger"
-          className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[960px] mx-auto lg:mx-0 lg:ml-[8%] items-start"
+          className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[960px] mx-auto lg:mx-0 lg:ml-[8%] items-stretch"
         >
-          {cards.map((card, i) => (
+          {cards.map((card) => (
             <div
               key={card.title}
-              className={cn(
-                "card-hover relative w-full max-w-[460px] bg-bege-light rounded-organic overflow-hidden flex flex-col p-8 md:p-10",
-                i === 1 && "md:mt-16"
-              )}
+              className="card-hover relative w-full max-w-[460px] h-full bg-bege-light rounded-card overflow-hidden flex flex-col p-8 md:p-10"
               style={{ minHeight: 480 }}
             >
               {/* Watermark decorativa cerebro-coracao */}
@@ -94,7 +90,7 @@ export default function Atendimentos() {
               <div className="relative mt-5 flex gap-2.5 flex-wrap">
                 <Button
                   variant="primary"
-                  size="sm"
+                  size="md"
                   href={buildWhatsappLink(card.whatsappMsg)}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -104,7 +100,7 @@ export default function Atendimentos() {
                 </Button>
                 <Button
                   variant="outline-dark"
-                  size="sm"
+                  size="md"
                   href={card.href}
                   rightIcon="arrow-right"
                 >

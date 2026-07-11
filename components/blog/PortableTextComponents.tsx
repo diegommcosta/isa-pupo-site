@@ -21,7 +21,7 @@ const components: PortableTextComponents = {
       </h4>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="bg-rosa/10 rounded-organic px-6 py-5 my-6 italic text-marrom text-[18px] leading-[1.7]">
+      <blockquote className="bg-rosa/10 rounded-card px-6 py-5 my-6 italic text-marrom text-[18px] leading-[1.7]">
         {children}
       </blockquote>
     ),
