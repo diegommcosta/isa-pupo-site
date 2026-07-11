@@ -39,6 +39,15 @@
     background-color: rgba(207, 106, 97, 0.15);
   }
 
+  /* Alvo de toque mínimo de 44px em dispositivos de toque (pointer: coarse),
+     sem inchar a densidade no desktop com mouse (pointer: fine). */
+  @media (pointer: coarse) {
+    .tap-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
   .card-hover {
     transition: transform var(--transition-base);
     will-change: transform;

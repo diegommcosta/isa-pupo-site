@@ -219,7 +219,7 @@ export default function Header({ tone: toneProp = "light" }: HeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram da Isa Pupo"
-              className="text-current hover:opacity-80 transition-opacity flex items-center"
+              className="tap-target text-current hover:opacity-80 transition-opacity flex items-center justify-center"
             >
               <Icon name="instagram" size={18} color="currentColor" />
             </a>
@@ -227,7 +227,7 @@ export default function Header({ tone: toneProp = "light" }: HeaderProps) {
 
           {/* Mobile: hamburger */}
           <button
-            className="lg:hidden text-current p-2 -mr-2 flex flex-col justify-center items-center gap-[5px] w-10 h-10"
+            className="tap-target lg:hidden text-current p-2 -mr-2 flex flex-col justify-center items-center gap-[5px] w-10 h-10"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={mobileOpen}
@@ -263,7 +263,7 @@ export default function Header({ tone: toneProp = "light" }: HeaderProps) {
               href={link.href}
               tabIndex={mobileOpen ? undefined : -1}
               className={cn(
-                "font-sans text-[22px] text-verde-escuro transition-opacity pb-[2px] self-start",
+                "tap-target inline-flex items-center font-sans text-[22px] text-verde-escuro transition-opacity pb-[2px] self-start",
                 link.href === activeHref
                   ? "opacity-100 border-b-2 border-verde-escuro"
                   : "opacity-80 border-b-2 border-transparent"
@@ -292,7 +292,7 @@ export default function Header({ tone: toneProp = "light" }: HeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram da Isa Pupo"
-              className="text-verde-escuro hover:opacity-80 transition-opacity flex items-center px-2"
+              className="tap-target text-verde-escuro hover:opacity-80 transition-opacity flex items-center justify-center px-2"
               onClick={closeMobile}
               tabIndex={mobileOpen ? undefined : -1}
             >

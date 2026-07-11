@@ -30,7 +30,7 @@ type LinkProps = BaseProps &
 type Props = ButtonProps | LinkProps;
 
 const base =
-  "group inline-flex items-center justify-center gap-2 font-sans font-normal whitespace-nowrap rounded-full transition-[filter,background,color,transform,box-shadow] duration-200 cursor-pointer motion-reduce:transition-[filter,background,color] motion-reduce:hover:translate-y-0 motion-reduce:hover:shadow-none";
+  "group tap-target inline-flex items-center justify-center gap-2 font-sans font-normal whitespace-nowrap rounded-full transition-[filter,background,color,transform,box-shadow] duration-200 cursor-pointer motion-reduce:transition-[filter,background,color] motion-reduce:hover:translate-y-0 motion-reduce:hover:shadow-none";
 
 const filledHover =
   "hover:brightness-[0.96] hover:-translate-y-[2px] hover:shadow-[0_6px_20px_rgba(45,22,5,0.18)] active:translate-y-0 active:shadow-none";
