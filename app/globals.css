@@ -62,5 +62,12 @@
     .card-hover:hover {
       transform: none;
     }
+    /* Anima decorativa (sparkles, blobs flutuando, marquee) para em
+       prefers-reduced-motion — o DESIGN.md exige alternativa em toda animação. */
+    .animate-twinkle,
+    .animate-float,
+    .animate-marquee {
+      animation: none !important;
+    }
   }
 }
