@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Tag from "@/components/ui/Tag";
-import Blob from "@/components/ui/shapes/Blob";
 import Sparkle from "@/components/ui/shapes/Sparkle";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 
@@ -25,17 +24,8 @@ export default function Hero() {
         />
 
         <div className="relative grid grid-cols-1 lg:grid-cols-12 items-center w-full gap-6 lg:gap-0">
-          {/* Imagem + blob orgânico (colunas 6–13, sobreposta pelo título) */}
+          {/* Imagem (colunas 6–13, sobreposta pelo título) */}
           <div className="relative order-first lg:order-none lg:col-start-6 lg:col-end-13 lg:row-start-1">
-            <div
-              className="absolute inset-0 flex items-center justify-center"
-              data-anim="parallax"
-              data-speed="0.88"
-            >
-              <div data-hero="blob" data-hero-order="5" className="w-[92%] h-[92%] translate-x-[5%]">
-                <Blob variant={1} color="text-bege" className="w-full h-full" />
-              </div>
-            </div>
             <div
               data-hero="image"
               data-hero-order="4"

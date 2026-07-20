@@ -23,7 +23,7 @@ import { usePathname } from "next/navigation";
  * - data-anim="parallax" data-speed  deslocamento vertical em scrub (decorativos)
  * - data-anim="counter" data-to      número rola de 0 até o alvo (formato pt-BR)
  * - data-anim-group="hero"           timeline de intro dedicada; filhos com
- *   data-hero="lines|fade|image|blob" e data-hero-order
+ *   data-hero="lines|fade|image" e data-hero-order
  */
 export default function AnimationsProvider() {
   const pathname = usePathname();
@@ -76,8 +76,8 @@ export default function AnimationsProvider() {
           const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
           let textIndex = 0;
           items.forEach((el) => {
-            // Imagem e blob entram JUNTO com o texto (posições absolutas no
-            // início da timeline), não depois — entrada mais fluida.
+            // A imagem entra JUNTO com o texto (posição absoluta no início
+            // da timeline), não depois — entrada mais fluida.
             switch (el.dataset.hero) {
               case "lines":
                 SplitText.create(el, {
@@ -99,9 +99,6 @@ export default function AnimationsProvider() {
                 if (img) tl.from(img, { scale: 1.1, duration: 1.5, ease: "power2.out" }, 0.15);
                 break;
               }
-              case "blob":
-                tl.from(el, { scale: 0.85, opacity: 0, duration: 1.1, ease: "power2.out" }, 0.1);
-                break;
               default:
                 tl.from(
                   el,
