@@ -63,13 +63,13 @@ export default function AboutIsa({ title, variant = "light", id }: Props) {
 
           {/* Texto */}
           <div className="lg:col-span-7 lg:pl-8 xl:pl-12">
-            {/* O nome atua como título do texto biográfico (Amaranth Bold,
-                colado no lead); é display text, não heading — o h2 da seção
-                é o SectionTitle. */}
+            {/* O nome atua como título do texto biográfico (Berliana — nome
+                curto, Regra da Berliana Curta); é display text, não heading —
+                o h2 da seção é o SectionTitle. */}
             <span className="relative inline-block mb-4">
               <p
                 data-anim="lines"
-                className="relative z-10 font-sans font-bold text-title px-2 -mx-2"
+                className="relative z-10 font-display font-normal text-display-md px-2 -mx-2"
                 style={{ color: dark ? "var(--bege)" : "var(--verde-escuro)" }}
               >
                 Isa Pupo
