@@ -3,12 +3,13 @@ import Sparkle from "@/components/ui/shapes/Sparkle";
 
 export default function CarlJungQuote() {
   return (
-    <section className="relative overflow-hidden bg-roxo-escuro py-8 md:py-14">
-      {/* Ilustração deslocada à direita com parallax sutil */}
+    <section className="relative overflow-hidden bg-roxo-escuro py-10 md:py-20">
+      {/* Ilustração à direita, dimensionada pela altura da seção (inset-y dá a
+          folga do parallax ±12px) — nunca é cortada pelo overflow-hidden */}
       <div
-        className="absolute right-[4%] md:right-[6%] top-1/2 -translate-y-1/2 pointer-events-none select-none"
+        className="absolute inset-y-3 md:inset-y-4 right-[4%] md:right-[6%] flex items-center pointer-events-none select-none"
         data-anim="parallax"
-        data-speed="0.85"
+        data-speed="0.97"
       >
         {/* Decorativa (opacity-25): alt vazio para leitores de tela pularem */}
         <Image
@@ -16,7 +17,7 @@ export default function CarlJungQuote() {
           alt=""
           width={240}
           height={308}
-          className="w-[180px] md:w-[280px] h-auto opacity-25"
+          className="h-full w-auto opacity-25"
         />
       </div>
 
