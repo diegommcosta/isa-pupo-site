@@ -12,7 +12,7 @@ const bullets = [
 
 export default function EbookTeaser() {
   return (
-    <section id="ebook" className="relative overflow-hidden bg-bege py-16 md:py-28 scroll-mt-[88px]">
+    <section id="ebook" className="relative overflow-hidden bg-bege py-8 md:py-14 scroll-mt-[88px]">
       <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
         <SectionTitle title="Ebook" color="var(--roxo-escuro)" />
 

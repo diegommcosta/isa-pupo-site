@@ -26,7 +26,7 @@ export default function TherapyPage({ data }: Props) {
   return (
     <>
       {/* Hero editorial */}
-      <section className="relative overflow-hidden bg-bege-light pt-[104px] md:pt-[136px] pb-16 md:pb-24">
+      <section className="relative overflow-hidden bg-bege-light pt-[104px] md:pt-[136px] pb-8 md:pb-12">
         <Sparkle
           size={16}
           className="absolute top-[14%] right-[6%] text-roxo-claro animate-twinkle hidden md:block"
@@ -107,7 +107,7 @@ export default function TherapyPage({ data }: Props) {
       <WaveDivider from="bg-bege-light" to="text-verde-escuro" variant="organic" />
 
       {/* O que esperar das sessões — bloco escuro */}
-      <section className="relative overflow-hidden bg-verde-escuro py-20 md:py-28">
+      <section className="relative overflow-hidden bg-verde-escuro py-10 md:py-14">
         <Sparkle
           size={14}
           className="absolute top-[12%] right-[12%] text-bege/50 animate-twinkle"

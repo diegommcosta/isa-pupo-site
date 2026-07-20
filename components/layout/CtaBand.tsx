@@ -11,7 +11,7 @@ export default function CtaBand({ message = defaultMessage }: Props) {
   const href = buildWhatsappLink(message);
 
   return (
-    <section className="relative bg-marrom text-bege py-16 md:py-32 overflow-hidden">
+    <section className="relative bg-marrom text-bege py-8 md:py-16 overflow-hidden">
       {/* Ilustração cerebro-lampada à direita, com parallax sutil */}
       <div
         className="absolute right-[4%] md:right-[8%] bottom-[12%] pointer-events-none select-none"

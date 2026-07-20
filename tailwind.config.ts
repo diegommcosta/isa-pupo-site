@@ -33,6 +33,8 @@ const config: Config = {
         eyebrow: ["14px", { lineHeight: "1", letterSpacing: "0.18em" }],
         // Título de seção padrão (Amaranth Bold, centralizado, linha laranja)
         section: ["32px", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
+        // "Title / Longo" do DESIGN.md (Amaranth Bold para títulos de texto)
+        title: ["clamp(24px, 3.2vw, 34px)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
       },
       borderRadius: {
         "blob-1": "58% 42% 55% 45% / 45% 52% 48% 55%",

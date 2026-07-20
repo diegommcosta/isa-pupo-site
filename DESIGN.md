@@ -177,11 +177,11 @@ A escala de display é **contida por princípio**: nenhum passo passa de 96px (o
 
 ### Hierarchy
 - **Display / Hero** (Berliana 400, `clamp(52px, 9vw, 96px)`, lh 0.98): o nome "Isa Pupo" e aberturas de página. Teto de 96px. Reservado a **palavras ou frases muito curtas** — a Berliana só respira em pouca extensão.
-- **Display / XL** (Berliana 400, `clamp(42px, 6.5vw, 76px)`, lh 1.02): títulos de página ("Terapia Junguiana", "Sobre Mim" display).
+- **Display / XL** (Berliana 400, `clamp(42px, 6.5vw, 76px)`, lh 1.02): títulos de página ("Terapia Junguiana").
 - **Display / LG** (Berliana 400, `clamp(34px, 5vw, 60px)`, lh 1.05): títulos display curtos ("Pronta para começar?").
 - **Display / MD** (Berliana 400, `clamp(28px, 3.8vw, 46px)`, lh 1.08): títulos secundários (teaser do ebook).
 - **Section Title** (Amaranth 700, `32px`, lh 1.2): o título de seção padrão do site (`SectionTitle`) — centralizado, com uma linha laranja curta (56×3px, arredondada) logo abaixo. Design aprovado pela cliente. Usado em "Sobre Mim", "Atendimentos", "Ebook", "Blog", "Investimento", "O que esperar das sessões" etc.; o subtítulo, quando existe, também é centralizado.
-- **Title / Longo** (Amaranth 700, `clamp(24px, 3.2vw, 34px)`, lh 1.2): quando um título display seria longo demais para a Berliana, vai em Amaranth Bold (ex.: a citação de Jung).
+- **Title / Longo** (Amaranth 700, `clamp(24px, 3.2vw, 34px)`, lh 1.2, token `text-title`): quando um título display seria longo demais para a Berliana, vai em Amaranth Bold (ex.: a citação de Jung, o nome "Isa Pupo" como título do texto biográfico).
 - **Body** (Amaranth 400, 16–21px, lh 1.5): texto corrido. 21px = lead/intro, 17px = padrão, 16px = denso/secundário. Limite de linha 65–75ch.
 - **Label / Eyebrow** (Amaranth 700, 14px, tracking `0.18em`, uppercase): o eyebrow acompanhado de sparkle ✦, sempre em laranja. Um sistema de marca deliberado, não um enfeite repetido.
 

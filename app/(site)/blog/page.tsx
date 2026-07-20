@@ -37,7 +37,7 @@ export default async function BlogIndex({
   return (
     <>
       {/* Hero escuro editorial */}
-      <section className="relative overflow-hidden bg-verde-escuro pt-[128px] md:pt-[160px] pb-12 md:pb-16">
+      <section className="relative overflow-hidden bg-verde-escuro pt-[128px] md:pt-[160px] pb-6 md:pb-8">
         <Sparkle
           size={20}
           className="absolute top-[30%] right-[10%] text-bege/60 animate-twinkle hidden md:block"

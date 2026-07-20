@@ -46,7 +46,7 @@ export default function EbookPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-bege pt-[104px] md:pt-[136px] pb-16 md:pb-24">
+      <section className="relative overflow-hidden bg-bege pt-[104px] md:pt-[136px] pb-8 md:pb-12">
         <Sparkle
           size={18}
           className="absolute top-[14%] right-[8%] text-roxo-escuro animate-twinkle hidden md:block"
@@ -129,7 +129,7 @@ export default function EbookPage() {
       </section>
 
       {/* Para quem é este ebook? */}
-      <section className="relative overflow-hidden bg-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-white py-10 md:py-14">
         <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
           <SectionTitle title="Para quem é este ebook?" />
           <div
@@ -196,7 +196,7 @@ export default function EbookPage() {
       <WaveDivider from="bg-verde-escuro" to="text-marrom" variant="soft" flip />
 
       {/* Investimento */}
-      <section className="relative overflow-hidden bg-marrom py-20 md:py-28 text-bege">
+      <section className="relative overflow-hidden bg-marrom py-10 md:py-14 text-bege">
         <Sparkle
           size={20}
           className="absolute top-[16%] left-[12%] text-bege/60 animate-twinkle hidden md:block"

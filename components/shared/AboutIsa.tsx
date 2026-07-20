@@ -21,36 +21,17 @@ export default function AboutIsa({ title, variant = "light", id }: Props) {
     <section
       id={id}
       className={cn(
-        "relative overflow-hidden py-16 md:py-28",
+        "relative overflow-hidden py-8 md:py-14",
         id && "scroll-mt-[88px]",
         dark ? "bg-verde-escuro" : "bg-bege-light"
       )}
     >
       <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
-        {/* Título de seção centralizado (padrão do site); o nome gigante é
-            display text — evita h1 "Isa Pupo" → h2 "Isa Pupo" no outline. */}
+        {/* Título de seção centralizado (padrão do site) */}
         <SectionTitle
           title={title}
           color={dark ? "var(--bege)" : "var(--verde-escuro)"}
         />
-        <div className="mt-4 text-center">
-          <span className="relative inline-block">
-            <p
-              data-anim="lines"
-              className="relative z-10 font-display font-normal text-display-xl px-2 -mx-2"
-              style={{ color: dark ? "var(--bege)" : "var(--verde-escuro)" }}
-            >
-              Isa Pupo
-            </p>
-            <Sparkle
-              size={18}
-              className={cn(
-                "absolute top-0 -right-8 animate-twinkle hidden md:block",
-                dark ? "text-bege/70" : "text-rosa"
-              )}
-            />
-          </span>
-        </div>
 
         <div className="mt-10 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-start">
           {/* Foto com moldura orgânica */}
@@ -68,21 +49,39 @@ export default function AboutIsa({ title, variant = "light", id }: Props) {
             </div>
             <div
               data-anim="image"
-              className="relative rounded-blob-1 overflow-hidden rotate-[-2deg] w-full max-w-[440px] mx-auto lg:mx-0"
-              style={{ aspectRatio: "422/561" }}
+              className="relative rotate-[-2deg] w-full max-w-[440px] mx-auto lg:mx-0"
             >
               <Image
                 src="/imgs/sobre-mim.webp"
                 alt="Quadro com elementos de colagem em volta, com a foto da Isa Pupo feliz em blusa vermelha e calça branca, num fundo marrom com elementos naturais."
                 width={422}
                 height={561}
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-contain"
               />
             </div>
           </div>
 
           {/* Texto */}
           <div className="lg:col-span-7 lg:pl-8 xl:pl-12">
+            {/* O nome atua como título do texto biográfico (Amaranth Bold,
+                colado no lead); é display text, não heading — o h2 da seção
+                é o SectionTitle. */}
+            <span className="relative inline-block mb-4">
+              <p
+                data-anim="lines"
+                className="relative z-10 font-sans font-bold text-title px-2 -mx-2"
+                style={{ color: dark ? "var(--bege)" : "var(--verde-escuro)" }}
+              >
+                Isa Pupo
+              </p>
+              <Sparkle
+                size={16}
+                className={cn(
+                  "absolute -top-1 -right-7 animate-twinkle hidden md:block",
+                  dark ? "text-bege/70" : "text-rosa"
+                )}
+              />
+            </span>
             <div className={cn("space-y-5", dark ? "text-bege-light" : "text-marrom")}>
               <p
                 data-anim="fade-up"
@@ -90,7 +89,7 @@ export default function AboutIsa({ title, variant = "light", id }: Props) {
               >
                 <em>Uma mulher de alma curiosa, passos corajosos e em constante
                   movimento.</em>{" "}
-                <span className={dark ? "text-bege font-bold" : "text-roxo-escuro"}>
+                <span className={dark ? "text-bege font-bold" : "text-laranja"}>
                   Minha trajetória é feita de escolhas e reencontros.
                 </span>
               </p>
