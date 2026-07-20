@@ -45,11 +45,11 @@ export default function Atendimentos() {
   return (
     <section id="atendimentos" className="relative overflow-hidden bg-verde-escuro py-16 md:py-28 scroll-mt-[88px]">
       <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
-        <SectionTitle eyebrow="Atendimentos" color="var(--bege)" className="lg:ml-[8%]" />
+        <SectionTitle title="Atendimentos" color="var(--bege)" />
 
         <div
           data-anim="stagger"
-          className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[960px] mx-auto lg:mx-0 lg:ml-[8%] items-stretch"
+          className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-[960px] mx-auto items-stretch"
         >
           {cards.map((card, i) => (
             // Respiro orgânico sutil: o 2º card desce ~24px no desktop via `top`
@@ -60,7 +60,7 @@ export default function Atendimentos() {
               className={i === 1 ? "h-full relative md:top-6" : "h-full"}
             >
             <div
-              className="card-hover relative w-full max-w-[460px] h-full bg-bege-light rounded-card overflow-hidden flex flex-col p-8 md:p-10"
+              className="card-hover relative w-full max-w-[460px] mx-auto h-full bg-bege-light rounded-card overflow-hidden flex flex-col p-8 md:p-10"
               style={{ minHeight: 480 }}
             >
               {/* Watermark decorativa cerebro-coracao */}

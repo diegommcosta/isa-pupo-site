@@ -31,6 +31,8 @@ const config: Config = {
         "display-lg": ["clamp(34px, 5vw, 60px)", { lineHeight: "1.05" }],
         "display-md": ["clamp(28px, 3.8vw, 46px)", { lineHeight: "1.08" }],
         eyebrow: ["14px", { lineHeight: "1", letterSpacing: "0.18em" }],
+        // Título de seção padrão (Amaranth Bold, centralizado, linha laranja)
+        section: ["32px", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
       },
       borderRadius: {
         "blob-1": "58% 42% 55% 45% / 45% 52% 48% 55%",

@@ -11,17 +11,10 @@ export default function BlogTeaser({ posts }: Props) {
   return (
     <section id="blog" className="relative overflow-hidden bg-white py-16 md:py-28 scroll-mt-[88px]">
       <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <SectionTitle
-            eyebrow="Blog"
-            subtitle="Reflexões, artigos e conteúdos sobre psicologia integrativa e jungiana."
-          />
-          <div className="hidden lg:block pb-2">
-            <Button variant="outline-dark" size="md" href="/blog" rightIcon="arrow-right">
-              Ver todos os blogs
-            </Button>
-          </div>
-        </div>
+        <SectionTitle
+          title="Blog"
+          subtitle="Reflexões, artigos e conteúdos sobre psicologia integrativa e jungiana."
+        />
 
         {posts.length > 0 ? (
           <div
@@ -38,12 +31,12 @@ export default function BlogTeaser({ posts }: Props) {
             ))}
           </div>
         ) : (
-          <p className="mt-12 text-verde-escuro font-sans text-base">
+          <p className="mt-12 text-center text-verde-escuro font-sans text-base">
             Em breve, artigos sobre psicologia e autoconhecimento.
           </p>
         )}
 
-        <div className="mt-12 flex justify-center lg:hidden">
+        <div className="mt-12 flex justify-center">
           <Button
             variant="outline-dark"
             size="md"

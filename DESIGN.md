@@ -38,6 +38,12 @@ typography:
     fontWeight: 400
     lineHeight: 1.08
     letterSpacing: "normal"
+  section-title:
+    fontFamily: "Amaranth, sans-serif"
+    fontSize: "32px"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.01em"
   title:
     fontFamily: "Amaranth, sans-serif"
     fontSize: "clamp(24px, 3.2vw, 34px)"
@@ -156,7 +162,7 @@ Uma paleta terrosa e humana, aquecida pela luz e aterrada pela sombra, com acent
 - **Branco** (`#FFFFFF`): fundo de respiro pontual (ex.: teaser do blog) e texto sobre os escuros mais profundos.
 
 ### Named Rules
-**A Regra da Faísca.** O laranja (`#BC2F0A`) é a faísca, não a fogueira. Ele aparece no CTA primário e no eyebrow — em nada mais. Se o laranja estiver preenchendo áreas grandes ou competindo por atenção, o sistema perdeu a voz.
+**A Regra da Faísca.** O laranja (`#BC2F0A`) é a faísca, não a fogueira. Ele aparece no CTA primário e na linha curta sob os títulos de seção — em nada mais. Se o laranja estiver preenchendo áreas grandes ou competindo por atenção, o sistema perdeu a voz.
 
 **A Regra dos 40% Escuros.** Toda página completa carrega ~40% de superfície escura (verde-escuro ou marrom) em blocos full-bleed. O claro sozinho vira leveza sem lastro; o escuro é o que assina a competência. Nunca entregue uma página só clara.
 
@@ -172,16 +178,17 @@ A escala de display é **contida por princípio**: nenhum passo passa de 96px (o
 ### Hierarchy
 - **Display / Hero** (Berliana 400, `clamp(52px, 9vw, 96px)`, lh 0.98): o nome "Isa Pupo" e aberturas de página. Teto de 96px. Reservado a **palavras ou frases muito curtas** — a Berliana só respira em pouca extensão.
 - **Display / XL** (Berliana 400, `clamp(42px, 6.5vw, 76px)`, lh 1.02): títulos de página ("Terapia Junguiana", "Sobre Mim" display).
-- **Display / LG** (Berliana 400, `clamp(34px, 5vw, 60px)`, lh 1.05): títulos de seção curtos ("Pronta para começar?", "Atendimentos").
+- **Display / LG** (Berliana 400, `clamp(34px, 5vw, 60px)`, lh 1.05): títulos display curtos ("Pronta para começar?").
 - **Display / MD** (Berliana 400, `clamp(28px, 3.8vw, 46px)`, lh 1.08): títulos secundários (teaser do ebook).
-- **Title / Longo** (Amaranth 700, `clamp(24px, 3.2vw, 34px)`, lh 1.2): quando o título é longo, ele NÃO vai em Berliana — vai em Amaranth Bold. Inclui a citação de Jung e títulos de seção longos ("Para quem é este ebook?", "O que esperar das sessões").
+- **Section Title** (Amaranth 700, `32px`, lh 1.2): o título de seção padrão do site (`SectionTitle`) — centralizado, com uma linha laranja curta (56×3px, arredondada) logo abaixo. Design aprovado pela cliente. Usado em "Sobre Mim", "Atendimentos", "Ebook", "Blog", "Investimento", "O que esperar das sessões" etc.; o subtítulo, quando existe, também é centralizado.
+- **Title / Longo** (Amaranth 700, `clamp(24px, 3.2vw, 34px)`, lh 1.2): quando um título display seria longo demais para a Berliana, vai em Amaranth Bold (ex.: a citação de Jung).
 - **Body** (Amaranth 400, 16–21px, lh 1.5): texto corrido. 21px = lead/intro, 17px = padrão, 16px = denso/secundário. Limite de linha 65–75ch.
 - **Label / Eyebrow** (Amaranth 700, 14px, tracking `0.18em`, uppercase): o eyebrow acompanhado de sparkle ✦, sempre em laranja. Um sistema de marca deliberado, não um enfeite repetido.
 
 ### Named Rules
 **A Regra do Teto de 96px.** Nenhum texto de display passa de 96px (o hero). Acima disso a página grita em vez de desenhar. Os títulos secundários descem em cascata (76 → 60 → 46) mantendo hierarquia clara sem volume excessivo.
 
-**A Regra da Berliana Curta.** Berliana só em palavras/frases curtas (um nome, 2–3 palavras). Frase ou título longo é sempre Amaranth Bold — nunca Berliana display. Uma frase inteira em script esticado vira ilegível e perde a forma. Onde um componente compartilhado renderiza títulos de comprimento variável (`SectionTitle`), a prop `displayFont="sans"` troca para Amaranth Bold nos casos longos.
+**A Regra da Berliana Curta.** Berliana só em palavras/frases curtas (um nome, 2–3 palavras). Frase ou título longo é sempre Amaranth Bold — nunca Berliana display. Uma frase inteira em script esticado vira ilegível e perde a forma. Títulos de seção (`SectionTitle`) são sempre Amaranth Bold 32px, independente do comprimento.
 
 **A Regra do Eyebrow Nomeado.** O eyebrow (sparkle + label tracked em laranja) é um elemento de marca com identidade — não a scaffolding de "kicker em toda seção". Use quando a seção ganha com a assinatura, não por reflexo em cada bloco.
 

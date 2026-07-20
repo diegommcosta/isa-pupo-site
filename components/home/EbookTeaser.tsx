@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 import Blob from "@/components/ui/shapes/Blob";
 import Sparkle from "@/components/ui/shapes/Sparkle";
 
@@ -13,7 +14,9 @@ export default function EbookTeaser() {
   return (
     <section id="ebook" className="relative overflow-hidden bg-bege py-16 md:py-28 scroll-mt-[88px]">
       <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
+        <SectionTitle title="Ebook" color="var(--roxo-escuro)" />
+
+        <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
           {/* Livro flutuante com blob */}
           <div className="relative lg:col-span-5 flex justify-center lg:justify-start">
             <div
@@ -38,16 +41,12 @@ export default function EbookTeaser() {
 
           {/* Texto */}
           <div className="lg:col-span-7 lg:pl-14 xl:pl-20">
-            <span className="inline-flex items-center gap-2 font-sans font-bold text-eyebrow uppercase text-roxo-escuro">
-              <Sparkle size={12} />
-              Ebook
-            </span>
-            <h2
+            <h3
               data-anim="lines"
-              className="font-display font-normal text-display-md text-roxo-escuro px-2 -mx-2 mt-3 max-w-[560px]"
+              className="font-display font-normal text-display-md text-roxo-escuro px-2 -mx-2 max-w-[560px]"
             >
               O Cultivo da Verdade Interna
-            </h2>
+            </h3>
             <p
               data-anim="fade-up"
               className="mt-5 text-[18px] leading-[1.5] text-verde-escuro max-w-[460px]"

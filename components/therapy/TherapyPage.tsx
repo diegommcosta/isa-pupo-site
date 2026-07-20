@@ -113,11 +113,7 @@ export default function TherapyPage({ data }: Props) {
           className="absolute top-[12%] right-[12%] text-bege/50 animate-twinkle"
         />
         <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
-          <SectionTitle
-            eyebrow="O que esperar das sessões"
-            color="var(--bege)"
-            displayFont="sans"
-          />
+          <SectionTitle title="O que esperar das sessões" color="var(--bege)" />
           <div
             data-anim="stagger"
             className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-7 items-start"

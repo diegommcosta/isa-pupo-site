@@ -149,7 +149,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <WaveDivider from="bg-white" to="text-bege" variant="organic" />
           <section className="bg-bege py-20 md:py-24">
             <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
-              <SectionTitle eyebrow="Posts recentes" />
+              <SectionTitle title="Posts recentes" />
               <div
                 data-anim="stagger"
                 className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-7 max-w-content"

@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 import Blob from "@/components/ui/shapes/Blob";
 import Sparkle from "@/components/ui/shapes/Sparkle";
 import { cn } from "@/lib/utils";
 
 interface Props {
-  eyebrow: string;
+  title: string;
   variant?: "light" | "dark";
   id?: string;
 }
@@ -13,7 +14,7 @@ interface Props {
  * Seção biográfica compartilhada entre a home ("Sobre Mim") e a página do
  * ebook ("Sobre a Autora") — copy aprovado, idêntico nos dois lugares.
  */
-export default function AboutIsa({ eyebrow, variant = "light", id }: Props) {
+export default function AboutIsa({ title, variant = "light", id }: Props) {
   const dark = variant === "dark";
 
   return (
@@ -26,32 +27,29 @@ export default function AboutIsa({ eyebrow, variant = "light", id }: Props) {
       )}
     >
       <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
-        {/* Título editorial à esquerda */}
-        <div className="relative">
-          {/* cor via style: tailwind-merge confunde text-eyebrow/text-display-* (font-size) com classes de cor e descarta uma delas */}
-          {/* O eyebrow é o heading real da seção ("Sobre Mim"/"Sobre a Autora");
-              o nome gigante é display text — evita h1 "Isa Pupo" → h2 "Isa Pupo" no outline. */}
-          <h2
-            className="inline-flex items-center gap-2 font-sans font-bold text-eyebrow uppercase"
-            style={{ color: dark ? "var(--bege)" : "var(--laranja)" }}
-          >
-            <Sparkle size={12} />
-            {eyebrow}
-          </h2>
-          <p
-            data-anim="lines"
-            className="relative z-10 font-display font-normal text-display-xl px-2 -mx-2 mt-3"
-            style={{ color: dark ? "var(--bege)" : "var(--verde-escuro)" }}
-          >
-            Isa Pupo
-          </p>
-          <Sparkle
-            size={18}
-            className={cn(
-              "absolute top-2 left-[min(52vw,560px)] animate-twinkle hidden md:block",
-              dark ? "text-bege/70" : "text-rosa"
-            )}
-          />
+        {/* Título de seção centralizado (padrão do site); o nome gigante é
+            display text — evita h1 "Isa Pupo" → h2 "Isa Pupo" no outline. */}
+        <SectionTitle
+          title={title}
+          color={dark ? "var(--bege)" : "var(--verde-escuro)"}
+        />
+        <div className="mt-4 text-center">
+          <span className="relative inline-block">
+            <p
+              data-anim="lines"
+              className="relative z-10 font-display font-normal text-display-xl px-2 -mx-2"
+              style={{ color: dark ? "var(--bege)" : "var(--verde-escuro)" }}
+            >
+              Isa Pupo
+            </p>
+            <Sparkle
+              size={18}
+              className={cn(
+                "absolute top-0 -right-8 animate-twinkle hidden md:block",
+                dark ? "text-bege/70" : "text-rosa"
+              )}
+            />
+          </span>
         </div>
 
         <div className="mt-10 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-start">
