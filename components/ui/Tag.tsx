@@ -13,8 +13,7 @@ export default function Tag({ children, icon, iconColor = "var(--verde-claro)", 
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-rosa/40 bg-rosa/15 px-4 py-[7px]",
-        "font-sans text-[13px] uppercase tracking-wide text-marrom",
+        "inline-flex items-center gap-2 font-sans italic text-[21px] leading-snug text-marrom",
         className
       )}
       {...rest}

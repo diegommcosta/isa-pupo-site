@@ -35,15 +35,10 @@ export default function TherapyPage({ data }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-start">
             {/* Texto */}
             <div className="lg:col-span-6 lg:pr-12">
-              <div data-anim="fade-up">
-                <Tag icon={data.tagIcon} iconColor="var(--verde-claro)">
-                  {data.tagText}
-                </Tag>
-              </div>
               <div className="relative">
                 <h1
                   data-anim="lines"
-                  className="font-display font-normal text-display-xl text-verde-escuro px-2 -mx-2 mt-4"
+                  className="font-display font-normal text-display-xl text-verde-escuro px-2 -mx-2"
                 >
                   {data.title}
                 </h1>
@@ -51,6 +46,11 @@ export default function TherapyPage({ data }: Props) {
                   size={22}
                   className="absolute -bottom-2 right-[8%] text-laranja animate-twinkle hidden lg:block"
                 />
+              </div>
+              <div data-anim="fade-up" className="mt-3">
+                <Tag icon={data.tagIcon} iconColor="var(--verde-claro)">
+                  {data.tagText}
+                </Tag>
               </div>
               <p
                 data-anim="fade-up"

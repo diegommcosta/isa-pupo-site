@@ -85,7 +85,7 @@ export default function AboutIsa({ title, variant = "light", id }: Props) {
             <div className={cn("space-y-5", dark ? "text-bege-light" : "text-marrom")}>
               <p
                 data-anim="fade-up"
-                className="text-[21px] md:text-[23px] leading-[1.45]"
+                className="text-[17px] md:text-[18px] leading-[1.55]"
               >
                 <em>Uma mulher de alma curiosa, passos corajosos e em constante
                   movimento.</em>{" "}

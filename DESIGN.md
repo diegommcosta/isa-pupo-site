@@ -208,15 +208,15 @@ O sistema é fundamentalmente plano: a profundidade principal vem da **estratifi
 
 ### Buttons
 Sereno e confiante — pílulas totalmente arredondadas que convidam sem intimidar; a transição é suave, o repouso é calmo.
-- **Shape:** pílula total (`rounded-full`, 9999px).
-- **Primary:** fundo laranja (`#BC2F0A`), texto bege (`#EDBF9F`), padding `0 24px`, alturas 34/46/56px (sm/md/lg). Reservado ao CTA de agendar.
+- **Shape:** pílula total (`rounded-full`, 9999px); texto sempre em Amaranth **Bold**.
+- **Primary:** fundo laranja (`#BC2F0A`), texto bege (`#EDBF9F`, escolha de marca da cliente — nunca branco), padding `0 24px`, alturas 34/46/56px (sm/md/lg). Reservado ao CTA de agendar.
 - **Dark / Purple:** variantes preenchidas em verde-escuro e roxo-escuro, ambas com texto bege — para blocos e contextos temáticos.
 - **Outline (dark / orange / purple):** fundo transparente, borda e texto na cor, preenchendo na cor com texto bege no hover.
 - **Hover / Focus:** `brightness(0.96)`, `translateY(-2px)`, sombra Lift de Hover; ícone à direita desliza `+4px`. `active` retorna ao repouso. Tudo neutralizado sob `prefers-reduced-motion`.
 
-### Chips / Tags
-- **Style:** pílula com fundo rosa a 15% (`rgba(207,106,97,0.15)`), borda `rosa/40`, texto marrom, `14px` uppercase tracking wide, ícone sparkle ✦ à esquerda.
-- **State:** estático, informativo (ex.: "Terapeuta Junguiana e Integrativa"). Não é um filtro clicável.
+### Byline (ex-Tag)
+- **Style:** assinatura editorial sob o título do hero — Amaranth itálico 21px, texto marrom (ou cor temática da página), sparkle ✦ rosa (ou ícone) à esquerda. Sem pílula, sem borda, sem caixa alta — a pílula-badge foi aposentada por parecer scaffolding de IA.
+- **State:** estático, informativo (ex.: "Terapeuta Junguiana e Integrativa" sob "Isa Pupo"). Não é um filtro clicável.
 
 ### Cards / Containers
 - **Corner Style:** raio **uniforme nos 4 cantos** (`rounded-card` = 28px). Todos os cards de conteúdo compartilham o mesmo arredondamento; a assinatura orgânica vive nos blobs e molduras de imagem (`rounded-blob-*`), não nos cards.

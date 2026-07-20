@@ -78,17 +78,17 @@ export default function EbookPage() {
 
             {/* Texto */}
             <div className="lg:col-span-7 lg:pl-14 xl:pl-20">
-              <div data-anim="fade-up">
+              <h1
+                data-anim="lines"
+                className="font-display font-normal text-display-lg text-roxo-escuro px-2 -mx-2 max-w-[640px]"
+              >
+                O Cultivo da Verdade Interna
+              </h1>
+              <div data-anim="fade-up" className="mt-3">
                 <Tag icon="book-half" iconColor="var(--roxo-escuro)" style={{ color: "var(--roxo-escuro)" }}>
                   Ebook
                 </Tag>
               </div>
-              <h1
-                data-anim="lines"
-                className="mt-4 font-display font-normal text-display-lg text-roxo-escuro px-2 -mx-2 max-w-[640px]"
-              >
-                O Cultivo da Verdade Interna
-              </h1>
               <p
                 data-anim="fade-up"
                 className="mt-6 text-[19px] md:text-[20px] leading-[1.5] text-verde-escuro max-w-[460px]"
