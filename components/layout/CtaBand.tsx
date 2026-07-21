@@ -12,20 +12,26 @@ export default function CtaBand({ message = defaultMessage }: Props) {
 
   return (
     <section className="relative bg-marrom text-bege py-8 md:py-16 overflow-hidden">
-      {/* Ilustração cerebro-lampada à direita, com parallax sutil */}
-      <div
-        className="absolute right-[4%] md:right-[8%] bottom-[12%] pointer-events-none select-none"
-        data-anim="parallax"
-        data-speed="0.95"
-      >
-        {/* Decorativa (opacity-30/70): alt vazio para leitores de tela pularem */}
-        <Image
-          src="/imgs/cerebro-lampada.webp"
-          alt=""
-          width={162}
-          height={267}
-          className="opacity-30 md:opacity-70 w-[120px] md:w-[162px] h-auto"
-        />
+      {/* Ilustração cerebro-lampada à direita, com parallax sutil.
+          O trilho max-w-site centralizado garante, por construção, que a borda
+          direita do desenho coincida com a borda do conteúdo em qualquer tela. */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none select-none">
+        <div className="relative max-w-site mx-auto h-full">
+          <div
+            className="absolute right-6 md:right-10 lg:right-16 bottom-[12%]"
+            data-anim="parallax"
+            data-speed="0.95"
+          >
+            {/* Decorativa (opacity-30/70): alt vazio para leitores de tela pularem */}
+            <Image
+              src="/imgs/cerebro-lampada.webp"
+              alt=""
+              width={162}
+              height={267}
+              className="opacity-30 md:opacity-70 w-[120px] md:w-[162px] h-auto"
+            />
+          </div>
+        </div>
       </div>
 
       <Sparkle
