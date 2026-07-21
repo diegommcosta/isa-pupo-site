@@ -12,12 +12,6 @@ export default function SiteLayout({
 }) {
   return (
     <>
-      <a
-        href="#conteudo"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-verde-escuro focus:text-bege focus:px-5 focus:py-3 focus:rounded-full font-sans"
-      >
-        Pular para o conteúdo
-      </a>
       <SmoothScroll />
       <AnimationsProvider />
       <Header tone={headerTone} />
