@@ -5,9 +5,11 @@ export default function CarlJungQuote() {
   return (
     <section className="relative overflow-hidden bg-roxo-escuro py-10 md:py-20">
       {/* Ilustração à direita, dimensionada pela altura da seção (inset-y dá a
-          folga do parallax ±12px) — nunca é cortada pelo overflow-hidden */}
+          folga do parallax ±12px) — nunca é cortada pelo overflow-hidden.
+          O max() trava o right na borda do container max-w-site (1440px +
+          px-24) em monitores largos, mantendo o desenho alinhado à página. */}
       <div
-        className="absolute inset-y-3 md:inset-y-4 right-[4%] md:right-[6%] flex items-center pointer-events-none select-none"
+        className="absolute inset-y-3 md:inset-y-4 right-[4%] md:right-[max(6%,calc((100%-1440px)/2+96px))] flex items-center pointer-events-none select-none"
         data-anim="parallax"
         data-speed="0.97"
       >
