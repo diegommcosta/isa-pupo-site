@@ -59,6 +59,13 @@
   .split-line-mask {
     margin: -0.18em -0.15em;
   }
+  /* Máscaras irmãs são blocos: as margens verticais negativas adjacentes
+     colapsam para -0.18em em vez de somar -0.36em, sobrando 0.18em entre
+     linhas. O -0.36em aqui colapsa com o -0.18em da anterior e anula o
+     padding 2x0.18em entre as linhas. */
+  .split-line-mask + .split-line-mask {
+    margin-top: -0.36em;
+  }
 
   .card-hover {
     transition: transform var(--transition-base);

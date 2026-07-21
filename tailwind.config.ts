@@ -27,7 +27,7 @@ const config: Config = {
       },
       fontSize: {
         "display-hero": ["clamp(52px, 9vw, 96px)", { lineHeight: "0.98" }],
-        "display-xl": ["clamp(42px, 6.5vw, 76px)", { lineHeight: "1.02" }],
+        "display-xl": ["clamp(42px, 6.5vw, 76px)", { lineHeight: "0.9" }],
         "display-lg": ["clamp(34px, 5vw, 60px)", { lineHeight: "1.05" }],
         "display-md": ["clamp(28px, 3.8vw, 46px)", { lineHeight: "1.08" }],
         eyebrow: ["14px", { lineHeight: "1", letterSpacing: "0.18em" }],
