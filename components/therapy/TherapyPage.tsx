@@ -75,12 +75,13 @@ export default function TherapyPage({ data }: Props) {
               </div>
             </div>
 
-            {/* Imagem — no modo contain (colagem com transparência) o fade é no
-                bloco inteiro (blob + imagem juntos), para o blob não vazar
-                através das fotos durante a entrada */}
+            {/* Imagem — no modo contain (colagem com transparência) o
+                data-anim="image" fica no bloco inteiro (blob + imagem juntos):
+                entra em paralelo com o texto (posição 0.15 da timeline, sem
+                esperar a cascata) e o blob não vaza através das fotos */}
             <div
               className="relative lg:col-span-6 lg:sticky lg:top-[104px]"
-              {...(isContain ? { "data-anim": "fade-up" } : {})}
+              {...(isContain ? { "data-anim": "image" } : {})}
             >
               {isContain && (
                 <div
