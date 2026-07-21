@@ -31,7 +31,7 @@ export default function ShareButtons({ title, url }: Props) {
         aria-label="Compartilhar via menu do dispositivo"
         className="w-[34px] h-[34px] rounded-lg bg-roxo-escuro flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer"
       >
-        <Icon name="instagram" size={18} color="var(--bege)" />
+        <Icon name="send" size={18} color="var(--bege)" />
       </button>
       <a
         href={whatsappHref}

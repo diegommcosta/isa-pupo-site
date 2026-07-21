@@ -7,6 +7,7 @@ import Instagram from "@/components/ui/icons/Instagram";
 import LogoBullet from "@/components/ui/icons/LogoBullet";
 import MoonStarsFill from "@/components/ui/icons/MoonStarsFill";
 import People from "@/components/ui/icons/People";
+import Send from "@/components/ui/icons/Send";
 import StarFill from "@/components/ui/icons/StarFill";
 import Stars from "@/components/ui/icons/Stars";
 import Whatsapp from "@/components/ui/icons/Whatsapp";
@@ -23,6 +24,7 @@ const MAP = {
   "logo-bullet": LogoBullet,
   "moon-stars-fill": MoonStarsFill,
   people: People,
+  send: Send,
   "star-fill": StarFill,
   stars: Stars,
   whatsapp: Whatsapp,
