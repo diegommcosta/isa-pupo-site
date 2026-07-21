@@ -44,11 +44,14 @@ export default function Hero() {
 
           {/* Texto (colunas 1–8; título cruza a borda da imagem) */}
           <div className="relative z-10 lg:col-start-1 lg:col-end-8 lg:row-start-1 flex flex-col items-start">
+            <div data-hero="fade" data-hero-order="2">
+              <Tag>Terapeuta Junguiana e Integrativa</Tag>
+            </div>
             <div className="relative">
               <h1
                 data-hero="lines"
                 data-hero-order="1"
-                className="font-display font-normal text-display-hero text-verde-escuro px-2 -mx-2"
+                className="font-display font-normal text-display-hero text-verde-escuro px-2 -mx-2 mt-4"
               >
                 Isa Pupo
               </h1>
@@ -56,9 +59,6 @@ export default function Hero() {
                 size={20}
                 className="absolute -top-1 right-0 md:-right-8 text-roxo-claro animate-twinkle [animation-delay:0.6s]"
               />
-            </div>
-            <div data-hero="fade" data-hero-order="2" className="mt-3">
-              <Tag>Terapeuta Junguiana e Integrativa</Tag>
             </div>
             <div
               data-hero="fade"

@@ -214,9 +214,9 @@ Sereno e confiante — pílulas totalmente arredondadas que convidam sem intimid
 - **Outline (dark / orange / purple):** fundo transparente, borda e texto na cor, preenchendo na cor com texto bege no hover.
 - **Hover / Focus:** `brightness(0.96)`, `translateY(-2px)`, sombra Lift de Hover; ícone à direita desliza `+4px`. `active` retorna ao repouso. Tudo neutralizado sob `prefers-reduced-motion`.
 
-### Byline (ex-Tag)
-- **Style:** assinatura editorial sob o título do hero — Amaranth itálico 21px, texto marrom (ou cor temática da página), sparkle ✦ rosa (ou ícone) à esquerda. Sem pílula, sem borda, sem caixa alta — a pílula-badge foi aposentada por parecer scaffolding de IA.
-- **State:** estático, informativo (ex.: "Terapeuta Junguiana e Integrativa" sob "Isa Pupo"). Não é um filtro clicável.
+### Tag
+- **Style:** chip acima do título do hero — retângulo arredondado (`rounded-lg`) com fundo bege sólido, texto marrom 16px em caixa normal (sem uppercase/tracking, sem borda, sem sparkle). Nas páginas internas leva ícone temático à esquerda (lua na terapia, livro no ebook); sobre fundo bege o chip usa `bg-bege-light`.
+- **State:** estático, informativo (ex.: "Terapeuta Junguiana e Integrativa"). Não é um filtro clicável.
 
 ### Cards / Containers
 - **Corner Style:** raio **uniforme nos 4 cantos** (`rounded-card` = 28px). Todos os cards de conteúdo compartilham o mesmo arredondamento; a assinatura orgânica vive nos blobs e molduras de imagem (`rounded-blob-*`), não nos cards.
