@@ -80,6 +80,7 @@ rounded:
   organic: "36px 80px 36px 36px"
   blob-1: "58% 42% 55% 45% / 45% 52% 48% 55%"
   blob-2: "45% 55% 48% 52% / 55% 44% 56% 45%"
+  blob-soft: "26% 30% 27% 28% / 30% 24% 30% 25%"
 spacing:
   gutter-sm: "24px"
   gutter-md: "40px"
@@ -162,7 +163,7 @@ Uma paleta terrosa e humana, aquecida pela luz e aterrada pela sombra, com acent
 - **Branco** (`#FFFFFF`): fundo de respiro pontual (ex.: teaser do blog) e texto sobre os escuros mais profundos.
 
 ### Named Rules
-**A Regra da Faísca.** O laranja (`#BC2F0A`) é a faísca, não a fogueira. Ele aparece no CTA primário e na linha curta sob os títulos de seção — em nada mais. Se o laranja estiver preenchendo áreas grandes ou competindo por atenção, o sistema perdeu a voz.
+**A Regra da Faísca.** O laranja (`#BC2F0A`) é a faísca, não a fogueira. Ele aparece no CTA primário, na linha curta sob os títulos de seção, nos bullets de card e nos back-links — sempre em pontos pequenos, nunca preenchendo áreas grandes ou competindo por atenção.
 
 **A Regra dos 40% Escuros.** Toda página completa carrega ~40% de superfície escura (verde-escuro ou marrom) em blocos full-bleed. O claro sozinho vira leveza sem lastro; o escuro é o que assina a competência. Nunca entregue uma página só clara.
 

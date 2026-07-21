@@ -86,7 +86,7 @@ export default function Atendimentos() {
                 </p>
                 <div className="mt-[18px] flex flex-col gap-2">
                   {card.bullets.map((b) => (
-                    <BulletRow key={b} icon="logo-bullet" iconColor="var(--verde-claro)" textColor="var(--marrom)">
+                    <BulletRow key={b} icon="logo-bullet" textColor="var(--marrom)">
                       {b}
                     </BulletRow>
                   ))}

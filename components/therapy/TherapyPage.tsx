@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BackLink from "@/components/ui/BackLink";
 import Tag from "@/components/ui/Tag";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { BulletRow } from "@/components/ui/BulletRow";
@@ -35,6 +36,9 @@ export default function TherapyPage({ data }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-start">
             {/* Texto */}
             <div className="lg:col-span-6 lg:pr-12">
+              <div className="mb-[14px]">
+                <BackLink href="/">voltar para home</BackLink>
+              </div>
               <div data-anim="fade-up">
                 <Tag icon={data.tagIcon} iconColor="var(--verde-claro)">
                   {data.tagText}
@@ -88,7 +92,7 @@ export default function TherapyPage({ data }: Props) {
                   "relative w-full",
                   isContain
                     ? cn("h-[480px] md:h-[644px]", data.imageWrapperClassName)
-                    : "rounded-blob-2 overflow-hidden h-[420px] md:h-[560px] lg:h-[640px]"
+                    : "rounded-blob-soft overflow-hidden h-[420px] md:h-[560px] lg:h-[640px]"
                 )}
               >
                 <Image
@@ -136,7 +140,6 @@ export default function TherapyPage({ data }: Props) {
                     <BulletRow
                       key={j}
                       icon={bulletIcon(sec.title)}
-                      iconColor="var(--verde-claro)"
                       textColor="var(--marrom)"
                       size={15}
                     >

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
@@ -7,7 +6,7 @@ import { client, urlFor } from "@/lib/sanity/client";
 import PortableTextComponents from "@/components/blog/PortableTextComponents";
 import { blogPostQuery, blogSlugsQuery } from "@/lib/sanity/queries";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { Icon } from "@/components/ui/Icon";
+import BackLink from "@/components/ui/BackLink";
 import ShareButtons from "@/components/blog/ShareButtons";
 import BlogCard from "@/components/blog/BlogCard";
 import CtaBand from "@/components/layout/CtaBand";
@@ -65,18 +64,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
           <div className="max-w-content mx-auto">
             {/* Back link */}
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-1.5 text-laranja font-sans text-[14px] mb-[14px] hover:opacity-80 transition-opacity"
-            >
-              <Icon
-                name="arrow-right"
-                size={14}
-                color="var(--laranja)"
-                style={{ transform: "rotate(180deg)" }}
-              />
-              voltar para o blog
-            </Link>
+            <div className="mb-[14px]">
+              <BackLink href="/blog">voltar para o blog</BackLink>
+            </div>
 
             {/* Meta */}
             {post.author?.name && (

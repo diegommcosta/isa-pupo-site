@@ -48,6 +48,18 @@
     }
   }
 
+  /* Respiro para o SplitText (mask: "lines"): as máscaras (overflow: clip)
+     ficam no DOM após a animação e, com line-heights ~1.0, cortavam os
+     ascendentes/descendentes da Berliana. O padding na linha dá espaço aos
+     glifos dentro da máscara; a margem negativa na máscara (classe -mask,
+     gerada pelo GSAP) devolve o layout original sem shift. */
+  .split-line {
+    padding: 0.18em 0.15em;
+  }
+  .split-line-mask {
+    margin: -0.18em -0.15em;
+  }
+
   .card-hover {
     transition: transform var(--transition-base);
     will-change: transform;

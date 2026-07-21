@@ -39,6 +39,8 @@ const config: Config = {
       borderRadius: {
         "blob-1": "58% 42% 55% 45% / 45% 52% 48% 55%",
         "blob-2": "45% 55% 48% 52% / 55% 44% 56% 45%",
+        // Versão suave do blob-2: orgânico, mas cortando bem menos a imagem
+        "blob-soft": "26% 30% 27% 28% / 30% 24% 30% 25%",
         organic: "36px 80px 36px 36px",
         // Raio uniforme dos cards (mesmo arredondamento nos 4 cantos)
         card: "28px",
