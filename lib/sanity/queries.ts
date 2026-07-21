@@ -13,7 +13,7 @@ export const blogPostQuery = groq`
     title, slug, cover, body, publishedAt,
     "author": author->{ name, photo },
     "category": category->{ title, slug },
-    "related": *[_type == "post" && category._ref == ^.category._ref && slug.current != $slug] | order(publishedAt desc)[0..1] {
+    "related": *[_type == "post" && slug.current != $slug] | order(publishedAt desc)[0..2] {
       _id, title, slug, excerpt, cover, publishedAt,
       "category": category->{ title, slug }
     }

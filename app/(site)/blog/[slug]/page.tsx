@@ -142,10 +142,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               <SectionTitle title="Posts recentes" />
               <div
                 data-anim="stagger"
-                className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-7 max-w-content"
+                className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7"
               >
                 {post.related.map((p) => (
-                  <BlogCard key={p._id} post={p} />
+                  <div key={p._id} className="h-full">
+                    <BlogCard post={p} imageHeight={220} />
+                  </div>
                 ))}
               </div>
             </div>
