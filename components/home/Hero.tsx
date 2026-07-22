@@ -43,7 +43,7 @@ export default function Hero() {
           </div>
 
           {/* Texto (colunas 1–8; título cruza a borda da imagem) */}
-          <div className="relative z-10 lg:col-start-1 lg:col-end-8 lg:row-start-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div className="relative z-10 lg:col-start-1 lg:col-end-8 lg:row-start-1 flex flex-col items-center sm:items-start text-center sm:text-left">
             <div data-hero="fade" data-hero-order="2">
               <Tag>Terapeuta Junguiana e Integrativa</Tag>
             </div>

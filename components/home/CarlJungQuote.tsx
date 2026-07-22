@@ -33,7 +33,7 @@ export default function CarlJungQuote() {
       />
 
       <div className="relative max-w-site mx-auto px-6 md:px-10 lg:px-16">
-        <blockquote className="relative max-w-[900px] lg:ml-[10%] text-center md:text-left">
+        <blockquote className="relative max-w-[900px] lg:ml-[10%] text-center sm:text-left">
           {/* Frase longa: Amaranth Bold (Regra da Berliana Curta), não Berliana */}
           <p
             data-anim="lines"
