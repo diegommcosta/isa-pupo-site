@@ -42,6 +42,7 @@ Required in `.env.local`:
 | `SANITY_API_READ_TOKEN` | Sanity Viewer token for server-side reads |
 | `SANITY_REVALIDATE_SECRET` | Webhook secret for on-demand ISR |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Digits only, e.g. `11999998888` |
+| `NEXT_PUBLIC_GA_ID` | Google Analytics 4 Measurement ID (`G-XXXXXXXXXX`) — opcional; sem ela o GA não renderiza |
 
 ## Architecture
 
