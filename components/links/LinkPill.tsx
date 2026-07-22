@@ -17,7 +17,7 @@ export default function LinkPill({ label, url, icon, destaque }: LinkItem) {
     "hover:brightness-[0.96] hover:-translate-y-[2px] hover:shadow-[0_6px_20px_rgba(45,22,5,0.18)]",
     "active:translate-y-0 active:shadow-none",
     "motion-reduce:transition-[filter] motion-reduce:hover:translate-y-0 motion-reduce:hover:shadow-none",
-    destaque ? "bg-laranja" : "bg-roxo-escuro"
+    destaque ? "bg-laranja" : "bg-verde-escuro"
   );
 
   const content = (

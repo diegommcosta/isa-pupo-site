@@ -54,6 +54,9 @@ export default async function LinksPage() {
 
   return (
     <>
+      {/* Rubber-band bicolor: overscroll no topo revela verde (header),
+          na base revela bege (rodapé). Sai do DOM ao navegar para outra rota. */}
+      <style>{`html{background:linear-gradient(#2D3322 50%,#EFDDD1 50%) fixed}`}</style>
       <AnimationsProvider />
       <main className="min-h-svh flex flex-col bg-bege-light">
         {/* Faixa escura de topo com a logo */}
@@ -73,14 +76,14 @@ export default async function LinksPage() {
           <div className="flex justify-center px-6 pt-12 pb-6 md:pt-14 md:pb-8">
             <Logo className="w-[190px] md:w-[220px] h-auto text-bege" />
           </div>
-          <WaveDivider to="text-bege-light" variant="organic" />
         </header>
+        <WaveDivider from="bg-verde-escuro" to="text-bege-light" variant="organic" />
 
         {/* Conteúdo */}
         <div className="flex-1 w-full max-w-[560px] mx-auto px-6 pt-8 md:pt-10 pb-16 flex flex-col items-center">
           <h1
             data-anim="lines"
-            className="font-display font-normal text-display-lg text-roxo-escuro text-center [text-wrap:balance]"
+            className="font-display font-normal text-display-lg text-verde-escuro text-center [text-wrap:balance]"
           >
             {title}
           </h1>
@@ -104,9 +107,10 @@ export default async function LinksPage() {
           </nav>
         </div>
 
-        {/* Rodapé-marca: só o símbolo, laranja, sobre o próprio fundo */}
+        {/* Rodapé-marca: só o símbolo, laranja, sobre o próprio fundo.
+            width explícito no svg — imune a CSS não aplicado/stale. */}
         <footer className="mt-auto flex justify-center pb-12">
-          <LogoBullet aria-hidden="true" className="w-[52px] h-auto text-laranja" />
+          <LogoBullet aria-hidden="true" width={60} className="h-auto text-laranja" />
         </footer>
       </main>
     </>
