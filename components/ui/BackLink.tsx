@@ -12,12 +12,12 @@ export default function BackLink({ href, children }: Props) {
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-1.5 text-laranja font-sans text-[14px] hover:opacity-80 transition-opacity"
+      className="inline-flex items-center gap-1.5 text-verde-escuro font-sans text-[14px] hover:opacity-80 transition-opacity"
     >
       <Icon
         name="arrow-right"
         size={14}
-        color="var(--laranja)"
+        color="var(--verde-escuro)"
         style={{ transform: "rotate(180deg)" }}
       />
       {children}
