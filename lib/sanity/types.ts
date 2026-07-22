@@ -17,6 +17,19 @@ export interface Author {
   photo?: SanityImage;
 }
 
+export interface LinkItem {
+  label: string;
+  url: string;
+  icon?: string;
+  destaque?: boolean;
+}
+
+export interface LinksPage {
+  title?: string;
+  subtitle?: string;
+  items?: LinkItem[];
+}
+
 export interface Post {
   _id: string;
   title: string;

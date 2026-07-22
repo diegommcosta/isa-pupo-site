@@ -25,6 +25,9 @@ export async function POST(req: NextRequest) {
     // Se o slug específico vier no payload, força ele também
     if (slug) revalidatePath(`/blog/${slug}`, "page");
 
+    // Página de links (singleton "links") — já coberta pelo layout, explícito por clareza
+    revalidatePath("/links", "page");
+
     return NextResponse.json({ revalidated: true, slug });
   } catch {
     return NextResponse.json({ message: "Error revalidating" }, { status: 500 });

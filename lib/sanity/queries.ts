@@ -21,3 +21,10 @@ export const blogPostQuery = groq`
 `;
 
 export const blogSlugsQuery = groq`*[_type == "post" && defined(slug.current)][].slug.current`;
+
+export const linksQuery = groq`
+  *[_type == "links"][0] {
+    title, subtitle,
+    items[] { label, url, icon, destaque }
+  }
+`;
