@@ -37,7 +37,7 @@ export default function TherapyPage({ data }: Props) {
             {/* Texto */}
             <div className="lg:col-span-6 lg:pr-12">
               <div className="mb-6">
-                <BackLink href="/#atendimentos">voltar para atendimentos</BackLink>
+                <BackLink href="/#atendimentos">voltar</BackLink>
               </div>
               <div data-anim="fade-up">
                 <Tag icon={data.tagIcon} iconColor="var(--verde-claro)">

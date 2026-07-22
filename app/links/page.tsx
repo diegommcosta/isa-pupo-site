@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { client } from "@/lib/sanity/client";
 import { linksQuery } from "@/lib/sanity/queries";
 import type { LinkItem, LinksPage } from "@/lib/sanity/types";
@@ -54,9 +55,10 @@ export default async function LinksPage() {
 
   return (
     <>
-      {/* Rubber-band bicolor: overscroll no topo revela verde (header),
-          na base revela bege (rodapé). Sai do DOM ao navegar para outra rota. */}
-      <style>{`html{background:linear-gradient(#2D3322 50%,#EFDDD1 50%) fixed}`}</style>
+      {/* Rubber-band verde: o body segue pintando o documento em bege;
+          o verde do html só aparece no overscroll (pull-to-refresh).
+          Sai do DOM ao navegar para outra rota. */}
+      <style>{`html{background:#2D3322}`}</style>
       <AnimationsProvider />
       <main className="min-h-svh flex flex-col bg-bege-light">
         {/* Faixa escura de topo com a logo */}
@@ -74,13 +76,19 @@ export default async function LinksPage() {
             className="absolute bottom-[30%] left-[22%] text-roxo-claro/70 animate-twinkle [animation-delay:0.6s] hidden md:block"
           />
           <div className="flex justify-center px-6 pt-12 pb-6 md:pt-14 md:pb-8">
-            <Logo className="w-[190px] md:w-[220px] h-auto text-bege" />
+            <Link
+              href="/"
+              aria-label="Ir para o site — página inicial"
+              className="hover:opacity-85 transition-opacity"
+            >
+              <Logo className="w-[190px] md:w-[220px] h-auto text-bege" />
+            </Link>
           </div>
         </header>
         <WaveDivider from="bg-verde-escuro" to="text-bege-light" variant="organic" />
 
         {/* Conteúdo */}
-        <div className="flex-1 w-full max-w-[560px] mx-auto px-6 pt-8 md:pt-10 pb-16 flex flex-col items-center">
+        <div className="flex-1 w-full max-w-[560px] mx-auto px-6 pt-8 md:pt-10 flex flex-col items-center">
           <h1
             data-anim="lines"
             className="font-display font-normal text-display-lg text-verde-escuro text-center [text-wrap:balance]"
@@ -107,9 +115,10 @@ export default async function LinksPage() {
           </nav>
         </div>
 
-        {/* Rodapé-marca: só o símbolo, laranja, sobre o próprio fundo.
+        {/* Rodapé-marca: só o símbolo, laranja, com respiro simétrico
+            (56px acima e abaixo, + safe area do home-indicator no iPhone).
             width explícito no svg — imune a CSS não aplicado/stale. */}
-        <footer className="mt-auto flex justify-center pb-12">
+        <footer className="mt-auto flex justify-center pt-14 pb-[calc(56px+env(safe-area-inset-bottom))]">
           <LogoBullet aria-hidden="true" width={60} className="h-auto text-laranja" />
         </footer>
       </main>

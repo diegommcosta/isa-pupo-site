@@ -64,7 +64,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <div className="max-w-content mx-auto">
             {/* Back link */}
             <div className="mb-6">
-              <BackLink href="/blog">voltar para o blog</BackLink>
+              <BackLink href="/blog">voltar</BackLink>
             </div>
 
             {/* Meta */}
