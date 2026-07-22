@@ -80,7 +80,7 @@ export default async function LinksPage() {
         <div className="flex-1 w-full max-w-[560px] mx-auto px-6 pt-8 md:pt-10 pb-16 flex flex-col items-center">
           <h1
             data-anim="lines"
-            className="font-display font-normal text-display-lg text-verde-escuro text-center [text-wrap:balance]"
+            className="font-display font-normal text-display-lg text-roxo-escuro text-center [text-wrap:balance]"
           >
             {title}
           </h1>
@@ -104,12 +104,9 @@ export default async function LinksPage() {
           </nav>
         </div>
 
-        {/* Rodapé-marca: simetria escura com o topo */}
-        <footer className="mt-auto">
-          <WaveDivider to="text-verde-escuro" variant="soft" flip />
-          <div className="bg-verde-escuro flex justify-center pt-4 pb-9">
-            <LogoBullet aria-hidden="true" className="w-[34px] h-auto text-bege/80" />
-          </div>
+        {/* Rodapé-marca: só o símbolo, laranja, sobre o próprio fundo */}
+        <footer className="mt-auto flex justify-center pb-12">
+          <LogoBullet aria-hidden="true" className="w-[52px] h-auto text-laranja" />
         </footer>
       </main>
     </>
