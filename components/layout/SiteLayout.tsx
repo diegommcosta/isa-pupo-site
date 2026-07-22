@@ -1,6 +1,7 @@
 import Header, { type HeaderTone } from "./Header";
 import Footer from "./Footer";
 import AnimationsProvider from "@/components/ui/AnimationsProvider";
+import NavTracker from "@/components/ui/NavTracker";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 
 export default function SiteLayout({
@@ -14,6 +15,7 @@ export default function SiteLayout({
     <>
       <SmoothScroll />
       <AnimationsProvider />
+      <NavTracker />
       <Header tone={headerTone} />
       <main id="conteudo" className="min-h-screen">{children}</main>
       <Footer />
