@@ -10,7 +10,6 @@ import BackLink from "@/components/ui/BackLink";
 import ShareButtons from "@/components/blog/ShareButtons";
 import BlogCard from "@/components/blog/BlogCard";
 import CtaBand from "@/components/layout/CtaBand";
-import Sparkle from "@/components/ui/shapes/Sparkle";
 import WaveDivider from "@/components/ui/shapes/WaveDivider";
 import type { Post } from "@/lib/sanity/types";
 
@@ -60,7 +59,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   return (
     <>
       {/* Seção 1 — meta + título */}
-      <section className="bg-white pt-[112px] pb-[30px]">
+      <section className="bg-white pt-[112px] pb-6">
         <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
           <div className="max-w-content mx-auto">
             {/* Back link */}
@@ -82,15 +81,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             >
               {post.title}
             </h1>
-
-            <Sparkle size={20} className="block mt-5 text-laranja" />
           </div>
         </div>
       </section>
 
       {/* Seção 2 — capa */}
       {coverUrl && (
-        <section className="bg-white py-[30px]">
+        <section className="bg-white pt-0 pb-[30px]">
           <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
             <div className="max-w-content mx-auto">
               <div
@@ -113,8 +110,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <section className="bg-white pb-[70px]">
         <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
           <div className="max-w-content mx-auto">
-            {/* Artigo */}
-            <article className="max-w-none">
+            {/* Artigo — [&>*:first-child]:mt-0 impede que a margem do topo do
+                primeiro bloco (ex.: um heading com mt-8) escape por colapso de
+                margem e abra um vão bege acima da seção. */}
+            <article className="max-w-none [&>*:first-child]:mt-0">
               {post.body ? (
                 <PortableText value={post.body} components={PortableTextComponents} />
               ) : (
