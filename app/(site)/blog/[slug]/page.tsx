@@ -60,11 +60,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   return (
     <>
       {/* Seção 1 — meta + título */}
-      <section className="bg-white pt-[128px] pb-[30px]">
+      <section className="bg-white pt-[112px] pb-[30px]">
         <div className="max-w-site mx-auto px-6 md:px-10 lg:px-16 xl:px-24">
           <div className="max-w-content mx-auto">
             {/* Back link */}
-            <div className="mb-[14px]">
+            <div className="mb-6">
               <BackLink href="/blog">voltar para o blog</BackLink>
             </div>
 

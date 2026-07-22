@@ -27,7 +27,7 @@ export default function TherapyPage({ data }: Props) {
   return (
     <>
       {/* Hero editorial */}
-      <section className="relative overflow-hidden bg-bege-light pt-[104px] md:pt-[136px] pb-8 md:pb-12">
+      <section className="relative overflow-hidden bg-bege-light pt-[104px] md:pt-[112px] pb-8 md:pb-12">
         <Sparkle
           size={16}
           className="absolute top-[14%] right-[6%] text-roxo-claro animate-twinkle hidden md:block"
@@ -36,7 +36,7 @@ export default function TherapyPage({ data }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-start">
             {/* Texto */}
             <div className="lg:col-span-6 lg:pr-12">
-              <div className="mb-[14px]">
+              <div className="mb-6">
                 <BackLink href="/#atendimentos">voltar para atendimentos</BackLink>
               </div>
               <div data-anim="fade-up">
