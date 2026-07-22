@@ -48,25 +48,6 @@
     }
   }
 
-  /* Respiro para o SplitText (mask: "lines"): as máscaras (overflow: clip)
-     ficam no DOM após a animação e, com line-heights ~1.0, cortavam os
-     ascendentes/descendentes da Berliana. O padding na linha dá espaço aos
-     glifos dentro da máscara; a margem negativa na máscara (classe -mask,
-     gerada pelo GSAP) devolve o layout original sem shift. */
-  .split-line {
-    padding: 0.18em 0.15em;
-  }
-  .split-line-mask {
-    margin: -0.18em -0.15em;
-  }
-  /* Máscaras irmãs são blocos: as margens verticais negativas adjacentes
-     colapsam para -0.18em em vez de somar -0.36em, sobrando 0.18em entre
-     linhas. O -0.36em aqui colapsa com o -0.18em da anterior e anula o
-     padding 2x0.18em entre as linhas. */
-  .split-line-mask + .split-line-mask {
-    margin-top: -0.36em;
-  }
-
   .card-hover {
     transition: transform var(--transition-base);
     will-change: transform;
@@ -89,4 +70,26 @@
       animation: none !important;
     }
   }
+}
+
+/* Respiro para o SplitText (mask: "lines"): as máscaras (overflow: clip)
+   ficam no DOM após a animação e, com line-heights ~1.0, cortavam os
+   ascendentes/descendentes da Berliana. O padding na linha dá espaço aos
+   glifos dentro da máscara; a margem negativa na máscara (classe -mask,
+   gerada pelo GSAP) devolve o layout original sem shift.
+   Fora de @layer de propósito: `split-line-mask` só existe em runtime
+   (o GSAP gera o sufixo -mask), então dentro de @layer o Tailwind
+   removeria a regra do build por não achar a classe no código-fonte. */
+.split-line {
+  padding: 0.18em 0.15em;
+}
+.split-line-mask {
+  margin: -0.18em -0.15em;
+}
+/* Máscaras irmãs são blocos: as margens verticais negativas adjacentes
+   colapsam para -0.18em em vez de somar -0.36em, sobrando 0.18em entre
+   linhas. O -0.36em aqui colapsa com o -0.18em da anterior e anula o
+   padding 2x0.18em entre as linhas. */
+.split-line-mask + .split-line-mask {
+  margin-top: -0.36em;
 }
