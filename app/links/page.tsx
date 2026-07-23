@@ -91,7 +91,7 @@ export default async function LinksPage() {
         <div className="flex-1 w-full max-w-[720px] mx-auto px-6 pt-7 md:pt-9 flex flex-col items-center">
           <h1
             data-anim="lines"
-            className="font-sans font-bold text-[clamp(26px,3.4vw,40px)] leading-[1.2] tracking-[-0.01em] text-verde-escuro text-center [text-wrap:balance]"
+            className="font-sans font-bold text-[clamp(30px,3.4vw,40px)] leading-[1.2] tracking-[-0.01em] text-verde-escuro text-center [text-wrap:balance]"
           >
             {title}
           </h1>
