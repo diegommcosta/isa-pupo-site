@@ -29,5 +29,12 @@ Thumbs.db
 # misc
 *.log
 npm-debug.log*
+tsconfig.tsbuildinfo
 
 .vercel
+
+# tooling local (Claude Code / impeccable)
+.claude/skills/
+.claude/DESING.md
+.impeccable/critique/
+.impeccable/live/
