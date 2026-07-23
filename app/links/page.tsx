@@ -75,30 +75,30 @@ export default async function LinksPage() {
             size={12}
             className="absolute bottom-[30%] left-[22%] text-roxo-claro/70 animate-twinkle [animation-delay:0.6s] hidden md:block"
           />
-          <div className="flex justify-center px-6 pt-12 pb-6 md:pt-14 md:pb-8">
+          <div className="flex justify-center px-6 pt-9 pb-4 md:pt-10 md:pb-5">
             <Link
               href="/"
               aria-label="Ir para o site — página inicial"
               className="hover:opacity-85 transition-opacity"
             >
-              <Logo className="w-[190px] md:w-[220px] h-auto text-bege" />
+              <Logo className="w-[170px] md:w-[190px] h-auto text-bege" />
             </Link>
           </div>
         </header>
         <WaveDivider from="bg-verde-escuro" to="text-bege-light" variant="organic" />
 
         {/* Conteúdo */}
-        <div className="flex-1 w-full max-w-[560px] mx-auto px-6 pt-8 md:pt-10 flex flex-col items-center">
+        <div className="flex-1 w-full max-w-[560px] mx-auto px-6 pt-7 md:pt-9 flex flex-col items-center">
           <h1
             data-anim="lines"
-            className="font-display font-normal text-display-lg text-verde-escuro text-center [text-wrap:balance]"
+            className="font-sans font-bold text-title text-verde-escuro text-center [text-wrap:balance]"
           >
             {title}
           </h1>
           {subtitle && (
             <p
               data-anim="fade-up"
-              className="mt-3 text-[17px] leading-[1.5] text-marrom text-center max-w-[42ch]"
+              className="mt-4 text-[17px] leading-[1.5] text-marrom text-center max-w-[56ch]"
             >
               {subtitle}
             </p>
