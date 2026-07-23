@@ -88,23 +88,23 @@ export default async function LinksPage() {
         <WaveDivider from="bg-verde-escuro" to="text-bege-light" variant="organic" />
 
         {/* Conteúdo */}
-        <div className="flex-1 w-full max-w-[560px] mx-auto px-6 pt-7 md:pt-9 flex flex-col items-center">
+        <div className="flex-1 w-full max-w-[720px] mx-auto px-6 pt-7 md:pt-9 flex flex-col items-center">
           <h1
             data-anim="lines"
-            className="font-sans font-bold text-title text-verde-escuro text-center [text-wrap:balance]"
+            className="font-sans font-bold text-[clamp(26px,3.4vw,40px)] leading-[1.2] tracking-[-0.01em] text-verde-escuro text-center [text-wrap:balance]"
           >
             {title}
           </h1>
           {subtitle && (
             <p
               data-anim="fade-up"
-              className="mt-4 text-[17px] leading-[1.5] text-marrom text-center max-w-[56ch]"
+              className="mt-4 text-[17px] leading-[1.5] text-marrom text-center max-w-[64ch]"
             >
               {subtitle}
             </p>
           )}
 
-          <nav aria-label="Links da Isa Pupo" className="w-full mt-9 md:mt-10">
+          <nav aria-label="Links da Isa Pupo" className="w-full max-w-[460px] mx-auto mt-9 md:mt-10">
             <ul data-anim="stagger" className="flex flex-col gap-[14px]">
               {items.map((item, i) => (
                 <li key={`${item.url}-${i}`}>
