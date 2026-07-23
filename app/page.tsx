@@ -5,7 +5,6 @@ import Hero from "@/components/home/Hero";
 import CarlJungQuote from "@/components/home/CarlJungQuote";
 import SobreMim from "@/components/home/SobreMim";
 import Atendimentos from "@/components/home/Atendimentos";
-import EbookTeaser from "@/components/home/EbookTeaser";
 import BlogTeaser from "@/components/home/BlogTeaser";
 import CtaBand from "@/components/layout/CtaBand";
 import WaveDivider from "@/components/ui/shapes/WaveDivider";
@@ -32,9 +31,7 @@ export default async function HomePage() {
       <SobreMim />
       <WaveDivider from="bg-bege-light" to="text-verde-escuro" variant="organic" />
       <Atendimentos />
-      <WaveDivider from="bg-verde-escuro" to="text-bege" variant="soft" flip />
-      <EbookTeaser />
-      <WaveDivider from="bg-bege" to="text-white" variant="organic" />
+      <WaveDivider from="bg-verde-escuro" to="text-white" variant="soft" flip />
       <BlogTeaser posts={posts ?? []} />
       <WaveDivider from="bg-white" to="text-marrom" variant="soft" flip />
       <CtaBand />

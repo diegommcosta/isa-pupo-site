@@ -11,7 +11,7 @@ type Props = HTMLAttributes<HTMLSpanElement> & {
 /**
  * Chip acima do título do hero: retângulo arredondado bege sólido, texto
  * marrom em caixa normal (design aprovado pela cliente). Ícone opcional
- * nas páginas internas (terapia/ebook); sem ícone, só texto.
+ * nas páginas internas (terapia); sem ícone, só texto.
  */
 export default function Tag({ children, icon, iconColor = "var(--verde-claro)", className, ...rest }: Props) {
   return (

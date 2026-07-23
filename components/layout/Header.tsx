@@ -58,7 +58,6 @@ function useActiveHref(): string | null {
 
   if (isHome) return activeId ? `/#${activeId}` : "/";
   if (pathname === "/blog" || pathname.startsWith("/blog/")) return "/blog";
-  if (pathname === "/ebook") return "/ebook";
   if (pathname.startsWith("/terapia")) return "/#atendimentos";
   return null;
 }

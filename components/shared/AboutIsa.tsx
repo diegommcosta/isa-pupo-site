@@ -11,8 +11,8 @@ interface Props {
 }
 
 /**
- * Seção biográfica compartilhada entre a home ("Sobre Mim") e a página do
- * ebook ("Sobre a Autora") — copy aprovado, idêntico nos dois lugares.
+ * Seção biográfica da home ("Sobre Mim") — copy aprovado pela cliente.
+ * Reutilizável em páginas internas como "Sobre a Autora" (variant="dark").
  */
 export default function AboutIsa({ title, variant = "light", id }: Props) {
   const dark = variant === "dark";
