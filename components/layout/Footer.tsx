@@ -3,8 +3,7 @@ import { Icon } from "@/components/ui/Icon";
 import Sparkle from "@/components/ui/shapes/Sparkle";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 import { navLinks } from "@/lib/nav";
-
-const INSTAGRAM_URL = "https://www.instagram.com/isapupopsicoterapia/";
+import { INSTAGRAM_URL } from "@/lib/social";
 
 const footerLinks = navLinks.map((l) => ({ ...l }));
 

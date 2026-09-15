@@ -4,6 +4,7 @@ import { client } from "@/lib/sanity/client";
 import { linksQuery } from "@/lib/sanity/queries";
 import type { LinkItem, LinksPage } from "@/lib/sanity/types";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
+import { INSTAGRAM_URL } from "@/lib/social";
 import { Logo } from "@/components/ui/Logo";
 import LogoBullet from "@/components/ui/icons/LogoBullet";
 import Sparkle from "@/components/ui/shapes/Sparkle";
@@ -33,7 +34,7 @@ const FALLBACK_ITEMS: LinkItem[] = [
   { label: "Blog", url: "/blog", icon: "book-half" },
   {
     label: "Instagram",
-    url: "https://www.instagram.com/isapupopsicoterapia/",
+    url: INSTAGRAM_URL,
     icon: "instagram",
   },
 ];

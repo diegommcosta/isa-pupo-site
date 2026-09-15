@@ -8,9 +8,8 @@ import { Icon } from "@/components/ui/Icon";
 import Button from "@/components/ui/Button";
 import { buildWhatsappLink, defaultMessage } from "@/lib/whatsapp";
 import { navLinks } from "@/lib/nav";
+import { INSTAGRAM_URL } from "@/lib/social";
 import { cn } from "@/lib/utils";
-
-const INSTAGRAM_URL = "https://www.instagram.com/isapupopsicoterapia/";
 
 // Section IDs derived from anchor nav links (e.g. "/#sobre" → "sobre")
 const ANCHOR_IDS = navLinks
